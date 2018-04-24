@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="507.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.MainController">
+   <children>
+      <AnchorPane layoutX="253.0" prefHeight="507.0" prefWidth="388.0">
+         <children>
+            <Button layoutX="68.0" layoutY="204.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Manage Airports" />
+            <Button layoutX="68.0" layoutY="82.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Manage Flights" />
+            <Button layoutX="68.0" layoutY="326.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Manage Club Members" />
+         </children></AnchorPane>
+      <AnchorPane prefHeight="507.0" prefWidth="252.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1d9ff" height="106.0" layoutX="126.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+            <Label layoutX="45.0" layoutY="61.0" text="Name" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="88.0" text="Position" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <ListView layoutX="-1.0" layoutY="201.0" prefHeight="307.0" prefWidth="252.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="First item" />
+                        <String fx:value="Second item" />
+                        <String fx:value="Third item" />
+                        <String fx:value="Fourth item" />
+
+
+                    </FXCollections>
+
+                </items>
+
+            </ListView>
+            <Label layoutX="61.0" layoutY="168.0" prefHeight="31.0" prefWidth="130.0" text="Last activities" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Separator layoutX="245.0" orientation="VERTICAL" prefHeight="507.0" prefWidth="17.0" />
+      <Separator layoutY="162.0" prefHeight="3.0" prefWidth="252.0" />
+   </children>
+
+</AnchorPane>

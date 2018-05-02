@@ -4,9 +4,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
-import tasklist.domain.mediator.Package;
+//import tasklist.domain.mediator.Package;
 
 
 public class VIACommunicationThreadHandler implements Runnable {

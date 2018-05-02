@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Scanner;
 import via.controller.*;
-import via.domain.mediator.VIAModelManager;
 
 public class VIAConsole implements VIAView, Runnable{
 
 	private Scanner input;
 	private VIAController controller;
-	private VIAModelManager modelManager;
 	
 	public VIAConsole() throws IOException
 	{
@@ -21,8 +19,8 @@ public class VIAConsole implements VIAView, Runnable{
 	public void startView(VIAController controller) 
 	{
 		this.controller = controller;
-		Thread t = new Thread(); //?
-		t.start(); //?
+		Thread t = new Thread();
+		t.start(); 
 	}
 	
 	public void run() 
@@ -60,8 +58,8 @@ public class VIAConsole implements VIAView, Runnable{
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+	public void update(Observable o, Object arg) 
+	{
 		show("Member added: " + arg.toString());
 	}
 }

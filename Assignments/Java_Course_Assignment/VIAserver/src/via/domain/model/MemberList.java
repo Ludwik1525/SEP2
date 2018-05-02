@@ -61,17 +61,17 @@ public class MemberList {
 	
 	public ArrayList<Member> getMembersByEventCategory(String category)
 	{
-		
+	return null;
 	}
 	
 	public ArrayList<Member> getMembersByLecturer(Lecturer lecturer)
 	{
-		
+	return null;
 	}
 	
 	public ArrayList<String> getEmailsOfMembers()
 	{
-		
+		return null;
 	}
 	
 	public String toString(ArrayList<Member> mem)

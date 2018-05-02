@@ -4,9 +4,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-//import com.google.gson.Gson;
+import java.util.ArrayList;
 
-//import tasklist.domain.mediator.Package;
+import com.google.gson.Gson;
+
+import via.domain.model.Member;
+import via.domain.model.MemberList;
 
 
 public class VIACommunicationThreadHandler implements Runnable {
@@ -35,7 +38,6 @@ public class VIACommunicationThreadHandler implements Runnable {
 		{
 			try
 			{
-				
 				String clientText = in.readUTF();
 				System.out.println("Client> " + clientText);
 				
@@ -67,23 +69,24 @@ public class VIACommunicationThreadHandler implements Runnable {
 				}
 				else
 				{
-					Package reply= new Package(Package.GET_MEMBERS_WHO_HAVENT_PAID);
+					ArrayList<Member> mlist = model.getMembersWhoHaventPaid();
+					Package reply= new Package(Package.GET_MEMBERS_WHO_HAVENT_PAID, null, mlist);
 					return reply;
 				}
 			}
 				
 			case "GET ALL THE MEMBERS":
 			{
-				Package reply= new Package(Package.GET_ALL_THE_MEMBERS);
+				ArrayList<Member> mlist = model.getMembers();
+				Package reply= new Package(Package.GET_ALL_THE_MEMBERS, null, mlist);
 				return reply;
 			}
 			
 			case "ADD MEMBER":
 			{
-				/*model.add(request.getTask()); 
+				model.addMember(request.getMember()); 
 				Package reply= new Package(Package.ADD_MEMBER);
 				return reply;
-				*/
 			}
 			
 			case "GET LECTURERS":
@@ -98,9 +101,9 @@ public class VIACommunicationThreadHandler implements Runnable {
 				return reply;
 			}
 			
-			case "GET FINALIZED EVENTS":
+			case "GET ALL EVENTS":
 			{
-				Package reply= new Package(Package.GET_FINALIZED_EVENTS);
+				Package reply= new Package(Package.GET_ALL_EVENTS);
 				return reply;
 			}
 			

@@ -15,26 +15,25 @@ public class VIAController {
 
 	private VIAModel model;
 	private VIAView view;
-	private Proxy proxy;
 	
 	public VIAController(VIAModel model, VIAView view)
 	{
 		this.model = model;
 		this.view = view;
-		proxy = new Proxy(this.model);
 		Observable obs = (Observable) model;
 		obs.addObserver(this.view);
 	}
 	
-	public void execute(int choice)
+	public void execute(int choice) 
 	{
 		switch(choice)
 		{
 			case 1:
-				ArrayList<Member> members = proxy.getMembersWhoHaventPaid();
+				ArrayList<Member> members = model.getMembersWhoHaventPaid();
 				view.show(members.toString()); break;
 			case 2:
-				proxy.getMembers();break;
+				ArrayList<Member> members2 = model.getMembers();
+				view.show(members2.toString()); break;
 			case 3: 
 				String name = view.get("What is the name?");
 				String address = view.get("What is the address?");
@@ -67,21 +66,61 @@ public class VIAController {
 				Boolean hasPaidMembership = Boolean.valueOf(paymentStatus);
 				String starSign = view.get("What is the star sign?");
 				Member member = new Member(name, address, email, phoneNo, birth, dateMembership, hasPaidMembership, starSign);
-				proxy.addMember(member);
-			//	view.show(member.toString()); 
-				
-				break;
-		
+				model.addMember(member);
+				view.show(member.toString()); break;
 			case 4: 
-				proxy.getLecturers(); break;
+				try 
+				{
+					ArrayList<Lecturer> lecturers = model.getLecturers();
+					view.show(lecturers.toString()); break;
+				}
+				catch(NullPointerException e)
+				{
+					view.show("Not implemented yet");
+				}
 			case 5: 
-				proxy.getLecturersByCategory("astrology");break;
+				try 
+				{
+					ArrayList<Lecturer> lecturers2 = model.getLecturersByCategory("astrology");
+					view.show(lecturers2.toString()); break;
+				}
+				catch(NullPointerException e)
+				{
+					view.show("Not implemented yet");
+				}
 			case 6: 
-				proxy.getAllEvents();break;
+				try 
+				{
+					ArrayList<Event> events = model.getAllEvents();
+					view.show(events.toString()); break;
+				}
+				catch(NullPointerException e)
+				{
+					view.show("Not implemented yet");
+				}
+				
 			case 7: 
-				proxy.getEventsByType("lecture");break;
+				try 
+				{
+					ArrayList<Event> events2 = model.getEventsByType("lecture");
+					view.show(events2.toString()); break;
+				}
+				catch(NullPointerException e)
+				{
+					view.show("Not implemented yet");
+				}
+		
 			case 8: 
-				proxy.getSponsorsByTypeOfSponsorship("some type");break;
+				try 
+				{
+					ArrayList<Sponsor> sponsors = model.getSponsorsByTypeOfSponsorship("some type");
+					view.show(sponsors.toString()); break;
+				}
+				catch(NullPointerException e)
+				{
+					view.show("Not implemented yet");
+				}
+				
 			case 0: System.exit(1); break;
 			default: view.show("THERE IS NO SUCH OPTION"); break;
 		}

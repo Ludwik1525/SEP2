@@ -13,6 +13,7 @@ public class Main {
 		VIAModelManager model = new VIAModelManager();
 		VIAConsole view = new VIAConsole();
 		VIAController controller = new VIAController(model, view);
+		
 		view.startView(controller);
 		view.run();
 		

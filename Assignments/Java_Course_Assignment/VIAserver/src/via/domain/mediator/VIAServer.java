@@ -28,7 +28,7 @@ public class VIAServer implements Runnable{
 			}
 			catch(IOException e)
 			{
-				//Something
+				
 			}
 			
 		}

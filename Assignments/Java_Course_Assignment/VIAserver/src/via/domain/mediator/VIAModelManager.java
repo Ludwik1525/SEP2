@@ -9,6 +9,9 @@ import via.domain.model.*;
 public class VIAModelManager extends Observable implements VIAModel{
 	
 	private MemberList memberList;
+	private LecturerList lecturerList;
+	private EventList eventList;
+	private SponsorList sponsorList;
 	private VIAServer viaServer;
 	
 	public VIAModelManager() throws IOException
@@ -25,9 +28,9 @@ public class VIAModelManager extends Observable implements VIAModel{
 	}
 	
 	@Override
-	public ArrayList<Member> getMembers() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Member> getMembers() 
+	{
+		return memberList.getMembers();
 	}
 
 	@Override
@@ -38,34 +41,33 @@ public class VIAModelManager extends Observable implements VIAModel{
 	}
 	
 	@Override
-	public ArrayList<Lecturer> getLecturers() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Lecturer> getLecturers() 
+	{
+		return lecturerList.getLecturers();
 	}
 
 	@Override
-	public ArrayList<Lecturer> getLecturersByCategory(String category) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Lecturer> getLecturersByCategory(String category) 
+	{
+		return lecturerList.getLecturersByCategory(category);
 	}
 
 	@Override
-	public ArrayList<Event> getAllEvents() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Event> getAllEvents() 
+	{
+		return eventList.getAllEvents();
 	}
 
 	@Override
-	public ArrayList<Event> getEventsByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Event> getEventsByType(String type) 
+	{
+		return eventList.getEventsByType(type);
 	}
 
 	@Override
-	public ArrayList<Sponsor> getSponsorsByTypeOfSponsorship(String typeOfSponsorship) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Sponsor> getSponsorsByTypeOfSponsorship(String typeOfSponsorship) 
+	{
+		return sponsorList.getSponsorsByTypeOfSponsorship("some type");
 	}
-
 
 }

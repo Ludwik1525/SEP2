@@ -33,7 +33,7 @@ public class Package {
 		memberList = null;
 	}
 
-	public String getOperation() 
+	public String getOpration()
 	{
 		return operation;
 	}

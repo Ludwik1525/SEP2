@@ -33,7 +33,6 @@ public class MemberList {
 				return members.get(i);
 		return null;
 	}
-	
 	public void editMember(String name)
 	{
 		

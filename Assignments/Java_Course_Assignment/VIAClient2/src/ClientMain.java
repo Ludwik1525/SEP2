@@ -1,10 +1,10 @@
 import java.io.IOException;
 import java.util.Date;
 
-import via.controller.ClientVIAController;
-import via.domain.mediator.ClientVIAModelManager;
-import via.domain.model.Member;
-import via.view.ClientVIAConsole;
+import Client.controller.ClientVIAController;
+import Client.domain.mediator.ClientVIAModelManager;
+import Client.domain.model.Member;
+import Client.view.ClientVIAConsole;
 
 public class ClientMain {
 	public static void main(String args[]) throws IOException

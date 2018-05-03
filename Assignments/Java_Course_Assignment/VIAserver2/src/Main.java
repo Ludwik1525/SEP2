@@ -1,11 +1,9 @@
 
 import java.io.IOException;
 
-import via.controller.VIAController;
-import via.domain.mediator.VIAModelManager;
-import via.domain.model.Member;
-import via.domain.model.MemberList;
-import via.view.VIAConsole;
+import Server.controller.VIAController;
+import Server.domain.mediator.VIAModelManager;
+import Server.view.VIAConsole;
 
 public class Main {
 	public static void main(String[] args) throws IOException

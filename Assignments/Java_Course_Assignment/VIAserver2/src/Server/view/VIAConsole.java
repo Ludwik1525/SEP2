@@ -45,13 +45,13 @@ public class VIAConsole implements VIAView, Runnable{
 			}
 		}
 	}
-	
+	@Override
 	public String get(String text)
 	{
 		System.out.println(text);
 		return input.nextLine();
 	}
-	
+	@Override
 	public void show(String text)
 	{
 		System.out.println(text);

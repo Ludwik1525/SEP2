@@ -86,7 +86,8 @@
             </SplitMenuButton>
             <DatePicker layoutX="167.0" layoutY="160.0" />
             <DatePicker fx:id="returnDatePicker" layoutX="167.0" layoutY="296.0" />
-            <Button cancelButton="true" layoutX="370.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
+            <Button cancelButton="true" layoutX="240.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
+            <Button layoutX="292.0" layoutY="356.0" mnemonicParsing="false" text="Book flight" />
          </children>
       </AnchorPane>
       <Separator layoutX="180.0" layoutY="-14.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />

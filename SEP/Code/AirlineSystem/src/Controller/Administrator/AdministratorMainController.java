@@ -24,4 +24,8 @@ public class AdministratorMainController {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/ManageClubMembers.fxml"))));
     }
+    public void goBack() throws IOException{
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/LogIn.fxml"))));
+    }
 }

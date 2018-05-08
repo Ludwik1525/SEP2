@@ -17,7 +17,7 @@
             <Button layoutX="68.0" layoutY="204.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="100.0" prefWidth="250.0" text="Manage Airports" />
             <Button layoutX="68.0" layoutY="82.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="100.0" prefWidth="250.0" text="Manage Flights" />
             <Button layoutX="68.0" layoutY="326.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="100.0" prefWidth="250.0" text="Manage Club Members" />
-            <Button cancelButton="true" layoutX="343.0" layoutY="462.0" mnemonicParsing="false" text="&lt;" />
+            <Button cancelButton="true" layoutX="302.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBack" text="Log out" />
          </children></AnchorPane>
       <AnchorPane prefHeight="507.0" prefWidth="252.0">
          <children>

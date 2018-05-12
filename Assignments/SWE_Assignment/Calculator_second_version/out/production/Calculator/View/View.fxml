@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="396.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+   <children>
+      <Button fx:id="zero" layoutX="21.0" layoutY="327.0" mnemonicParsing="false" onAction="#clickZero" prefHeight="50.0" prefWidth="70.0" text="0" />
+      <Button fx:id="equals" layoutX="188.0" layoutY="327.0" mnemonicParsing="false" onAction="#clickEqual" prefHeight="50.0" prefWidth="70.0" text="=" />
+      <Button fx:id="plus" layoutX="272.0" layoutY="327.0" mnemonicParsing="false" onAction="#clickPlus" prefHeight="50.0" prefWidth="70.0" text="+" />
+      <Button fx:id="one" layoutX="19.0" layoutY="262.0" mnemonicParsing="false" onAction="#clickOne" prefHeight="50.0" prefWidth="70.0" text="1" />
+      <Button fx:id="two" layoutX="102.0" layoutY="262.0" mnemonicParsing="false" onAction="#clickTwo" prefHeight="50.0" prefWidth="70.0" text="2" />
+      <Button fx:id="three" layoutX="186.0" layoutY="262.0" mnemonicParsing="false" onAction="#clickThree" prefHeight="50.0" prefWidth="70.0" text="3" />
+      <Button fx:id="minus" layoutX="270.0" layoutY="262.0" mnemonicParsing="false" onAction="#clickMinus" prefHeight="50.0" prefWidth="70.0" text="-" />
+      <Button fx:id="four" layoutX="19.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickFour" prefHeight="50.0" prefWidth="70.0" text="4" />
+      <Button fx:id="six" layoutX="186.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickSix" prefHeight="50.0" prefWidth="70.0" text="6" />
+      <Button fx:id="five" layoutX="102.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickFive" prefHeight="50.0" prefWidth="70.0" text="5" />
+      <Button fx:id="multiply" layoutX="270.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMultiply" prefHeight="50.0" prefWidth="70.0" text="*" />
+      <Button fx:id="seven" layoutX="19.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickSeven" prefHeight="50.0" prefWidth="70.0" text="7" />
+      <Button fx:id="eight" layoutX="102.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickEight" prefHeight="50.0" prefWidth="70.0" text="8" />
+      <Button fx:id="nine" layoutX="186.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickNine" prefHeight="50.0" prefWidth="70.0" text="9" />
+      <Button fx:id="divide" layoutX="270.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickDivide" prefHeight="50.0" prefWidth="70.0" text="/" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="transparent" height="87.0" layoutX="21.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+      <Text fx:id="input" layoutX="41.0" layoutY="93.0" textAlignment="RIGHT" wrappingWidth="280.0" />
+      <Button fx:id="clear" layoutX="102.0" layoutY="327.0" mnemonicParsing="false" onAction="#clickClear" prefHeight="50.0" prefWidth="70.0" text="C" />
+      <Label fx:id="prom" alignment="CENTER_RIGHT" layoutX="39.0" layoutY="48.0" prefHeight="21.0" prefWidth="280.0" text="sas" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

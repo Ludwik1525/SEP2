@@ -2,19 +2,30 @@ package Model;
 
 public class Model {
 
-    public double calculate(double number1, double number2, String operator){
-        switch (operator){
-            case "+": return number1+number2;
-            case "-": return number1-number2;
-            case "*": return number1*number2;
+    public double calculate(double number1, double number2, String operator) {
+        switch (operator) {
+            case "+":
+
+                return number1 + number2;
+            case "-":
+
+                return (number1 - number2);
+            case "*":
+
+                return number1 * number2;
             case "/":
-                if(number2==0){
-                    return 0;
+                if (number2 == 0) {
+
+                    return 00;
+
                 }
-                return number1/number2;
+
+                return number1 / number2;
+
         }
-        System.out.println("Unknown operator");
 
         return 0;
     }
+
+
 }

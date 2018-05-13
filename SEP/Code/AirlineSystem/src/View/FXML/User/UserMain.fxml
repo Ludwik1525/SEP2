@@ -52,7 +52,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="returnDateLabel" layoutX="24.0" layoutY="298.0" text="Return Date:">
+            <Label fx:id="returnDateLabel" layoutX="24.0" layoutY="298.0" visible="false" text="Return Date:">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -85,7 +85,7 @@
                </items>
             </SplitMenuButton>
             <DatePicker layoutX="167.0" layoutY="160.0" />
-            <DatePicker fx:id="returnDatePicker" layoutX="167.0" layoutY="296.0" />
+            <DatePicker fx:id="returnDatePicker" layoutX="167.0" visible="false" layoutY="296.0" />
             <Button cancelButton="true" layoutX="240.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
             <Button layoutX="292.0" layoutY="356.0" mnemonicParsing="false" text="Book flight" />
          </children>

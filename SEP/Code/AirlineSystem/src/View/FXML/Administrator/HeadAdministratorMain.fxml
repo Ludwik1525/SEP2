@@ -14,12 +14,13 @@
    <children>
       <AnchorPane layoutX="253.0" prefHeight="507.0" prefWidth="388.0">
          <children>
-            <Button layoutX="52.0" layoutY="229.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airports" />
-            <Button layoutX="52.0" layoutY="163.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Flights" />
-            <Button layoutX="52.0" layoutY="295.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Club Members" />
+            <Button layoutX="52.0" layoutY="189.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airports" />
+            <Button layoutX="52.0" layoutY="123.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Flights" />
+            <Button layoutX="52.0" layoutY="255.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Club Members" />
             <Button cancelButton="true" layoutX="302.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBack" text="Log out" />
-            <Button layoutX="52.0" layoutY="96.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Planes" />
-            <Button layoutX="52.0" layoutY="361.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Crews" />
+            <Button layoutX="52.0" layoutY="56.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Planes" />
+            <Button layoutX="52.0" layoutY="321.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Crew Members" />
+            <Button layoutX="52.0" layoutY="389.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Administrators" />
          </children></AnchorPane>
       <AnchorPane prefHeight="507.0" prefWidth="252.0">
          <children>

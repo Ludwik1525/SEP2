@@ -14,8 +14,8 @@
             <TableColumn fx:id="arrivalTime" prefWidth="42.0" text="Arrival Time" />
             <TableColumn fx:id="departurePlace" prefWidth="96.0" text="Departure place" />
             <TableColumn fx:id="arrivalPlace" prefWidth="96.0" text="Arrival place" />
-            <TableColumn fx:id="planeNumber" prefWidth="96.0" text="plane number" />
-            <TableColumn fx:id="crew" prefWidth="96.0" text="Crew" />
+            <TableColumn fx:id="planeNumber" prefWidth="96.0" text="Plane Number" />
+            <TableColumn fx:id="cre" prefWidth="96.0" text="Crew" />
             <TableColumn fx:id="passengers" prefWidth="199.0" text="passengers" />
         </columns>
     </TableView>

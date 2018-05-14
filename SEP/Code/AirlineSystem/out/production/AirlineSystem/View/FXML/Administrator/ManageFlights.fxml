@@ -9,11 +9,14 @@
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.ManageFlightsController">
     <TableView fx:id="flightsTable" layoutX="297.0" prefHeight="400.0" prefWidth="472.0">
         <columns>
-            <TableColumn fx:id="flightNo" prefWidth="127.0" text="Flights Number" />
-            <TableColumn fx:id="from" prefWidth="57.0" text="From" />
-            <TableColumn fx:id="to" prefWidth="42.0" text="To" />
-            <TableColumn fx:id="noOfPassengers" prefWidth="199.0" text="Number of passengers" />
-            <TableColumn fx:id="crew" minWidth="0.0" prefWidth="44.0" text="Crew" />
+            <TableColumn fx:id="flightNo" prefWidth="127.0" text="Flight Number" />
+            <TableColumn fx:id="departureTime" prefWidth="57.0" text="Departure Time" />
+            <TableColumn fx:id="arrivalTime" prefWidth="42.0" text="Arrival Time" />
+            <TableColumn fx:id="departurePlace" prefWidth="96.0" text="Departure place" />
+            <TableColumn fx:id="arrivalPlace" prefWidth="96.0" text="Arrival place" />
+            <TableColumn fx:id="planeNumber" prefWidth="96.0" text="plane number" />
+            <TableColumn fx:id="crew" prefWidth="96.0" text="Crew" />
+            <TableColumn fx:id="passengers" prefWidth="199.0" text="passengers" />
         </columns>
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />

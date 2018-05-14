@@ -7,11 +7,12 @@
             fx:controller="Controller.Administrator.ManageAirportsController" prefHeight="400.0" prefWidth="600.0">
     <TableView fx:id="airportsTable" layoutX="297.0" >
         <columns>
+            <TableColumn fx:id="code"  text="Code"/>
             <TableColumn fx:id="Name"  text="Name"/>
             <TableColumn fx:id="City"  text="City"/>
-            <TableColumn fx:id="item3"  text="item3"/>
-            <TableColumn fx:id="item4"  text="item4"/>
-            <TableColumn fx:id="item5"  text="item5"/>
+            <TableColumn fx:id="zipCode"  text="Zip Code"/>
+            <TableColumn fx:id="country"  text="Country"/>
+            <TableColumn fx:id="numberOfGates"  text="Number Of Gates"/>
         </columns>
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;"/>

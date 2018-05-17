@@ -1,4 +1,4 @@
-package Controller;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ public class Start extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root= FXMLLoader.load(getClass().getResource("../View/FXML/LogIn.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("View/FXML/LogIn.fxml"));
         primaryStage.setTitle("Fly High");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogInController">
 
    <children>
@@ -23,22 +24,27 @@
             <Font size="20.0" />
          </font></Label>
 
-      <TextField layoutX="281.0" layoutY="158.0" />
-      <TextField layoutX="281.0" layoutY="209.0" />
-      <Button layoutX="168.0" layoutY="258.0" mnemonicParsing="false" onAction="#LogInButtonController" prefHeight="40.0" prefWidth="150.0" text="Log in">
+      <TextField fx:id="username" layoutX="281.0" layoutY="158.0" />
+      <PasswordField fx:id="password" layoutX="281.0" layoutY="209.0" />
+      <Button fx:id="logIn" layoutX="168.0" layoutY="258.0" mnemonicParsing="false" onAction="#LogInButtonController" prefHeight="40.0" prefWidth="150.0" text="Log in">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="320.0" layoutY="258.0" mnemonicParsing="false" onAction="#RegisterButtonController" prefHeight="40.0" prefWidth="150.0" text="Register">
+      <Button fx:id="register" layoutX="320.0" layoutY="258.0" mnemonicParsing="false" onAction="#RegisterButtonController" prefHeight="40.0" prefWidth="150.0" text="Register">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="470.0" layoutY="348.0" mnemonicParsing="false" onAction="#SkipButtonController" prefHeight="19.0" prefWidth="112.0" text="Skip">
+      <Button fx:id="skip" layoutX="470.0" layoutY="348.0" mnemonicParsing="false" onAction="#SkipButtonController" prefHeight="19.0" prefWidth="112.0" text="Skip">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
+      <Label fx:id="wrongDataLabel" layoutX="175.0" layoutY="306.0" text="Wrong username or password!" visible="false" textFill="RED">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

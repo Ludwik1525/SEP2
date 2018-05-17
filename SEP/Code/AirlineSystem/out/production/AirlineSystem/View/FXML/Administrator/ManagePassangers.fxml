@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.ManageFlightsController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.ManagePassengersController">
     <TableView fx:id="flightsTable" layoutX="297.0" prefHeight="400.0" prefWidth="472.0">
         <columns>
             <TableColumn fx:id="flightNo" prefWidth="127.0" text="Flight Number" />

@@ -12,14 +12,14 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="507.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.AdministratorMainController">
    <children>
-      <AnchorPane layoutX="253.0" prefHeight="507.0" prefWidth="388.0">
+      <AnchorPane fx:id="right" layoutX="253.0" prefHeight="507.0" prefWidth="388.0">
          <children>
-            <Button layoutX="52.0" layoutY="229.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airports" />
-            <Button layoutX="52.0" layoutY="163.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Flights" />
-            <Button layoutX="52.0" layoutY="295.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Club Members" />
-            <Button cancelButton="true" layoutX="302.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBack" text="Log out" />
-            <Button layoutX="52.0" layoutY="96.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Planes" />
-            <Button layoutX="52.0" layoutY="361.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Crews" />
+            <Button fx:id="manageAirports" layoutX="52.0" layoutY="229.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airports" />
+            <Button fx:id="manageFlights" layoutX="52.0" layoutY="163.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Flights" />
+            <Button fx:id="manageClubMembers" layoutX="52.0" layoutY="295.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Club Members" />
+            <Button fx:id="LogOutButton" cancelButton="true" layoutX="302.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBack" text="Log out" />
+            <Button fx:id="managePlanes" layoutX="52.0" layoutY="96.0" mnemonicParsing="false" onAction="#ManagePlanesButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Planes" />
+            <Button fx:id="manageCrewMembers" layoutX="52.0" layoutY="361.0" mnemonicParsing="false" onAction="#ManageCrewMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Crew Members" />
          </children></AnchorPane>
       <AnchorPane prefHeight="507.0" prefWidth="252.0">
          <children>

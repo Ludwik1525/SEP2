@@ -2,36 +2,40 @@ package Model;
 
 public class Model {
 private static final int LIMIT=12;
-//private double result;
-//private String output;
-    public double calculate(double number1, double number2, String operator) {
+private double firstNumber;
+private double secondNumber;
+private String result="";
+
+    public String calculate(String number1, String number2, String operator) {
+        firstNumber= Double.parseDouble(number1);
+        secondNumber = Double.parseDouble(number2);
         switch (operator) {
             case "+":
 
-                return number1 + number2;
+                result = String.valueOf(firstNumber + secondNumber); break;
             case "-":
 
-                return (number1 - number2);
+                result= String.valueOf(firstNumber - secondNumber); break;
             case "*":
 
-                return number1 * number2;
+                result = String.valueOf(firstNumber * secondNumber);break;
             case "/":
-                if (number2 == 0) {
+                if (secondNumber == 0) {
 
-                    return 00;
+                    return "error";
 
+                }else{
+                    result=  String.valueOf(firstNumber / secondNumber);break;
                 }
 
-                return number1 / number2;
+
+
+        }        System.out.println(result);
+        if (result.length() > LIMIT) {
+            result = result.substring(0, LIMIT);
 
         }
-//        output= String.valueOf(result);
-//        System.out.println(output);
-//        if (output.length() > LIMIT) {
-//            output = output.substring(0, LIMIT);
-//            result = Double.parseDouble(output);
-//        }
-        return 0;
+        return result;
     }
 
 

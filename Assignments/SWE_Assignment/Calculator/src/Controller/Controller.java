@@ -12,25 +12,26 @@ import java.util.TimerTask;
 
 
 public class Controller {
-    @FXML
-    private Text output;
-    private double number1 = 0;
-    private String operator = "";
-    private boolean start = true;
-    private int timecounter = 300000;
-    Timer timer = new Timer();
-    private static final int LIMIT= 12;
 
     @FXML
     AnchorPane anchorPane2;
-    @FXML
-    Button clear;
-
+    private int timecounter = 300000;
+    Timer timer = new Timer();
     private Model model = new Model();
+    @FXML
+    Text output;
+    private String number1 = "0";
+    private String number2 = "0";
+    private boolean start = true;
+    public static final int LIMIT = 12;
+    private boolean operatorUsedFirstTime = true;
+    private boolean numberOneInUse = false;
+    private String operator;
+    private String result = "";
+    String value;
 
     @FXML
     private void processNumpad(ActionEvent event) {
-
         if (start) {
             output.setText("");
             start = false;
@@ -38,39 +39,53 @@ public class Controller {
         if (output.getText().length() > LIMIT) {
             output.setText(output.getText().substring(0, LIMIT));
         }
-        String value = ((Button) event.getSource()).getText();
-        output.setText(output.getText() + value);
-        resetTimer();
+        if (numberOneInUse == false) {
+            value = ((Button) event.getSource()).getText();
+            output.setText(output.getText() + value);
+            numberOneInUse = true;
+            resetTimer();
+        } else {
+            value = ((Button) event.getSource()).getText();
+            output.setText(output.getText() + value);
+            number2= output.getText();
+            result = model.calculate(number1, number2, operator);
+            resetTimer();
+        }
     }
 
     @FXML
     private void processOperator(ActionEvent event) {
         String value = ((Button) event.getSource()).getText();
-        if (!"=".equals(value)) {
-            if (!operator.isEmpty())
-                return;
+        if (operatorUsedFirstTime == true) {
+            if (!value.equals("=")) {
+                operator = value;
+                number1 = output.getText();
+                output.setText(operator);
+                start = true;
+            }
+            operatorUsedFirstTime = false;
 
-            operator = value;
-            number1 = Double.parseDouble(output.getText());
-            output.setText("");
         } else {
-            if (operator.isEmpty())
-                return;
+            if (value.equals("=")) {
+                output.setText(String.valueOf(result));
+                if(result=="error"){
+                    number1="0";
+                    number2="0";
+                    result="0";
+                    numberOneInUse=false;
+                    operatorUsedFirstTime=true;
+                }
+                start = true;
+            } else {
+                number1 = result;
+                operator = value;
+                numberOneInUse = true;
+                output.setText(operator);
+                start = true;
+            }
 
-            output.setText(String.valueOf(model.calculate(number1, Double.parseDouble(output.getText()), operator)));
-            operator = "";
-            start = true;
         }
-        setTimer();
-    }
-
-    @FXML
-    private void turnOn() {
-        output.setText("0");
-
-        anchorPane2.setDisable(false);
-        setTimer();
-
+        resetTimer();
     }
 
     @FXML
@@ -80,7 +95,6 @@ public class Controller {
             public void run() {
                 output.setText("");
                 anchorPane2.setDisable(true);
-                clear.setDisable(true);
             }
         };
         timer.schedule(task, timecounter);
@@ -93,5 +107,19 @@ public class Controller {
         setTimer();
     }
 
+    @FXML
+    private void turnOn() {
+        output.setText("0");
+        anchorPane2.setDisable(false);
+        setTimer();
+        number1="0";
+        number2="0";
+        result="0";
+        start=true;
+        numberOneInUse=false;
+        operatorUsedFirstTime=true;
 
+        System.out.println("calculator on");
+
+    }
 }

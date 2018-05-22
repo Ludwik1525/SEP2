@@ -1,5 +1,5 @@
 package Domain.Mediator;
 
-public class MEdiator
+public class Mediator
 {
 }

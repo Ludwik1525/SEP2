@@ -14,12 +14,12 @@
             <TableColumn fx:id="birthdate" prefWidth="98.0" text="Birthdate" />
             <TableColumn fx:id="id" prefWidth="101.0" text="ID" />
             <TableColumn fx:id="phoneNumber" prefWidth="96.0" text="Phone Number" />
-            <TableColumn fx:id="membershipFee" prefWidth="96.0" text="Membeship Fee" />
+            <TableColumn fx:id="membershipDate" prefWidth="96.0" text="MembeshipDate" />
         </columns>
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
-    <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" text="Add member" />
-    <Button layoutX="14.0" layoutY="156.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" text="Remove member" />
+    <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" onAction="#addButtonPressed" text="Add member" />
+    <Button layoutX="14.0" layoutY="156.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" visible="false" onAction="#removeButtonPressed" text="Remove member" />
     <TextField layoutX="14.0" layoutY="112.0" prefHeight="31.0" prefWidth="262.0" promptText="Search members" />
 
 </AnchorPane>

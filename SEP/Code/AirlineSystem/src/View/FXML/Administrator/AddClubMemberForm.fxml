@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationFormController">
+<AnchorPane fx:id="anchorPane" prefHeight="478.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Administrator.AddClubMemberFormControlller">
    <children>
       <Label layoutX="29.0" layoutY="89.0" text="Name:" />
       <Label layoutX="29.0" layoutY="145.0" text="Address:" />
@@ -19,12 +19,14 @@
       <TextField layoutX="181.0" layoutY="248.0" prefWidth="218.0" />
       <TextField layoutX="181.0" layoutY="297.0" prefWidth="218.0" />
       <DatePicker layoutX="181.0" layoutY="196.0" prefHeight="31.0" prefWidth="218.0" />
-      <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
-      <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Register" />
-      <Label layoutX="108.0" layoutY="29.0" text="Registration Form">
+      <Button cancelButton="true" layoutX="29.0" layoutY="408.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
+      <Button layoutX="229.0" layoutY="408.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Register" />
+      <Label layoutX="108.0" layoutY="29.0" text="Add Club Member">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
+      <Label layoutX="29.0" layoutY="349.0" text="Membership Date:" />
+      <TextField layoutX="181.0" layoutY="344.0" prefWidth="218.0" />
    </children>
 </AnchorPane>

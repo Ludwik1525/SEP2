@@ -5,20 +5,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationFormController">
+<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationFormController">
    <children>
-      <Label layoutX="73.0" layoutY="94.0" text="Name" />
-      <Label layoutX="73.0" layoutY="150.0" text="Address" />
-      <Label layoutX="73.0" layoutY="202.0" text="Birthdate" />
-      <Label layoutX="73.0" layoutY="254.0" text="ID number" />
-      <Label layoutX="73.0" layoutY="303.0" text="Phone Number" />
-      <TextField layoutX="233.0" layoutY="89.0" prefWidth="218.0" />
-      <TextField layoutX="233.0" layoutY="145.0" prefHeight="31.0" prefWidth="218.0" />
-      <TextField layoutX="233.0" layoutY="249.0" prefWidth="218.0" />
-      <TextField layoutX="233.0" layoutY="298.0" prefWidth="218.0" />
-      <DatePicker layoutX="233.0" layoutY="197.0" prefHeight="31.0" prefWidth="218.0" />
-      <Button cancelButton="true" layoutX="295.0" layoutY="515.0" mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="73.0" text="Back" />
-      <Button layoutX="377.0" layoutY="515.0" mnemonicParsing="false" onAction="#register" text="Register" />
+      <Label layoutX="29.0" layoutY="89.0" text="Name:" />
+      <Label layoutX="29.0" layoutY="145.0" text="Address:" />
+      <Label layoutX="29.0" layoutY="197.0" text="Birthdate:" />
+      <Label layoutX="29.0" layoutY="249.0" text="ID number:" />
+      <Label layoutX="29.0" layoutY="298.0" text="Phone Number:" />
+      <TextField layoutX="181.0" layoutY="88.0" prefWidth="218.0" />
+      <TextField layoutX="181.0" layoutY="144.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField layoutX="181.0" layoutY="248.0" prefWidth="218.0" />
+      <TextField layoutX="181.0" layoutY="297.0" prefWidth="218.0" />
+      <DatePicker layoutX="181.0" layoutY="196.0" prefHeight="31.0" prefWidth="218.0" />
+      <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
+      <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Register" />
+      <Label layoutX="108.0" layoutY="29.0" text="Registration Form">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package Controller.Administrator;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,5 +16,11 @@ public class ManageAirportsController {
     public void goBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/AdministratorMain.fxml"))));
+    }
+
+    public void addButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void removeButtonPressed(ActionEvent actionEvent) {
     }
 }

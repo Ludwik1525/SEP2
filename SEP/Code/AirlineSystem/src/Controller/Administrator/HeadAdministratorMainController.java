@@ -31,7 +31,7 @@ public class HeadAdministratorMainController {
 
     public void ManagePlanesButtonController(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/ManagePlanes.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/ManageAirplanes.fxml"))));
     }
 
     public void ManageCrewMembersButtonController(ActionEvent actionEvent) throws IOException {

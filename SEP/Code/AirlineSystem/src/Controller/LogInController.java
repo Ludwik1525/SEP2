@@ -22,13 +22,13 @@ public class LogInController {
     private Label wrongDataLabel;
 
     public void LogInButtonController() throws IOException {
-        if (username.getText().equals("administrator") && password.getText().equals("administrator")) {
+        if (username.getText().equals("a") && password.getText().equals("a")) {
             Stage stage = (Stage) anchorPane.getScene().getWindow();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
-        } else if (username.getText().equals("headadministrator") && password.getText().equals("headadministrator")) {
+        } else if (username.getText().equals("ha") && password.getText().equals("ha")) {
             Stage stage = (Stage) anchorPane.getScene().getWindow();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/HeadAdministratorMain.fxml"))));
-        } else if (username.getText().equals("clubmember") && password.getText().equals("clubmember")) {
+        } else if (username.getText().equals("m") && password.getText().equals("m")) {
             Stage stage = (Stage) anchorPane.getScene().getWindow();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/ClubMember/ClubMemberMain.fxml"))));
         } else {

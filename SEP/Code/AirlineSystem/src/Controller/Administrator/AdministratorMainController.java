@@ -1,6 +1,5 @@
 package Controller.Administrator;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +32,7 @@ public class AdministratorMainController {
 
     public void ManagePlanesButtonController(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/ManagePlanes.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/ManageAirplanes.fxml"))));
     }
 
     public void ManageCrewMembersButtonController(ActionEvent actionEvent) throws IOException {

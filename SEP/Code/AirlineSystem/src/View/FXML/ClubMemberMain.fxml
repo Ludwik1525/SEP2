@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.User.UserMainController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
       <VBox layoutX="1.0" prefHeight="400.0" prefWidth="180.0">
          <children>
@@ -86,7 +86,7 @@
             </SplitMenuButton>
             <DatePicker layoutX="167.0" layoutY="160.0" />
             <DatePicker fx:id="returnDatePicker" layoutX="167.0" visible="false" layoutY="296.0" />
-            <Button cancelButton="true" layoutX="240.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
+            <Button cancelButton="true" layoutX="240.0" layoutY="356.0" mnemonicParsing="false" onAction="#ClubMemberMainGoBack" text="&lt;" />
             <Button layoutX="292.0" layoutY="356.0" mnemonicParsing="false" text="Book flight" />
          </children>
       </AnchorPane>

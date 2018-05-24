@@ -19,6 +19,6 @@
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ManageAirportsGoBack" text="&lt;" />
     <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" onAction="#addAirportButtonPressed" prefHeight="31.0" prefWidth="168.0" text="Add Airport" />
-    <Button layoutX="13.0" layoutY="156.0" mnemonicParsing="false" onAction="#removeAirportButtonPressed" prefHeight="31.0" prefWidth="168.0" text="Remove airport" visible="false" />
+    <Button fx:id="removeButton" layoutX="13.0" layoutY="156.0" mnemonicParsing="false" onAction="#removeAirportButtonPressed" prefHeight="31.0" prefWidth="168.0" text="Remove airport" visible="false" />
     <TextField fx:id="searchAirports" layoutX="13.0" layoutY="109.0" prefHeight="31.0" prefWidth="168.0" promptText="Search airports" />
 </AnchorPane>

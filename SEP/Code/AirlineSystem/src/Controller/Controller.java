@@ -1,18 +1,23 @@
 package Controller;
 
+import Domain.Model.Airplane;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
 
 public class Controller {
     @FXML
@@ -23,7 +28,13 @@ public class Controller {
     private PasswordField password;
     @FXML
     private Label wrongDataLabel;
-
+    @FXML Button removeButton;
+//    @FXML
+//    private ComboBox country;
+//
+//    public void initialize(){
+//        country.setItems("Country 1");
+//    }
     //Log In
     public void LogInButtonController() throws IOException {
         if (username.getText().equals("a") && password.getText().equals("a")) {
@@ -121,10 +132,12 @@ public class Controller {
 
     public void removeFlightButtonPressed(ActionEvent actionEvent) {
     }
+
     public void addFlightFormGoBack(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageAirports.fxml"))));
+        stage.close();
     }
+
     //Manage Airports
     public void ManageAirportsGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -144,12 +157,41 @@ public class Controller {
     public void removeAirportButtonPressed(ActionEvent actionEvent) throws IOException {
 
     }
+
     public void addAirportFormGoBack() throws IOException {
-            Stage stage = (Stage) anchorPane.getScene().getWindow();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageAirports.fxml"))));
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 
-    //Manage Airplanes
+    //////////////////////////////////////////////////////////Manage Airplanes
+//    @FXML TableColumn IDNumber= new TableColumn();
+//    @FXML TableColumn model;
+//    @FXML TableColumn numberOfSeats;
+//    @FXML TableColumn purchaseDate;
+//    @FXML TableColumn lastMaintenance;
+    @FXML TableView flightsTable;
+
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        TableColumn IDNumber= new TableColumn("IDNumber");
+        TableColumn model= new TableColumn("Model");
+        TableColumn numberOfSeats= new TableColumn("Number of seats");
+        TableColumn purchaseDate= new TableColumn("Purchase date");
+        TableColumn lastMaintenance= new TableColumn("Last maintenance");
+        flightsTable.getColumns().addAll(IDNumber,model,numberOfSeats,purchaseDate,lastMaintenance);
+
+        final ObservableList<Airplane> data= FXCollections.observableArrayList();
+        new Airplane("IDNumber","model", 14, new Date(1223,03,21), new Date(1234,01,02));
+
+        IDNumber.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
+        model.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
+        numberOfSeats.setCellFactory(new PropertyValueFactory<Airplane,Integer>("numberOfSeats"));
+        purchaseDate.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("purchaseDate"));
+        lastMaintenance.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("lastMaintenance"));
+
+        flightsTable.setItems(data);
+
+    }
+    //Associate data with column
     public void ManageAirplanesGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
@@ -164,15 +206,17 @@ public class Controller {
         Controller controller = loader.getController();
         window.showAndWait();
     }
-    public void removeAirplaneButtonPressed(){
+
+    public void removeAirplaneButtonPressed() {
 
     }
 
     public void addAirplaneFormGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageAirports.fxml"))));
+        stage.close();
 
     }
+
     //Manage Crew Members
     public void ManageCrewMembersGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -198,10 +242,10 @@ public class Controller {
 
     public void addCrewMemberFormGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageAirports.fxml"))));
+        stage.close();
 
     }
-    //Manage Administrators
+
     //Head Administrator/Administrator Main
     public void LogOut() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -247,4 +291,7 @@ public class Controller {
     }
 
 
+    public void removeButtonAppear(MouseEvent mouseEvent) {
+        removeButton.setVisible(true);
+    }
 }

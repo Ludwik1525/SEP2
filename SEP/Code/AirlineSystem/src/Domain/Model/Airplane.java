@@ -2,27 +2,27 @@ package Domain.Model;
 
 import java.util.Date;
 
-public class Plane {
-    private String number;
+public class Airplane {
+    private String IDNumber;
     private String model;
     private int numberOfSeats;
     private Date purchaseDate;
     private Date lastMaintainance;
 
-    public Plane(String model, String number, int numberOfSeats, Date purchaseDate, Date lastMaintainance) {
-        this.number = number;
+    public Airplane(String IDNumber, String model, int numberOfSeats, Date purchaseDate, Date lastMaintainance) {
+        this.IDNumber = IDNumber;
         this.model = model;
         this.numberOfSeats = numberOfSeats;
         this.purchaseDate = purchaseDate;
         this.lastMaintainance = lastMaintainance;
     }
 
-    public Plane() {
+    public Airplane() {
 
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.IDNumber = number;
     }
 
     public void setModel(String model) {
@@ -46,7 +46,7 @@ public class Plane {
     }
 
     public String getNumber() {
-        return number;
+        return IDNumber;
     }
 
     public Date getPurchaseDate() {

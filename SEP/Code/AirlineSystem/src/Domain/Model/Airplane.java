@@ -1,5 +1,6 @@
 package Domain.Model;
 
+import javax.xml.crypto.Data;
 import java.util.Date;
 
 public class Airplane {
@@ -9,17 +10,14 @@ public class Airplane {
     private Date purchaseDate;
     private Date lastMaintainance;
 
-    public Airplane(String IDNumber, String model, int numberOfSeats, Date purchaseDate, Date lastMaintainance) {
+    public Airplane(String IDNumber, String model, int numberOfSeats, Date purchaseDate, Date lastMaintenance) {
         this.IDNumber = IDNumber;
         this.model = model;
         this.numberOfSeats = numberOfSeats;
         this.purchaseDate = purchaseDate;
-        this.lastMaintainance = lastMaintainance;
+        this.lastMaintainance = lastMaintenance;
     }
 
-    public Airplane() {
-
-    }
 
     public void setNumber(String number) {
         this.IDNumber = number;

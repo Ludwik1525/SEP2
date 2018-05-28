@@ -3,29 +3,24 @@ package Domain.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
 import java.util.Date;
 
 
 public class AirplaneList {
 
     private ObservableList<Airplane> airplaneList;
-    Date purchaseDate= new Date(2012,2,12);
-    Date lastMaintenance= new Date(2012,01,23);
+    Date data = new Date(1999,02,23);
 
-    public AirplaneList(){
-        airplaneList=getAirplanesForTable();
+    public AirplaneList() {
 
-    }
-    public ObservableList<Airplane> getAirplanesForTable() {
-        ObservableList<Airplane> planes= FXCollections.observableArrayList(
-                new Airplane("idNumber", "model", 20, purchaseDate, lastMaintenance)
+        airplaneList = FXCollections.observableArrayList(
+                new Airplane("IDNumber", "model", 20, data, data),
+                new Airplane("ose", "one", 20, data, data)
         );
-        return planes;
-
 
     }
-    public void updateData(ObservableList<Airplane> planeList)throws IOException{
 
+    public ObservableList<Airplane> getAirplaneList() {
+        return airplaneList;
     }
 }

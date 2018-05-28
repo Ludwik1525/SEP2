@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="403.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
-    <TableView fx:id="flightsTable" layoutX="228.0" onMouseClicked="#removeButtonAppear" prefHeight="400.0" prefWidth="575.0">
+    <TableView fx:id="airplanesTable" layoutX="228.0" onMouseClicked="#removeButtonAppear" prefHeight="400.0" prefWidth="575.0">
         <columns>
             <TableColumn fx:id="IDNumber" prefWidth="92.0" text="ID Number" />
             <TableColumn fx:id="model" prefWidth="68.0" text="Model" />

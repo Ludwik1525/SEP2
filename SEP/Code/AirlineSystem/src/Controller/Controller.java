@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.Model.Airplane;
+import Domain.Model.AirplaneList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,13 +14,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.fxml.Initializable;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -164,31 +166,28 @@ public class Controller {
     }
 
     //////////////////////////////////////////////////////////Manage Airplanes
-//    @FXML TableColumn IDNumber= new TableColumn();
-//    @FXML TableColumn model;
-//    @FXML TableColumn numberOfSeats;
-//    @FXML TableColumn purchaseDate;
-//    @FXML TableColumn lastMaintenance;
-    @FXML TableView flightsTable;
+    Date date = new Date(1999,02,23);
+    @FXML protected TableView<Airplane> airplanesTable= new TableView<Airplane>();
+    AirplaneList airplaneList= new AirplaneList();
+    @FXML protected TableColumn<Airplane, String> IDNumber= new TableColumn("IDNumber");
+    @FXML protected TableColumn<Airplane,String> model= new TableColumn("model");
+    @FXML protected TableColumn<Airplane, Integer> numberOfSeats= new TableColumn("numberOfSeats");
+    @FXML protected  TableColumn<Airplane,Date>  purchaseDate = new TableColumn("purchaseDate");
+    @FXML protected  TableColumn<Airplane,Date>  lastMaintenance= new TableColumn("lastMaintenance");
 
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        TableColumn IDNumber= new TableColumn("IDNumber");
-        TableColumn model= new TableColumn("Model");
-        TableColumn numberOfSeats= new TableColumn("Number of seats");
-        TableColumn purchaseDate= new TableColumn("Purchase date");
-        TableColumn lastMaintenance= new TableColumn("Last maintenance");
-        flightsTable.getColumns().addAll(IDNumber,model,numberOfSeats,purchaseDate,lastMaintenance);
-
-        final ObservableList<Airplane> data= FXCollections.observableArrayList();
-        new Airplane("IDNumber","model", 14, new Date(1223,03,21), new Date(1234,01,02));
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
         IDNumber.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
         model.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
-        numberOfSeats.setCellFactory(new PropertyValueFactory<Airplane,Integer>("numberOfSeats"));
+        numberOfSeats.setCellValueFactory(new PropertyValueFactory<Airplane, Integer>("numberOfSeats"));
         purchaseDate.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("purchaseDate"));
         lastMaintenance.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("lastMaintenance"));
 
-        flightsTable.setItems(data);
+
+        airplanesTable.setItems(airplaneList.getAirplaneList());
+        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
+
 
     }
     //Associate data with column

@@ -6,26 +6,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
-   <children>
+<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddAirportFormController">
+   <children><Label layoutX="110.0" layoutY="28.0" text="Add Airport Form">
+      <font>
+         <Font name="System Bold" size="25.0" />
+      </font>
+   </Label>
       <Label layoutX="29.0" layoutY="88.0" text="Code:" />
       <Label layoutX="29.0" layoutY="131.0" text="Name:" />
       <Label layoutX="29.0" layoutY="171.0" text="City:" />
       <Label layoutX="29.0" layoutY="213.0" text="Postcode:" />
       <Label layoutX="29.0" layoutY="299.0" text="Number of Gates:" />
-      <TextField layoutX="181.0" layoutY="87.0" prefWidth="218.0" />
-      <TextField layoutX="181.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
-      <TextField layoutX="181.0" layoutY="208.0" prefWidth="218.0" />
-      <TextField layoutX="181.0" layoutY="166.0" prefWidth="218.0" />
-      <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#addAirportFormGoBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
-      <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Add Airport" />
-      <Label layoutX="110.0" layoutY="28.0" text="Add Airport Form">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
       <Label layoutX="29.0" layoutY="255.0" text="Country:" />
-      <TextField layoutX="181.0" layoutY="250.0" prefWidth="218.0" />
-      <TextField layoutX="181.0" layoutY="294.0" prefWidth="218.0" />
+      <TextField fx:id="country" layoutX="181.0" layoutY="250.0" prefWidth="218.0" />
+      <TextField fx:id="numberOfGates" layoutX="181.0" layoutY="294.0" prefWidth="218.0" />
+      <TextField fx:id="code" layoutX="181.0" layoutY="87.0" prefWidth="218.0" />
+      <TextField fx:id="name" layoutX="181.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="postcode" layoutX="181.0" layoutY="208.0" prefWidth="218.0" />
+      <TextField fx:id="city" layoutX="181.0" layoutY="166.0" prefWidth="218.0" />
+      <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#addAirportFormGoBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
+      <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#addAirportToTheList" prefHeight="50.0" prefWidth="170.0" text="Add Airport" />
+
    </children>
 </AnchorPane>

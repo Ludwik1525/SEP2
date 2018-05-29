@@ -1,68 +1,69 @@
 package Domain.Model;
 
 import javax.xml.crypto.Data;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Airplane {
     private String IDNumber;
     private String model;
-    private int numberOfSeats;
-    private Date purchaseDate;
-    private Date lastMaintainance;
+    private String numberOfSeats;
+    private LocalDate purchaseDate;
+    private LocalDate lastMaintenance;
 
-    public Airplane(String IDNumber, String model, int numberOfSeats, Date purchaseDate, Date lastMaintenance) {
+    public Airplane(String IDNumber, String model, String numberOfSeats, LocalDate purchaseDate, LocalDate lastMaintenance) {
         this.IDNumber = IDNumber;
         this.model = model;
         this.numberOfSeats = numberOfSeats;
         this.purchaseDate = purchaseDate;
-        this.lastMaintainance = lastMaintenance;
+        this.lastMaintenance = lastMaintenance;
     }
 
 
-    public void setNumber(String number) {
-        this.IDNumber = number;
+    public void setIDNumber(String IDNumber) {
+        this.IDNumber = IDNumber;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setNumberOfSeats(String numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
+    public void setPurchaseDate(LocalDate purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
-    public void setLastMaintainance(Date lastMaintainance) {
-        this.lastMaintainance = lastMaintainance;
+    public void setLastMaintenance(LocalDate lastMaintenance) {
+        this.lastMaintenance = lastMaintenance;
     }
 
     public String getModel() {
         return model;
     }
 
-    public String getNumber() {
+    public String getIDNumber() {
         return IDNumber;
     }
 
-    public Date getPurchaseDate() {
+    public LocalDate getPurchaseDate() {
         return purchaseDate;
     }
 
-    public int getNumberOfSeats() {
+    public String getNumberOfSeats() {
         return numberOfSeats;
     }
 
-    public Date getLastMaintainance() {
-        return lastMaintainance;
+    public LocalDate getLastMaintenance() {
+        return lastMaintenance;
     }
 
     @Override
     public String toString() {
-        return "Model: "+getModel()+"Number: "+getNumber()+"; Purchase date: "+getPurchaseDate()+"; Number of seats: "
-                +getNumberOfSeats()+"; Last maintainance: "+getLastMaintainance();
+        return "Model: "+getModel()+"Number: "+getIDNumber()+"; Purchase date: "+getPurchaseDate()+"; Number of seats: "
+                +getNumberOfSeats()+"; Last maintenance: "+getLastMaintenance();
     }
 }
 

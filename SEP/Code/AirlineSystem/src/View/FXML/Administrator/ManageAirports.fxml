@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
-    <TableView fx:id="airportsTable" layoutX="203.0" prefHeight="400.0" prefWidth="517.0">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AirportsController">
+    <TableView fx:id="airportsTable" layoutX="203.0" onMouseClicked="#removeButtonAppear" prefHeight="400.0" prefWidth="517.0">
         <columns>
             <TableColumn fx:id="code" prefWidth="56.0" text="Code" />
-            <TableColumn fx:id="Name" text="Name" />
-            <TableColumn fx:id="City" prefWidth="74.0" text="City" />
-            <TableColumn fx:id="zipCode" prefWidth="89.0" text="Zip Code" />
+            <TableColumn fx:id="name" text="Name" />
+            <TableColumn fx:id="city" prefWidth="74.0" text="City" />
+            <TableColumn fx:id="postcode" prefWidth="89.0" text="Postcode" />
             <TableColumn fx:id="country" prefWidth="76.0" text="Country" />
             <TableColumn fx:id="numberOfGates" prefWidth="141.0" text="Number Of Gates" />
         </columns>

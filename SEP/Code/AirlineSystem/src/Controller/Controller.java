@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller {
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -141,80 +141,10 @@ public class Controller implements Initializable {
     }
 
     //Manage Airports
-    public void ManageAirportsGoBack() throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
-    }
 
-    public void addAirportButtonPressed() throws IOException {
-        Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Add New Club Member");
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddAirportForm.fxml")));
-        window.setScene(new Scene(loader.load()));
-        Controller controller = loader.getController();
-        window.showAndWait();
-    }
-
-    public void removeAirportButtonPressed(ActionEvent actionEvent) throws IOException {
-
-    }
-
-    public void addAirportFormGoBack() throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
-    }
 
     //////////////////////////////////////////////////////////Manage Airplanes
-    Date date = new Date(1999,02,23);
-    @FXML protected TableView<Airplane> airplanesTable= new TableView<Airplane>();
-    AirplaneList airplaneList= new AirplaneList();
-    @FXML protected TableColumn<Airplane, String> IDNumber= new TableColumn("IDNumber");
-    @FXML protected TableColumn<Airplane,String> model= new TableColumn("model");
-    @FXML protected TableColumn<Airplane, Integer> numberOfSeats= new TableColumn("numberOfSeats");
-    @FXML protected  TableColumn<Airplane,Date>  purchaseDate = new TableColumn("purchaseDate");
-    @FXML protected  TableColumn<Airplane,Date>  lastMaintenance= new TableColumn("lastMaintenance");
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        IDNumber.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
-        model.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
-        numberOfSeats.setCellValueFactory(new PropertyValueFactory<Airplane, Integer>("numberOfSeats"));
-        purchaseDate.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("purchaseDate"));
-        lastMaintenance.setCellValueFactory(new PropertyValueFactory<Airplane, Date>("lastMaintenance"));
-
-
-        airplanesTable.setItems(airplaneList.getAirplaneList());
-        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
-
-
-    }
-    //Associate data with column
-    public void ManageAirplanesGoBack() throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
-    }
-
-    public void addAirplaneButtonPressed(ActionEvent actionEvent) throws IOException {
-        Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Add New Club Member");
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddAirplaneForm.fxml")));
-        window.setScene(new Scene(loader.load()));
-        Controller controller = loader.getController();
-        window.showAndWait();
-    }
-
-    public void removeAirplaneButtonPressed() {
-
-    }
-
-    public void addAirplaneFormGoBack() throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
-
-    }
 
     //Manage Crew Members
     public void ManageCrewMembersGoBack() throws IOException {

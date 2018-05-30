@@ -1,20 +1,27 @@
 package Domain.Model;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.time.LocalDate;
 
 public class Crew {
-
-    private ArrayList<CrewMember> crew;
-
+    private ObservableList<CrewMember> crewMemberList;
+LocalDate date= LocalDate.of(Integer.parseInt("1999"), Integer.parseInt("02"), Integer.parseInt("03"));
     public Crew() {
-        this.crew = new ArrayList<>();
+        crewMemberList = FXCollections.observableArrayList(
+                new CrewMember("name", "position","address", "id","phoneNumber",  "email", date),
+                new CrewMember("name", "position","address", "id","phoneNumber",  "email", date)
+        );
+
     }
 
-    public void addMember(CrewMember member) {
-        crew.add(member);
+    public ObservableList<CrewMember> getCrewMembers() {
+        return crewMemberList;
     }
 
-    public void deleteMember(CrewMember member) {
-        crew.remove(member);
+
+    public void updateList(ObservableList <CrewMember> crewMembers) {
+        crewMemberList= crewMembers;
     }
 }

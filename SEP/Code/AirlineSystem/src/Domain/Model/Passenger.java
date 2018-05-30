@@ -1,5 +1,6 @@
 package Domain.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Passenger {
@@ -7,11 +8,11 @@ public class Passenger {
     private String id;
     private String idType;
     private String nationality;
-    private Date birthday;
-    private long phoneNumber;
+    private LocalDate birthday;
+    private String phoneNumber;
     private String email;
 
-    public Passenger(String name, String id, String idType, String nationality, Date birthday, long phoneNumber
+    public Passenger(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
     , String email) {
         this.name = name;
         this.id = id;
@@ -41,7 +42,7 @@ public class Passenger {
         this.nationality = nationality;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -49,7 +50,7 @@ public class Passenger {
         this.email = email;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -69,11 +70,11 @@ public class Passenger {
         return idType;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

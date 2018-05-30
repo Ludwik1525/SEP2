@@ -1,5 +1,6 @@
 package Domain.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CrewMember {
@@ -7,11 +8,11 @@ public class CrewMember {
     private String position;
     private String address;
     private String id;
-    private long phoneNumber;
+    private String phoneNumber;
     private String email;
-    private Date birthdate;
+    private LocalDate birthdate;
 
-    public CrewMember(String name, String position, String address, String id, long phoneNumber, String email,Date birthdate) {
+    public CrewMember(String name, String position, String address, String id, String phoneNumber, String email,LocalDate birthdate) {
         this.name = name;
         this.position = position;
         this.address = address;
@@ -25,7 +26,7 @@ public class CrewMember {
 
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -45,7 +46,7 @@ public class CrewMember {
         this.address = address;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -53,7 +54,7 @@ public class CrewMember {
         this.position = position;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -69,7 +70,7 @@ public class CrewMember {
         return name;
     }
 
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 

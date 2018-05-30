@@ -1,5 +1,5 @@
-package Domain.Mediator;
-
-public class Mediator
-{
-}
+//package Domain.Mediator;
+//
+//public class Mediator
+//{
+//}

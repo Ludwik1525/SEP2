@@ -1,25 +1,16 @@
 package Controller;
 
-import Domain.Model.Airplane;
-import Domain.Model.AirplaneList;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.fxml.Initializable;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
 
 public class Controller {
     @FXML
@@ -156,7 +147,7 @@ public class Controller {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Add New Club Member");
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddCrewMember.fxml")));
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddCrewMemberForm.fxml")));
         window.setScene(new Scene(loader.load()));
         Controller controller = loader.getController();
         window.showAndWait();

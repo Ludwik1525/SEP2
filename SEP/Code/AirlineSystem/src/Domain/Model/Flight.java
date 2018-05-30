@@ -1,17 +1,32 @@
 package Domain.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Flight {
-    private String number;
-    private Date departureTime;
-    private Date arrivalTime;
+    private String flightNumber;
+    private LocalDate departureTime;
+    private LocalDate arrivalTime;
+    Airplane plane;
+    Crew crew;
+    private String departurePlace;
+    private String arrivalPlace;
+    Passengers passengers;
     private  String status;
 
-    public Flight(String number, Date departureTime, Date arrivalTime, String status) {
-        this.number = number;
+
+
+
+
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, Airplane plane, Crew crew, Airport departure, Airport arrival, Passengers passenegers, String status) {
+        this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+        this.plane=plane;
+        this.crew=crew;
+        this.passengers=passenegers;
+        departurePlace=departure.getCity();
+        arrivalPlace= arrival.getCity();
         this.status = status;
     }
 
@@ -19,41 +34,52 @@ public class Flight {
 
     }
 
-    public void setArrivalTime(Date arrivalTime) {
+    public void setArrivalTime(LocalDate arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(LocalDate departureTime) {
         this.departureTime = departureTime;
     }
+    public void setDeparturePlace(Airport departure) {
+        this.departurePlace = departure.getCity();
+    }
+    public void setArrivalPlace(Airport arrival) {
+        this.arrivalPlace = arrival.getCity();
+    }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getNumber() {
-        return number;
+    public String getFlightNumber() {
+        return flightNumber;
     }
 
-    public Date getArrivalTime() {
+    public LocalDate getArrivalTime() {
         return arrivalTime;
     }
 
-    public Date getDepartureTime() {
+    public LocalDate getDepartureTime() {
         return departureTime;
     }
-
+    public String getDeparturePlace() {
+        return departurePlace;
+    }
+    public String getArrivalPlace() {
+        return arrivalPlace;
+    }
     public String getStatus() {
         return status;
     }
 
     @Override
     public String toString() {
-        return  "Flight number: "+getNumber()+"; Departure time: "+getDepartureTime()+"; Arrival time: "+
+        return  "Flight number: "+getFlightNumber()+"; Departure time: "+getDepartureTime()+"; Arrival time: "+
                 getArrivalTime()+"; Status: "+getStatus();
     }
 }

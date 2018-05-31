@@ -31,15 +31,15 @@ public class FlightsController implements Initializable {
     FlightList flightList;
 
     @FXML protected TableView<Flight> flightsTable;
-    @FXML protected TableColumn<Flight, String> flightNumber;
-    @FXML protected TableColumn<Flight, LocalDate> departureTime;
-    @FXML protected TableColumn<Flight, LocalDate> arrivalTime;
-    @FXML protected TableColumn<Flight, Airplane> airplane;
-    @FXML protected TableColumn<Flight, Crew> crew;
-    @FXML protected TableColumn<Flight, String> departurePlace;
-    @FXML protected TableColumn<Flight, String> arrivalPlace;
-    @FXML protected TableColumn<Flight, Passengers> passengers;
-    @FXML protected TableColumn<Flight, String> status;
+    @FXML protected TableColumn<Flight, String> flightNumberColumn;
+    @FXML protected TableColumn<Flight, LocalDate> departureTimeColumn;
+    @FXML protected TableColumn<Flight, LocalDate> arrivalTimeColumn;
+    @FXML protected TableColumn<Flight, Airplane> airplaneColumn;
+    @FXML protected TableColumn<Flight, Crew> crewColumn;
+    @FXML protected TableColumn<Flight, String> departurePlaceColumn;
+    @FXML protected TableColumn<Flight, String> arrivalPlaceColumn;
+    @FXML protected TableColumn<Flight, Passengers> passengersColumn;
+    @FXML protected TableColumn<Flight, String> statusColumn;
 
 
 
@@ -49,15 +49,15 @@ public class FlightsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
-        departureTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
-        arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
-        airplane.setCellValueFactory(new PropertyValueFactory<Flight, Airplane>("airplane"));
-        crew.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
-        departurePlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
-        arrivalPlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
-        passengers.setCellValueFactory(new PropertyValueFactory<Flight, Passengers>("passengers"));
-        status.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
+        flightNumberColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+        departureTimeColumn.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
+        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
+        airplaneColumn.setCellValueFactory(new PropertyValueFactory<Flight, Airplane>("plane"));
+        crewColumn.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
+        departurePlaceColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
+        arrivalPlaceColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
+        passengersColumn.setCellValueFactory(new PropertyValueFactory<Flight, Passengers>("passengers"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
 
 
         flightList= new FlightList();
@@ -67,7 +67,7 @@ public class FlightsController implements Initializable {
 
 
         flightsTable.getColumns().clear();
-        flightsTable.getColumns().addAll(flightNumber, departureTime, arrivalTime, airplane, crew, departurePlace, arrivalPlace, passengers, status);
+        flightsTable.getColumns().addAll(flightNumberColumn, departureTimeColumn, arrivalTimeColumn, airplaneColumn, crewColumn, departurePlaceColumn, arrivalPlaceColumn, passengersColumn, statusColumn);
 
     }
 

@@ -3,11 +3,9 @@ package Domain.Model;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class ClubMember extends Passenger {
+public class ClubMember  {
     private String name;
     private String id;
-    private String idType;
-    private String nationality;
     private LocalDate birthday;
     private String phoneNumber;
     private String email;
@@ -16,13 +14,15 @@ public class ClubMember extends Passenger {
 
     public ClubMember(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
             , String email,String address, LocalDate membershipDate) {
-        super(name,id,idType,nationality,birthday,phoneNumber,email);
+        this.name=name;
+        this.id=id;
+        this.birthday=birthday;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
         this.address = address;
         this.membershipDate = membershipDate;
     }
-    public ClubMember() {
 
-    }
 
     public void setAddress(String address) {
         this.address = address;

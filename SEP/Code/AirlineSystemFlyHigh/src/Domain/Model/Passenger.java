@@ -22,7 +22,9 @@ public class Passenger {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-    public Passenger() {
+    public Passenger(String name, String id, String nationality, LocalDate birthday, String phoneNumber
+            , String email) {
+
 
     }
 

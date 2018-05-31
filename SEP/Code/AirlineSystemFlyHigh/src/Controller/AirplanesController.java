@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -54,13 +55,13 @@ public class AirplanesController implements Initializable {
         airplaneList= new AirplaneList();
         airplanesTable.setItems(airplaneList.getAirplanes());
 
-        airplanesTable.setEditable(true);
-        IDNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-        model.setCellFactory(TextFieldTableCell.forTableColumn());
-        numberOfSeats.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        airplanesTable.getColumns().clear();
-        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
+//        airplanesTable.setEditable(true);
+//        IDNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+//        model.setCellFactory(TextFieldTableCell.forTableColumn());
+//        numberOfSeats.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        airplanesTable.getColumns().clear();
+//        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
 
     }
 
@@ -132,6 +133,21 @@ public class AirplanesController implements Initializable {
 //        airplaneList.updateList(airplanesTable.getItems());
 //    }
 
+
+    public void editButtonPressed() throws IOException  {
+        Airplane selectedAirplane = airplanesTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditAirplaneForm.fxml"));
+        loader.load();
+        EditAirplaneController controller = loader.getController();
+        controller.initData(selectedAirplane,airplaneList);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit airplane");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
+    }
 
 
 

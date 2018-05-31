@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -54,7 +55,7 @@ public class FlightsController implements Initializable {
         flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
         departureTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
         arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
-        airplaneIDNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("airplane ID number"));
+        airplaneIDNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("airplaneIdNumber"));
         crew.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
         departurePlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
         arrivalPlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
@@ -79,7 +80,7 @@ public class FlightsController implements Initializable {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Add New Flights Form");
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddAirportForm.fxml")));
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddFlightForm.fxml")));
         window.setScene(new Scene(loader.load()));
         AddFlightFormController controller = loader.getController();
         controller.setItems(flightList.getFlights());
@@ -141,5 +142,20 @@ public class FlightsController implements Initializable {
         confirmationLabel.setVisible(false);
         forsake.setVisible(false);
         confirm.setVisible(false);
+    }
+
+    public void editButtonPressed() throws IOException {
+        Flight selectedFlight = flightsTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditFlightForm.fxml"));
+        loader.load();
+        EditFlightController controller = loader.getController();
+        controller.initData(selectedFlight,flightList);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit flight");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
     }
 }

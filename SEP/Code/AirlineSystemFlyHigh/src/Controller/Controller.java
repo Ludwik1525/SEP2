@@ -117,7 +117,7 @@ public class Controller {
     public void addFlightButtonPressed() throws IOException {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Add New Club Member");
+        window.setTitle("Addha New Club Member");
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddFlightForm.fxml")));
         window.setScene(new Scene(loader.load()));
         Controller controller = loader.getController();

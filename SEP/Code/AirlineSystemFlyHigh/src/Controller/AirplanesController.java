@@ -6,10 +6,10 @@ import Domain.Model.AirplaneList;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +18,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.TableColumn.CellEditEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,32 +33,34 @@ public class AirplanesController implements Initializable {
     @FXML protected TableView<Airplane> airplanesTable;
     @FXML protected TableColumn<Airplane, String> IDNumber;
     @FXML protected TableColumn<Airplane, String> model;
-    @FXML protected TableColumn<Airplane, Integer> numberOfSeats;
+    @FXML protected TableColumn<Airplane, String> numberOfSeats;
     @FXML  protected TableColumn<Airplane, LocalDate> purchaseDate;
     @FXML  protected TableColumn<Airplane, LocalDate> lastMaintenance;
-    @FXML private Button removeButton;
+    @FXML private Button remove;
     @FXML private TextField searchField;
-    @FXML private Button editButton;
+    @FXML Label confirmationLabel;
+    @FXML Button forsake;
+    @FXML Button confirm;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         IDNumber.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
         model.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
-        numberOfSeats.setCellValueFactory(new PropertyValueFactory<Airplane, Integer>("numberOfSeats"));
+        numberOfSeats.setCellValueFactory(new PropertyValueFactory<Airplane, String>("numberOfSeats"));
         purchaseDate.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("purchaseDate"));
         lastMaintenance.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("lastMaintenance"));
 
         airplaneList= new AirplaneList();
         airplanesTable.setItems(airplaneList.getAirplanes());
 
-//        airplanesTable.setEditable(true);
-//        IDNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-//        model.setCellFactory(TextFieldTableCell.forTableColumn());
-//        numberOfSeats.setCellFactory(TextFieldTableCell.forTableColumn());
+        airplanesTable.setEditable(true);
+        IDNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        model.setCellFactory(TextFieldTableCell.forTableColumn());
+        numberOfSeats.setCellFactory(TextFieldTableCell.forTableColumn());
 
-//        airplanesTable.getColumns().clear();
-//        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
+        airplanesTable.getColumns().clear();
+        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
 
     }
 
@@ -76,14 +77,7 @@ public class AirplanesController implements Initializable {
         window.showAndWait();
     }
 
-    public void removeAirplaneButtonPressed() throws IOException {
-        ObservableList<Airplane> airplanes= airplaneList.getAirplanes();
-        ObservableList<Airplane> selected= airplanesTable.getSelectionModel().getSelectedItems();
-        selected.forEach(airplanes::remove);
-        makeFilteredList(airplanes);
-        airplaneList.updateList(airplanes);
 
-    }
     public void makeFilteredList(ObservableList<Airplane> list){
         FilteredList <Airplane> filteredList= new FilteredList<>(list, p->true);
 
@@ -104,8 +98,7 @@ public class AirplanesController implements Initializable {
     }
 
     public void removeButtonAppear(MouseEvent mouseEvent) {
-        removeButton.setVisible(true);
-        editButton.setVisible(true);
+        remove.setVisible(true);
     }
 
 
@@ -113,27 +106,33 @@ public class AirplanesController implements Initializable {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
     }
-    public void changeIDNumberEvent(CellEditEvent editedCell){
-        Airplane airplane= airplanesTable.getSelectionModel().getSelectedItem();
-        airplane.setIDNumber(editedCell.getNewValue().toString());
+    public void removeAirplaneButtonPressed() throws IOException {
+        confirmationLabel.setVisible(true);
+        forsake.setVisible(true);
+        confirm.setVisible(true);
+    }
+    public void confirmButtonPressed(ActionEvent actionEvent) {
+        ObservableList<Airplane> airplanes= airplaneList.getAirplanes();
+        ObservableList<Airplane> selected= airplanesTable.getSelectionModel().getSelectedItems();
+        selected.forEach(airplanes::remove);
+        makeFilteredList(airplanes);
+        airplaneList.updateList(airplanes);
 
-        airplaneList.updateList(airplanesTable.getItems());
     }
 
-    public void editButtonPressed() throws IOException  {
-        Airplane selectedAirplane = airplanesTable.getSelectionModel().getSelectedItem();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditAirplaneForm.fxml"));
-        loader.load();
-        EditAirplaneController controller = loader.getController();
-        controller.initData(selectedAirplane,airplaneList);
-        Parent window = loader.getRoot();
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Edit airplane");
-        stage.setScene(new Scene(window));
-        stage.showAndWait();
+    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(false);
+        forsake.setVisible(false);
+        confirm.setVisible(false);
     }
+//    public void changeIDNumberEvent(CellEditEvent editedCell){
+//        Airplane airplane= airplanesTable.getSelectionModel().getSelectedItem();
+//        airplane.setIDNumber(editedCell.getNewValue().toString());
+//
+//        airplaneList.updateList(airplanesTable.getItems());
+//    }
+
+
 
 
 }

@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,15 +28,20 @@ public class FlightsController implements Initializable {
     FlightList flightList;
 
     @FXML protected TableView<Flight> flightsTable;
-    @FXML protected TableColumn<Flight, String> flightNumberColumn;
-    @FXML protected TableColumn<Flight, LocalDate> departureTimeColumn;
-    @FXML protected TableColumn<Flight, LocalDate> arrivalTimeColumn;
-    @FXML protected TableColumn<Flight, Airplane> airplaneColumn;
-    @FXML protected TableColumn<Flight, Crew> crewColumn;
-    @FXML protected TableColumn<Flight, String> departurePlaceColumn;
-    @FXML protected TableColumn<Flight, String> arrivalPlaceColumn;
-    @FXML protected TableColumn<Flight, Passengers> passengersColumn;
-    @FXML protected TableColumn<Flight, String> statusColumn;
+    @FXML protected TableColumn<Flight, String> flightNumber;
+    @FXML protected TableColumn<Flight, LocalDate> departureTime;
+    @FXML protected TableColumn<Flight, LocalDate> arrivalTime;
+    @FXML protected TableColumn<Flight, String> airplaneIDNumber;
+    @FXML protected TableColumn<Flight, Crew> crew;
+    @FXML protected TableColumn<Flight, String> departurePlace;
+    @FXML protected TableColumn<Flight, String> arrivalPlace;
+    @FXML protected TableColumn<Flight, PassengerList> passengers;
+    @FXML protected TableColumn<Flight, String> status;
+
+    @FXML
+    Label confirmationLabel;
+    @FXML Button forsake;
+    @FXML Button confirm;
 
 
 
@@ -49,15 +51,15 @@ public class FlightsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        flightNumberColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
-        departureTimeColumn.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
-        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
-        airplaneColumn.setCellValueFactory(new PropertyValueFactory<Flight, Airplane>("plane"));
-        crewColumn.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
-        departurePlaceColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
-        arrivalPlaceColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
-        passengersColumn.setCellValueFactory(new PropertyValueFactory<Flight, Passengers>("passengers"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
+        flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+        departureTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
+        arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
+        airplaneIDNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("airplane ID number"));
+        crew.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
+        departurePlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
+        arrivalPlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
+        passengers.setCellValueFactory(new PropertyValueFactory<Flight, PassengerList>("passengers"));
+        status.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
 
 
         flightList= new FlightList();
@@ -67,7 +69,7 @@ public class FlightsController implements Initializable {
 
 
         flightsTable.getColumns().clear();
-        flightsTable.getColumns().addAll(flightNumberColumn, departureTimeColumn, arrivalTimeColumn, airplaneColumn, crewColumn, departurePlaceColumn, arrivalPlaceColumn, passengersColumn, statusColumn);
+        flightsTable.getColumns().addAll(flightNumber, departureTime, arrivalTime, airplaneIDNumber, crew, departurePlace, arrivalPlace, passengers, status);
 
     }
 
@@ -122,10 +124,22 @@ public class FlightsController implements Initializable {
 
 
     public void removeFlightButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(true);
+        forsake.setVisible(true);
+        confirm.setVisible(true);
+    }
+    public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<Flight> flights= flightList.getFlights();
         ObservableList<Flight> selected= flightsTable.getSelectionModel().getSelectedItems();
         selected.forEach(flights::remove);
         makeFilteredList(flights);
         flightList.updateList(flights);
+
+    }
+
+    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(false);
+        forsake.setVisible(false);
+        confirm.setVisible(false);
     }
 }

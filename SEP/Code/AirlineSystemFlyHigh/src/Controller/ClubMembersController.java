@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +39,11 @@ public class ClubMembersController implements Initializable {
     @FXML protected TableColumn<ClubMember, LocalDate> membershipDate;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
+
+    @FXML
+    Label confirmationLabel;
+    @FXML Button forsake;
+    @FXML Button confirm;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -123,10 +125,22 @@ public class ClubMembersController implements Initializable {
 
 
     public void removeClubMemberButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(true);
+        forsake.setVisible(true);
+        confirm.setVisible(true);
+    }
+    public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<ClubMember> clubMembers= clubMemberList.getClubMembers();
-        ObservableList<ClubMember> selected= clubMembersTable.getSelectionModel().getSelectedItems();
+        ObservableList<ClubMember> selected=clubMembersTable.getSelectionModel().getSelectedItems();
         selected.forEach(clubMembers::remove);
         makeFilteredList(clubMembers);
         clubMemberList.updateList(clubMembers);
+
+    }
+
+    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(false);
+        forsake.setVisible(false);
+        confirm.setVisible(false);
     }
 }

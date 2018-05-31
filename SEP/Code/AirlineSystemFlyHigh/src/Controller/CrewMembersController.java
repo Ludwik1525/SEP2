@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -39,6 +36,11 @@ public class CrewMembersController implements Initializable {
     @FXML protected TableColumn<CrewMember, LocalDate> birthday;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
+
+    @FXML
+    Label confirmationLabel;
+    @FXML Button forsake;
+    @FXML Button confirm;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,10 +120,22 @@ public class CrewMembersController implements Initializable {
 
 
     public void removeCrewMemberButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(true);
+        forsake.setVisible(true);
+        confirm.setVisible(true);
+    }
+    public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<CrewMember> crewMembers= crew.getCrewMembers();
         ObservableList<CrewMember> selected= crewMembersTable.getSelectionModel().getSelectedItems();
         selected.forEach(crewMembers::remove);
         makeFilteredList(crewMembers);
         crew.updateList(crewMembers);
+
+    }
+
+    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(false);
+        forsake.setVisible(false);
+        confirm.setVisible(false);
     }
 }

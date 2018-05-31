@@ -1,6 +1,7 @@
 package Controller;
 
 
+import Domain.Model.Airplane;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import javafx.collections.ObservableList;
@@ -11,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -41,6 +39,12 @@ public class AirportsController implements Initializable{
     @FXML protected TableColumn<Airport, String> numberOfGates;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
+
+    @FXML
+    Label confirmationLabel;
+    @FXML Button forsake;
+    @FXML Button confirm;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -119,11 +123,23 @@ public class AirportsController implements Initializable{
 
 
     public void removeAirportButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(true);
+        forsake.setVisible(true);
+        confirm.setVisible(true);
+    }
+    public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<Airport> airports= airportList.getAirports();
         ObservableList<Airport> selected= airportsTable.getSelectionModel().getSelectedItems();
         selected.forEach(airports::remove);
         makeFilteredList(airports);
         airportList.updateList(airports);
+
+    }
+
+    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
+        confirmationLabel.setVisible(false);
+        forsake.setVisible(false);
+        confirm.setVisible(false);
     }
 
 }

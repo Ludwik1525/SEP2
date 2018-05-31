@@ -7,11 +7,11 @@ import java.util.Date;
 public class Airplane {
     private String IDNumber;
     private String model;
-    private int numberOfSeats;
+    private String numberOfSeats;
     private LocalDate purchaseDate;
     private LocalDate lastMaintenance;
 
-    public Airplane(String IDNumber, String model, int numberOfSeats, LocalDate purchaseDate, LocalDate lastMaintenance) {
+    public Airplane(String IDNumber, String model, String numberOfSeats, LocalDate purchaseDate, LocalDate lastMaintenance) {
         this.IDNumber = IDNumber;
         this.model = model;
         this.numberOfSeats = numberOfSeats;
@@ -28,7 +28,7 @@ public class Airplane {
         this.model = model;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setNumberOfSeats(String numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
@@ -52,7 +52,7 @@ public class Airplane {
         return purchaseDate;
     }
 
-    public int getNumberOfSeats() {
+    public String getNumberOfSeats() {
         return numberOfSeats;
     }
 

@@ -22,6 +22,7 @@ public class Controller {
     @FXML
     private Label wrongDataLabel;
     @FXML Button removeButton;
+
     //    @FXML
 //    private ComboBox country;
 //
@@ -101,7 +102,7 @@ public class Controller {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
     }
 
-    //Manage Passengers
+    //Manage PassengerList
     public void ManagePassengersGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
@@ -214,4 +215,6 @@ public class Controller {
     public void removeButtonAppear(MouseEvent mouseEvent) {
         removeButton.setVisible(true);
     }
+
+
 }

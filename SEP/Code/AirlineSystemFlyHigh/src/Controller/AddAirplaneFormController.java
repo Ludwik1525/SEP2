@@ -40,7 +40,7 @@ public class AddAirplaneFormController implements Initializable{
     }
 
     public void addAirplaneToTheList(ActionEvent actionEvent) {
-        items.add(new Airplane(addIDNumber.getText(), addModel.getText(), Integer.parseInt(addNumberOfSeats.getText()), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
+        items.add(new Airplane(addIDNumber.getText(), addModel.getText(), addNumberOfSeats.getText(), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
 
         airplaneList.updateList(items);
 

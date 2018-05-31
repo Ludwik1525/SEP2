@@ -1,29 +1,32 @@
 package Domain.Model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Flight {
-
     private String flightNumber;
     private LocalDate departureTime;
     private LocalDate arrivalTime;
-    private Airplane plane;
+    private String airplaneIdNumber;
+    private String crewMembers;
+    Airplane plane;
     private Crew crew;
     private String departurePlace;
     private String arrivalPlace;
-    private Passengers passengers;
+    PassengerList passengerList;
     private  String status;
 
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, Airplane plane, Crew crew, Airport departure, Airport arrival, Passengers passenegers, String status) {
+
+
+
+
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Crew crew, Airport departure, Airport arrival, PassengerList passenegers, String status) {
         this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
-        this.plane=plane;
         this.crew=crew;
-        this.passengers=passenegers;
-        this.departurePlace=departure.getCity();
-        this.arrivalPlace= arrival.getCity();
+        this.passengerList =passenegers;
+        departurePlace=departure.getCity();
+        arrivalPlace= arrival.getCity();
         this.status = status;
     }
 
@@ -38,29 +41,19 @@ public class Flight {
     public void setDepartureTime(LocalDate departureTime) {
         this.departureTime = departureTime;
     }
-
     public void setDeparturePlace(Airport departure) {
         this.departurePlace = departure.getCity();
     }
-
     public void setArrivalPlace(Airport arrival) {
         this.arrivalPlace = arrival.getCity();
     }
 
-    public void setPlane(Airplane plane) {
-        this.plane = plane;
-    }
-
-    public void setCrew(Crew crew) {
-        this.crew = crew;
-    }
-
-    public void setPassengers(Passengers passengers) {
-        this.passengers = passengers;
-    }
-
     public void setNumber(String flightNumber) {
         this.flightNumber = flightNumber;
+    }
+
+    public String getAirplaneIDNumber(){
+        return airplaneIdNumber;
     }
 
     public void setStatus(String status) {
@@ -78,29 +71,14 @@ public class Flight {
     public LocalDate getDepartureTime() {
         return departureTime;
     }
-
     public String getDeparturePlace() {
         return departurePlace;
     }
-
     public String getArrivalPlace() {
         return arrivalPlace;
     }
-
     public String getStatus() {
         return status;
-    }
-
-    public Passengers getPassengers() {
-        return passengers;
-    }
-
-    public Airplane getPlane() {
-        return plane;
-    }
-
-    public Crew getCrew() {
-        return crew;
     }
 
     @Override

@@ -15,8 +15,8 @@ public class AirplaneList {
     public AirplaneList() {
 
         airplaneList = FXCollections.observableArrayList(
-                new Airplane("IDNumber", "model", 20, data1, data2),
-                new Airplane("ose", "one", 20, data1, data2)
+                new Airplane("IDNumber", "model", "20", data1, data2),
+                new Airplane("ose", "one", "20", data1, data2)
         );
 
     }

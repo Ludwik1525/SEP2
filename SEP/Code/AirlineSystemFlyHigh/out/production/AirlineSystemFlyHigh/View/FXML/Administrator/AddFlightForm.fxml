@@ -17,7 +17,7 @@
         <TextField layoutX="181.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
         <TextField layoutX="181.0" layoutY="208.0" prefWidth="218.0" />
         <TextField layoutX="181.0" layoutY="166.0" prefWidth="218.0" />
-        <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#addFlightFormGoBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
+        <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
         <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Add Flight" />
         <Label layoutX="128.0" layoutY="28.0" text="Add Flight Form">
             <font>

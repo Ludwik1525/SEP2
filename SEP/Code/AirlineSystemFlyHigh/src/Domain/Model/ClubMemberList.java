@@ -8,11 +8,11 @@ import java.time.LocalDate;
 public class ClubMemberList {
     private ObservableList<ClubMember> clubMemberList;
 
-    LocalDate date= LocalDate.of(Integer.parseInt("1998"), Integer.parseInt("03"), Integer.parseInt("04"));
+    LocalDate date= LocalDate.of(1998,03,04);
     public ClubMemberList() {
         clubMemberList = FXCollections.observableArrayList(
-                new ClubMember("name","id", "idType", "nationality", date, "phoneNumber", "email", "address", date ),
-                new ClubMember("name","id", "idType", "nationality", date, "phoneNumber", "email", "address", date )
+                new ClubMember("name","id", date, "phoneNumber", "email", "address", date ),
+                new ClubMember("name","id", date, "phoneNumber", "email", "address", date )
         );
 
     }

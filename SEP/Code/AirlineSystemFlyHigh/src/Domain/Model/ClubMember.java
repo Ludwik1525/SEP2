@@ -12,7 +12,7 @@ public class ClubMember  {
     private String address;
     private LocalDate membershipDate;
 
-    public ClubMember(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
+    public ClubMember(String name, String id, LocalDate birthday, String phoneNumber
             , String email,String address, LocalDate membershipDate) {
         this.name=name;
         this.id=id;
@@ -31,6 +31,47 @@ public class ClubMember  {
     public void setMembershipDate(LocalDate membershipDate) {
         this.membershipDate = membershipDate;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
 
     public String getAddress() {
         return address;

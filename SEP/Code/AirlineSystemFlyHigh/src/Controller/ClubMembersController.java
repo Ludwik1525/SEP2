@@ -8,12 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,16 +28,13 @@ public class ClubMembersController implements Initializable {
 
     ClubMemberList clubMemberList;
 
-    @FXML protected TableView<ClubMember> clubMembersTable;
-    @FXML protected TableColumn<ClubMember, String> name;
-    @FXML protected TableColumn<ClubMember, String> id;
-    @FXML protected TableColumn<ClubMember, String> idType;
-    @FXML protected TableColumn<ClubMember, String> nationality;
-    @FXML protected TableColumn<ClubMember, LocalDate> birthday;
-    @FXML protected TableColumn<ClubMember, String> phoneNumber;
-    @FXML protected TableColumn<ClubMember, String> email;
-    @FXML protected TableColumn<ClubMember, String> address;
-    @FXML protected TableColumn<ClubMember, LocalDate> membershipDate;
+    @FXML private TableView<ClubMember> clubMembersTable;
+    @FXML private TableColumn<ClubMember, String> nameColumn;
+    @FXML private TableColumn<ClubMember, LocalDate> birthdayColumn;
+    @FXML private TableColumn<ClubMember, String> phoneNumberColumn;
+    @FXML private TableColumn<ClubMember, String> emailColumn;
+    @FXML private TableColumn<ClubMember, LocalDate> membershipDateColumn;
+    @FXML private TableColumn<ClubMember, String> addressColumn;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
 
@@ -48,30 +46,27 @@ public class ClubMembersController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        name.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("name"));
-        id.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("id"));
-        idType.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("idType"));
-        nationality.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("nationality"));
-        birthday.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("birthday"));
-        phoneNumber.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("phoneNumber"));
-        email.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("email"));
-        address.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("address"));
-        membershipDate.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("membershipDate"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("name"));
+        birthdayColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("birthday"));
+        phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("phoneNumber"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("email"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("address"));
+        membershipDateColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("membershipDate"));
 
         clubMemberList= new ClubMemberList();
         clubMembersTable.setItems(clubMemberList.getClubMembers());
 
-        clubMembersTable.setEditable(true);
-        name.setCellFactory(TextFieldTableCell.forTableColumn());
-        id.setCellFactory(TextFieldTableCell.forTableColumn());
-        idType.setCellFactory(TextFieldTableCell.forTableColumn());
-        nationality.setCellFactory(TextFieldTableCell.forTableColumn());
-        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-        email.setCellFactory(TextFieldTableCell.forTableColumn());
-        address.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        clubMembersTable.getColumns().clear();
-        clubMembersTable.getColumns().addAll(name, id, idType, nationality, birthday, phoneNumber, email, address, membershipDate);
+//        clubMembersTable.setEditable(true);
+//        name.setCellFactory(TextFieldTableCell.forTableColumn());
+//        id.setCellFactory(TextFieldTableCell.forTableColumn());
+//        idType.setCellFactory(TextFieldTableCell.forTableColumn());
+//        nationality.setCellFactory(TextFieldTableCell.forTableColumn());
+//        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+//        email.setCellFactory(TextFieldTableCell.forTableColumn());
+//        address.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        clubMembersTable.getColumns().clear();
+//        clubMembersTable.getColumns().addAll(name, id, idType, nationality, birthday, phoneNumber, email, address, membershipDate);
 
     }
 
@@ -142,5 +137,20 @@ public class ClubMembersController implements Initializable {
         confirmationLabel.setVisible(false);
         forsake.setVisible(false);
         confirm.setVisible(false);
+    }
+
+    public void editButtonPressed() throws IOException {
+        ClubMember selectedMember = clubMembersTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditClubMemberForm.fxml"));
+        loader.load();
+        EditClubMemberController controller = loader.getController();
+        controller.initData(clubMemberList,selectedMember);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit Club Member");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
     }
 }

@@ -51,4 +51,12 @@ public class AddFlightFormController implements Initializable {
 //        stage.close();
 
     }
+
+    public void goBack(ActionEvent actionEvent) {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+    }
+
+    public void register(ActionEvent actionEvent) {
+    }
 }

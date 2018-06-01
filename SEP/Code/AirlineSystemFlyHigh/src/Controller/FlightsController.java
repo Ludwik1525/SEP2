@@ -33,12 +33,12 @@ public class FlightsController implements Initializable {
     @FXML protected TableColumn<Flight, LocalDate> departureTime;
     @FXML protected TableColumn<Flight, LocalDate> arrivalTime;
     @FXML protected TableColumn<Flight, String> airplaneIDNumber;
-    @FXML protected TableColumn<Flight, Crew> crew;
     @FXML protected TableColumn<Flight, String> departurePlace;
     @FXML protected TableColumn<Flight, String> arrivalPlace;
-    @FXML protected TableColumn<Flight, PassengerList> passengers;
     @FXML protected TableColumn<Flight, String> status;
 
+    @FXML protected Button seeCrew;
+    @FXML protected Button seePassengers;
     @FXML
     Label confirmationLabel;
     @FXML Button forsake;
@@ -56,10 +56,8 @@ public class FlightsController implements Initializable {
         departureTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
         arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
         airplaneIDNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("airplaneIdNumber"));
-        crew.setCellValueFactory(new PropertyValueFactory<Flight, Crew>("crew"));
         departurePlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
         arrivalPlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
-        passengers.setCellValueFactory(new PropertyValueFactory<Flight, PassengerList>("passengers"));
         status.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
 
 
@@ -70,7 +68,7 @@ public class FlightsController implements Initializable {
 
 
         flightsTable.getColumns().clear();
-        flightsTable.getColumns().addAll(flightNumber, departureTime, arrivalTime, airplaneIDNumber, crew, departurePlace, arrivalPlace, passengers, status);
+        flightsTable.getColumns().addAll(flightNumber, departureTime, arrivalTime, airplaneIDNumber, departurePlace, arrivalPlace, status);
 
     }
 
@@ -157,5 +155,11 @@ public class FlightsController implements Initializable {
         stage.setTitle("Edit flight");
         stage.setScene(new Scene(window));
         stage.showAndWait();
+    }
+
+    public void seeCrewButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void seePassengersButtonPressed(ActionEvent actionEvent) {
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="editClubMemberPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditClubMemberController">
+<AnchorPane fx:id="editCrewMemberPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditCrewMemberController">
    <children>
       <VBox alignment="TOP_RIGHT" prefHeight="400.0" prefWidth="300.0">
          <children>
@@ -61,7 +61,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="Membership date">
+            <Label text="Position">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -86,6 +86,6 @@
       <TextField fx:id="emailField" layoutX="358.0" layoutY="190.0" />
       <TextField fx:id="addresField" layoutX="358.0" layoutY="230.0" />
       <Button layoutX="419.0" layoutY="344.0" mnemonicParsing="false" onAction="#confirmButtonPressed" text="Confirm" />
-      <DatePicker fx:id="membershipDateField" layoutX="358.0" layoutY="270.0" prefHeight="31.0" prefWidth="187.0" />
+      <TextField fx:id="positionField" layoutX="358.0" layoutY="270.0" />
    </children>
 </AnchorPane>

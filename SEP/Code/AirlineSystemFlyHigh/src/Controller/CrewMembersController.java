@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -56,16 +57,16 @@ public class CrewMembersController implements Initializable {
         crew = new Crew();
         crewMembersTable.setItems(crew.getCrewMembers());
 
-        crewMembersTable.setEditable(true);
-        name.setCellFactory(TextFieldTableCell.forTableColumn());
-        position.setCellFactory(TextFieldTableCell.forTableColumn());
-        address.setCellFactory(TextFieldTableCell.forTableColumn());
-        id.setCellFactory(TextFieldTableCell.forTableColumn());
-        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-        email.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        crewMembersTable.getColumns().clear();
-        crewMembersTable.getColumns().addAll( name, position, address, id, phoneNumber, email, birthday);
+//        crewMembersTable.setEditable(true);
+//        name.setCellFactory(TextFieldTableCell.forTableColumn());
+//        position.setCellFactory(TextFieldTableCell.forTableColumn());
+//        address.setCellFactory(TextFieldTableCell.forTableColumn());
+//        id.setCellFactory(TextFieldTableCell.forTableColumn());
+//        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+//        email.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        crewMembersTable.getColumns().clear();
+//        crewMembersTable.getColumns().addAll( name, position, address, id, phoneNumber, email, birthday);
 
     }
 
@@ -137,5 +138,20 @@ public class CrewMembersController implements Initializable {
         confirmationLabel.setVisible(false);
         forsake.setVisible(false);
         confirm.setVisible(false);
+    }
+
+    public void editButtonPressed() throws IOException {
+        CrewMember selectedCrewMember = crewMembersTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditCrewMemberForm.fxml"));
+        loader.load();
+        EditCrewMemberController controller = loader.getController();
+        controller.initData(selectedCrewMember,crew);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit Crew Member");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
     }
 }

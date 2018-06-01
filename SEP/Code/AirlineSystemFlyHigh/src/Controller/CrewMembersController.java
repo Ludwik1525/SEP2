@@ -57,16 +57,7 @@ public class CrewMembersController implements Initializable {
         crew = new Crew();
         crewMembersTable.setItems(crew.getCrewMembers());
 
-//        crewMembersTable.setEditable(true);
-//        name.setCellFactory(TextFieldTableCell.forTableColumn());
-//        position.setCellFactory(TextFieldTableCell.forTableColumn());
-//        address.setCellFactory(TextFieldTableCell.forTableColumn());
-//        id.setCellFactory(TextFieldTableCell.forTableColumn());
-//        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-//        email.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        crewMembersTable.getColumns().clear();
-//        crewMembersTable.getColumns().addAll( name, position, address, id, phoneNumber, email, birthday);
+        makeFilteredList(crew.getCrewMembers());
 
     }
 

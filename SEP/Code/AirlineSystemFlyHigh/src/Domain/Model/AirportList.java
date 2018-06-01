@@ -10,8 +10,8 @@ public class AirportList {
 
     public AirportList() {
         airportList = FXCollections.observableArrayList(
-                new Airport("code", "name", "city", "postcode", "country", "numberOfGates"),
-                new Airport("code", "name", "city", "postcode", "country", "numberOfGates")
+                new Airport("code", "name", "city", "postcode", "country", 150),
+                new Airport("RandomCode", "othername", "city", "postcode", "country", 190)
         );
 
     }

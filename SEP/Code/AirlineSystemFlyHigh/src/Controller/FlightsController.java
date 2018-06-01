@@ -39,15 +39,14 @@ public class FlightsController implements Initializable {
 
     @FXML protected Button seeCrew;
     @FXML protected Button seePassengers;
-    @FXML
-    Label confirmationLabel;
+    @FXML Label confirmationLabel;
     @FXML Button forsake;
     @FXML Button confirm;
+    @FXML TextField searchField;
 
 
 
     @FXML private Button removeButton;
-    @FXML private TextField searchField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,11 +63,7 @@ public class FlightsController implements Initializable {
         flightList= new FlightList();
         flightsTable.setItems(flightList.getFlights());
 
-
-
-
-        flightsTable.getColumns().clear();
-        flightsTable.getColumns().addAll(flightNumber, departureTime, arrivalTime, airplaneIDNumber, departurePlace, arrivalPlace, status);
+        makeFilteredList(flightList.getFlights());
 
     }
 
@@ -77,7 +72,7 @@ public class FlightsController implements Initializable {
     public void addFlightButtonPressed() throws IOException {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Add New Flights Form");
+        window.setTitle("Add New Flight Form");
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../View/FXML/Administrator/AddFlightForm.fxml")));
         window.setScene(new Scene(loader.load()));
         AddFlightFormController controller = loader.getController();

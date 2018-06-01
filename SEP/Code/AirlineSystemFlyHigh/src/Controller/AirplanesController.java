@@ -55,13 +55,7 @@ public class AirplanesController implements Initializable {
         airplaneList= new AirplaneList();
         airplanesTable.setItems(airplaneList.getAirplanes());
 
-//        airplanesTable.setEditable(true);
-//        IDNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-//        model.setCellFactory(TextFieldTableCell.forTableColumn());
-//        numberOfSeats.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        airplanesTable.getColumns().clear();
-//        airplanesTable.getColumns().addAll(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance);
+        makeFilteredList(airplaneList.getAirplanes());
 
     }
 

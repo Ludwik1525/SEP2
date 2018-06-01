@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -36,7 +37,7 @@ public class AirportsController implements Initializable{
     @FXML protected TableColumn<Airport, String> city;
     @FXML protected TableColumn<Airport, String> postcode;
     @FXML protected TableColumn<Airport, String> country;
-    @FXML protected TableColumn<Airport, String> numberOfGates;
+    @FXML protected TableColumn<Airport, Integer> numberOfGates;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
 
@@ -54,21 +55,13 @@ public class AirportsController implements Initializable{
         city.setCellValueFactory(new PropertyValueFactory<Airport, String>("city"));
         postcode.setCellValueFactory(new PropertyValueFactory<Airport, String>("postcode"));
         country.setCellValueFactory(new PropertyValueFactory<Airport, String>("country"));
-        numberOfGates.setCellValueFactory(new PropertyValueFactory<Airport, String>("numberOfGates"));
+        numberOfGates.setCellValueFactory(new PropertyValueFactory<Airport, Integer>("numberOfGates"));
 
         airportList= new AirportList();
         airportsTable.setItems(airportList.getAirports());
 
-        airportsTable.setEditable(true);
-        code.setCellFactory(TextFieldTableCell.forTableColumn());
-        name.setCellFactory(TextFieldTableCell.forTableColumn());
-        city.setCellFactory(TextFieldTableCell.forTableColumn());
-        postcode.setCellFactory(TextFieldTableCell.forTableColumn());
-        country.setCellFactory(TextFieldTableCell.forTableColumn());
-        numberOfGates.setCellFactory(TextFieldTableCell.forTableColumn());
+        makeFilteredList(airportList.getAirports());
 
-        airportsTable.getColumns().clear();
-        airportsTable.getColumns().addAll(code, name, city, postcode, country, numberOfGates);
 
     }
 
@@ -140,6 +133,22 @@ public class AirportsController implements Initializable{
         confirmationLabel.setVisible(false);
         forsake.setVisible(false);
         confirm.setVisible(false);
+    }
+
+    public void editButtonPressed() throws IOException {
+        Airport selectedAirport = airportsTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/EditAirportForm.fxml"));
+        loader.load();
+        EditAirportController controller = loader.getController();
+        controller.initData(selectedAirport,airportList);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit airport");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
+
     }
 
 }

@@ -56,17 +56,8 @@ public class ClubMembersController implements Initializable {
         clubMemberList= new ClubMemberList();
         clubMembersTable.setItems(clubMemberList.getClubMembers());
 
-//        clubMembersTable.setEditable(true);
-//        name.setCellFactory(TextFieldTableCell.forTableColumn());
-//        id.setCellFactory(TextFieldTableCell.forTableColumn());
-//        idType.setCellFactory(TextFieldTableCell.forTableColumn());
-//        nationality.setCellFactory(TextFieldTableCell.forTableColumn());
-//        phoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-//        email.setCellFactory(TextFieldTableCell.forTableColumn());
-//        address.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        clubMembersTable.getColumns().clear();
-//        clubMembersTable.getColumns().addAll(name, id, idType, nationality, birthday, phoneNumber, email, address, membershipDate);
+        makeFilteredList(clubMemberList.getClubMembers());
+
 
     }
 

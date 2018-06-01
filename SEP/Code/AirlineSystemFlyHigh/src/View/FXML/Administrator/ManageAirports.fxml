@@ -21,10 +21,11 @@
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ManageAirportsGoBack" text="&lt;" />
     <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" onAction="#addAirportButtonPressed" prefHeight="31.0" prefWidth="172.0" text="Add Airport" />
     <Button fx:id="removeButton" layoutX="13.0" layoutY="156.0" mnemonicParsing="false" onAction="#removeAirportButtonPressed" prefHeight="31.0" prefWidth="172.0" text="Remove airport" visible="false" />
-    <TextField fx:id="searchAirports" layoutX="13.0" layoutY="109.0" prefHeight="31.0" prefWidth="172.0" promptText="Search airports" />
+    <TextField fx:id="searchField" layoutX="13.0" layoutY="109.0" prefHeight="31.0" prefWidth="172.0" promptText="Search airports" />
 
     <Button fx:id="confirm" layoutX="14.0" layoutY="248.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefWidth="80.0" text="Confirm" visible="false" />
-    <Button fx:id="forsake" layoutX="103.0" layoutY="248.0" mnemonicParsing="false" onAction="#forsakeButtonPressed" prefHeight="31.0" prefWidth="80.0" text="Forsake" visible="false"/>
-    <Label fx:id="confirmationLabel" layoutX="52.0" layoutY="215.0" text="Are you sure?" visible="false"/>
+    <Button fx:id="forsake" layoutX="103.0" layoutY="248.0" mnemonicParsing="false" onAction="#forsakeButtonPressed" prefHeight="31.0" prefWidth="80.0" text="Forsake" visible="false" />
+    <Label fx:id="confirmationLabel" layoutX="52.0" layoutY="215.0" text="Are you sure?" visible="false" />
+   <Button layoutX="12.0" layoutY="313.0" mnemonicParsing="false" onAction="#editButtonPressed" prefHeight="31.0" prefWidth="172.0" text="Edit" />
 
 </AnchorPane>

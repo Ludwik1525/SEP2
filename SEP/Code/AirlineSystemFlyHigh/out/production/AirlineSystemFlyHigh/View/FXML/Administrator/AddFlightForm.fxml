@@ -11,12 +11,12 @@
         <Label layoutX="29.0" layoutY="88.0" text="Flight Number:" />
         <Label layoutX="29.0" layoutY="131.0" text="Departure Time:" />
         <Label layoutX="29.0" layoutY="171.0" text="Arrival Time:" />
-        <Label layoutX="29.0" layoutY="213.0" text="Departure Place:&quot;" />
+        <Label layoutX="29.0" layoutY="213.0" text="Departure Place:" />
         <Label layoutX="29.0" layoutY="299.0" text="Status:" />
-        <TextField layoutX="181.0" layoutY="87.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="208.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="166.0" prefWidth="218.0" />
+        <TextField fx:id="numberField" layoutX="181.0" layoutY="87.0" prefWidth="218.0" />
+        <TextField fx:id="departureTimeField" layoutX="181.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
+        <TextField fx:id="departurePlaceField" layoutX="181.0" layoutY="208.0" prefWidth="218.0" />
+        <TextField fx:id="arrivalTimeField" layoutX="181.0" layoutY="166.0" prefWidth="218.0" />
         <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
         <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Add Flight" />
         <Label layoutX="128.0" layoutY="28.0" text="Add Flight Form">
@@ -25,7 +25,7 @@
             </font>
         </Label>
         <Label layoutX="29.0" layoutY="255.0" text="Arrival Place:" />
-        <TextField layoutX="181.0" layoutY="250.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="294.0" prefWidth="218.0" />
+        <TextField fx:id="arrivalPlaceField" layoutX="181.0" layoutY="250.0" prefWidth="218.0" />
+        <TextField fx:id="statusField" layoutX="181.0" layoutY="294.0" prefWidth="218.0" />
     </children>
 </AnchorPane>

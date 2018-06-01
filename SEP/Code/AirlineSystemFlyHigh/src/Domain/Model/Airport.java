@@ -6,9 +6,9 @@ public class Airport {
     private String city;
     private String postcode;
     private String country;
-    private String numberOfGates;
+    private int numberOfGates;
 
-    public Airport(String code, String name, String city, String postcode, String country, String numberOfGates) {
+    public Airport(String code, String name, String city, String postcode, String country, int numberOfGates) {
         this.code = code;
         this.name = name;
         this.city = city;
@@ -33,7 +33,7 @@ public class Airport {
         this.country = country;
     }
 
-    public void setNumberOfGates(String numberOfGates) {
+    public void setNumberOfGates(int numberOfGates) {
         this.numberOfGates = numberOfGates;
     }
 
@@ -45,7 +45,7 @@ public class Airport {
         return name;
     }
 
-    public String getNumberOfGates() {
+    public int getNumberOfGates() {
         return numberOfGates;
     }
 

@@ -19,13 +19,13 @@ import java.util.ResourceBundle;
 
 public class AddFlightFormController implements Initializable {
     @FXML AnchorPane anchorPane;
-    @FXML TextField flightNumber;
-    @FXML DatePicker depratureTime;
-    @FXML DatePicker arrivalTime;
-    @FXML TextField departurePlace;
-    @FXML TextField arrivaPlace;
-    @FXML TextField passengers;
-    @FXML TextField status;
+    @FXML TextField numberField;
+    @FXML TextField departureTimeField;
+    @FXML TextField arrivalTimeField;
+    @FXML TextField departurePlaceField;
+    @FXML TextField arrivalPlaceField;
+    @FXML TextField statusField;
+
     ObservableList<Flight> items;
     FlightList flightList= new FlightList();
 
@@ -42,15 +42,14 @@ public class AddFlightFormController implements Initializable {
 
     }
 
-    public void addAirportToTheList(ActionEvent actionEvent) {
-//        items.add(new Flight(flightNumber.getText(), depratureTime.getValue(),arrivalTime.getValue(), departurePlace.getText(), arrivaPlace.getText(), passengers.getText(), status.getText());
-//
+//    public void addAirportToTheList(ActionEvent actionEvent) {
+//        items.add(new Flight(numberField.getText(), departureTimeField.getText(), arrivalTimeField.getText()
+//        , )));
 //        airportList.updateList(items);
-//
 //        Stage stage = (Stage) anchorPane.getScene().getWindow();
 //        stage.close();
-
-    }
+//
+//    }
 
     public void goBack(ActionEvent actionEvent) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();

@@ -2,6 +2,6 @@
 - scrum things
 
 -project report
--sequence diagrams
+-sequence diagram
 -finishing analysis and design diagram
 -tcp connection diagram

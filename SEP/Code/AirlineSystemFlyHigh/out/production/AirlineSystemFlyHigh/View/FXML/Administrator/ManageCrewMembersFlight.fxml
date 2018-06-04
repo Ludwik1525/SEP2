@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageCrewMembersFlightController">
+<AnchorPane fx:id="anchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CrewMembersFlightController">
    <children>
        <TableView fx:id="crewMembersTable" layoutX="219.0" maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" onMouseClicked="#removeButtonAppear" prefHeight="500.0" prefWidth="700.0">
            <columns>

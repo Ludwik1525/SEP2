@@ -22,7 +22,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class ManageCrewMembersFlightController implements Initializable {
+public class CrewMembersFlightController implements Initializable {
 
     Flight flight;
     Crew crew;

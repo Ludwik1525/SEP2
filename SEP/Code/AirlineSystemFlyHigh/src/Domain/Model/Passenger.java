@@ -11,12 +11,12 @@ public class Passenger {
     private LocalDate birthdate;
     private String phoneNumber;
     private String email;
-    private int seatNo;
+    private String seatNo;
     private int luggageSize;
     private String paymentMethod;
 
     public Passenger(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
-            , String email, int seatNo, int luggageSize, String paymentMethod) {
+            , String email, String seatNo, int luggageSize, String paymentMethod) {
         this.name = name;
         this.id = id;
         this.idType = idType;
@@ -36,6 +36,7 @@ public class Passenger {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public void setId(String id) {
         this.id = id;
@@ -87,6 +88,38 @@ public class Passenger {
 
     public String getNationality() {
         return nationality;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public int getLuggageSize() {
+        return luggageSize;
+    }
+
+    public String getSeatNo() {
+        return seatNo;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setLuggageSize(int luggageSize) {
+        this.luggageSize = luggageSize;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setSeatNo(String seatNo) {
+        this.seatNo = seatNo;
     }
 
     public boolean equals(Object object) {

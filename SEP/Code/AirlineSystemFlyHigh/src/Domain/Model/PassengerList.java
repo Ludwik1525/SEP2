@@ -3,13 +3,15 @@ package Domain.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class PassengerList {
     private ObservableList<Passenger> passengers;
-
+    LocalDate date = LocalDate.of(1999,3,5);
     public PassengerList() {
-        this.passengers = FXCollections.observableArrayList();
+        this.passengers = FXCollections.observableArrayList(new Passenger("Dragos","0503992493","CPR"
+                ,"Romania",date,"50265890","dragsirbu@gmail.com","16A",5,"Bank Transfer"));
     }
 
     public void addPassenger(Passenger passenger) {

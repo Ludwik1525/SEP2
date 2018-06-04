@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class Crew {
     private ObservableList<CrewMember> crewMemberList;
-    LocalDate date= LocalDate.of(Integer.parseInt("1999"), Integer.parseInt("02"), Integer.parseInt("03"));
+    LocalDate date= LocalDate.of(1999,02,03);
     public Crew() {
         crewMemberList = FXCollections.observableArrayList(
                 new CrewMember("name", "position","address", "id","phoneNumber",  "email", date),

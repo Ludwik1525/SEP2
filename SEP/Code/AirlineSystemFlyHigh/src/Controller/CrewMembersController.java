@@ -74,7 +74,7 @@ public class CrewMembersController implements Initializable {
         window.showAndWait();
     }
 
-    public void removeAirportButtonPressed() throws IOException {
+    public void removeCrewMemberButtonPressed() throws IOException {
         ObservableList<CrewMember> crewMembers= crew.getCrewMembers();
         ObservableList<CrewMember> selected= crewMembersTable.getSelectionModel().getSelectedItems();
         selected.forEach(crewMembers::remove);

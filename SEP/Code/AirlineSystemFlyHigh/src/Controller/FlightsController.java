@@ -153,8 +153,18 @@ public class FlightsController implements Initializable {
     }
 
     public void seeCrewButtonPressed(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/SeeCrew.fxml"))));
+        Flight selectedFlight = flightsTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/FXML/Administrator/ManageCrewMembersFlight.fxml"));
+        loader.load();
+        ManageCrewMembersFlightController controller = loader.getController();
+        controller.initData(selectedFlight);
+        Parent window = loader.getRoot();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("See crew");
+        stage.setScene(new Scene(window));
+        stage.showAndWait();
     }
 
     public void seePassengersButtonPressed(ActionEvent actionEvent) throws IOException{

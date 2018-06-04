@@ -152,9 +152,13 @@ public class FlightsController implements Initializable {
         stage.showAndWait();
     }
 
-    public void seeCrewButtonPressed(ActionEvent actionEvent) {
+    public void seeCrewButtonPressed(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/SeeCrew.fxml"))));
     }
 
-    public void seePassengersButtonPressed(ActionEvent actionEvent) {
+    public void seePassengersButtonPressed(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/SeePassengers.fxml"))));
     }
 }

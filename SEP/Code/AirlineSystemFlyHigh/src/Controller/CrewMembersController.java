@@ -105,7 +105,7 @@ public class CrewMembersController implements Initializable {
         removeButton.setVisible(true);
     }
 
-    public void GoBack() throws IOException {
+    public void goBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/AdministratorMain.fxml"))));
     }
@@ -144,5 +144,13 @@ public class CrewMembersController implements Initializable {
         stage.setTitle("Edit Crew Member");
         stage.setScene(new Scene(window));
         stage.showAndWait();
+    }
+
+
+    // SEE CREW
+
+    public void seeCrewGoBack(ActionEvent actionEvent)throws IOException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageCrewMembers.fxml"))));
     }
 }

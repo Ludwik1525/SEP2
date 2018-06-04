@@ -200,7 +200,7 @@ public class Controller {
 
     public void ManageAdministratorsButtonController(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageCrewMembers.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../View/FXML/Administrator/ManageAdministrators.fxml"))));
     }
 
 

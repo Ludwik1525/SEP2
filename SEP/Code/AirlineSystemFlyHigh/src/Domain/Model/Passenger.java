@@ -8,23 +8,28 @@ public class Passenger {
     private String id;
     private String idType;
     private String nationality;
-    private LocalDate birthday;
+    private LocalDate birthdate;
     private String phoneNumber;
     private String email;
+    private int seatNo;
+    private int luggageSize;
+    private String paymentMethod;
 
     public Passenger(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
-            , String email) {
+            , String email, int seatNo, int luggageSize, String paymentMethod) {
         this.name = name;
         this.id = id;
         this.idType = idType;
         this.nationality = nationality;
-        this.birthday = birthday;
+        this.birthdate = birthday;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.seatNo=seatNo;
+        this.luggageSize=luggageSize;
+        this.paymentMethod=paymentMethod;
     }
     public Passenger(String name, String id, String nationality, LocalDate birthday, String phoneNumber
             , String email) {
-
 
     }
 
@@ -45,7 +50,7 @@ public class Passenger {
     }
 
     public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+        this.birthdate = birthday;
     }
 
     public void setEmail(String email) {
@@ -73,7 +78,7 @@ public class Passenger {
     }
 
     public LocalDate getBirthday() {
-        return birthday;
+        return birthdate;
     }
 
     public String getPhoneNumber() {

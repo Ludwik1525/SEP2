@@ -19,7 +19,7 @@
             <TableColumn fx:id="position" prefWidth="96.0" text="Position" />
         </columns>
     </TableView>
-    <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoBack" text="&lt;" />
+    <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
     <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" onAction="#addCrewMemberButtonPressed" prefHeight="31.0" prefWidth="173.0" text="Add Crew Member" />
     <Button fx:id="removeButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" onAction="#removeCrewMemberButtonPressed" prefHeight="31.0" prefWidth="173.0" text="Remove Crew Member" visible="false" />
     <TextField layoutX="14.0" layoutY="112.0" prefHeight="31.0" prefWidth="173.0" promptText="Search members"  fx:id="searchField"/>

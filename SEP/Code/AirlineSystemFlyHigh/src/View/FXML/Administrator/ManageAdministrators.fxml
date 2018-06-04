@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.control.Label?>
-<AnchorPane fx:id="anchorPane" prefHeight="403.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
-    <TableView fx:id="flightsTable" layoutX="297.0" prefHeight="400.0" prefWidth="460.0">
+<AnchorPane fx:id="anchorPane" prefHeight="403.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdministratorController">
+    <TableView fx:id="flightsTable" layoutX="225.0" prefHeight="400.0" prefWidth="532.0">
         <columns>
             <TableColumn fx:id="name" text="Name" />
             <TableColumn fx:id="address" text="Address" />
@@ -19,12 +19,12 @@
         </columns>
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
-    <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" text="Add member" />
-    <Button fx:id="removeButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="262.0" text="Remove member" />
-    <TextField layoutX="14.0" layoutY="112.0" prefHeight="31.0" prefWidth="262.0" promptText="Search members" />
+    <Button layoutX="13.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="Add Administrator" />
+    <Button fx:id="removeButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="Remove Administrator" />
+    <TextField layoutX="14.0" layoutY="112.0" prefHeight="31.0" prefWidth="200.0" promptText="Search members" />
 
-    <Button fx:id="confirm" layoutX="14.0" layoutY="248.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefWidth="90.0" text="Confirm" visible="false" />
-    <Button fx:id="forsake" layoutX="124.0" layoutY="248.0" mnemonicParsing="false" onAction="#forsakeButtonPressed" prefHeight="31.0" prefWidth="90.0" text="Forsake" visible="false" />
-    <Label fx:id="confirmationLabel" layoutX="68.0" layoutY="214.0" text="Are you sure?" visible="false" />
+    <Button fx:id="confirm" layoutX="14.0" layoutY="238.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefWidth="90.0" text="Confirm" />
+    <Button fx:id="forsake" layoutX="124.0" layoutY="238.0" mnemonicParsing="false" onAction="#forsakeButtonPressed" prefHeight="31.0" prefWidth="90.0" text="Forsake" />
+    <Label fx:id="confirmationLabel" layoutX="68.0" layoutY="204.0" text="Are you sure?" />
 
 </AnchorPane>

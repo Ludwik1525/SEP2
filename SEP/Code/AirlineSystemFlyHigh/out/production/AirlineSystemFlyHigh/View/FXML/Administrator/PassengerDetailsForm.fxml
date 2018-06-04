@@ -109,7 +109,7 @@
       <TextField fx:id="luggageSizeField" editable="false" layoutX="300.0" layoutY="315.0" prefHeight="30.0" prefWidth="187.0" />
       <TextField fx:id="nationalityField" editable="false" layoutX="300.0" layoutY="135.0" prefHeight="30.0" prefWidth="187.0" />
       <TextField fx:id="birthdateField" editable="false" layoutX="300.0" layoutY="172.0" prefHeight="30.0" prefWidth="187.0" />
-      <TextField fx:id="paymentMethodField" editable="false" layoutX="301.0" layoutY="352.0" />
+      <TextField fx:id="paymentMethodField" editable="false" layoutX="301.0" layoutY="352.0" prefHeight="30.0" prefWidth="187.0" />
       <Button layoutX="265.0" layoutY="405.0" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="31.0" prefWidth="70.0" text="OK" />
    </children>
 </AnchorPane>

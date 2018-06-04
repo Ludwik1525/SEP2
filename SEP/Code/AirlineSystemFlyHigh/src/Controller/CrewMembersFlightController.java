@@ -124,7 +124,10 @@ public class CrewMembersFlightController implements Initializable {
         crew.updateList(crewMembers);
 
     }
-
+    public void goBack(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+    }
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
         confirmationLabel.setVisible(false);
         forsake.setVisible(false);

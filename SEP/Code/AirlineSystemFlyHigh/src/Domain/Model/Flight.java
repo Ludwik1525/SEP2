@@ -16,13 +16,24 @@ public class Flight {
     private PassengerList passengers;
     private  String status;
 
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Crew crew, Airport departure, Airport arrival, PassengerList passenegers, String status) {
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Crew crew, Airport departure, Airport arrival, String status) {
         this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.airplaneIdNumber = airplaneIdNumber;
         this.crew=crew;
-        this.passengers=passenegers;
+        this.passengers= new PassengerList();
+        this.departurePlace=departure.getCity();
+        this.arrivalPlace= arrival.getCity();
+        this.status = status;
+    }
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Airport departure, Airport arrival, String status) {
+        this.flightNumber = flightNumber;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.airplaneIdNumber = airplaneIdNumber;
+        this.crew=new Crew();
+        this.passengers= new PassengerList();
         this.departurePlace=departure.getCity();
         this.arrivalPlace= arrival.getCity();
         this.status = status;

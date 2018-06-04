@@ -15,7 +15,7 @@ public class FlightList {
     public FlightList() {
         System.out.println(passengerList.getPassengers().toString());
         flightList = FXCollections.observableArrayList(
-                new Flight("flightNumber", date1, date1, airplane.getIDNumber(), crew, airport,airport, passengerList, "status")
+                new Flight("flightNumber", date1, date1, airplane.getIDNumber(), crew, airport, airport,  "status")
         );
 
     }

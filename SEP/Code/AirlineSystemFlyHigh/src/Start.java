@@ -17,5 +17,6 @@ public class Start extends Application {
         primaryStage.setTitle("Fly High");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 }

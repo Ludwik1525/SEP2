@@ -24,7 +24,15 @@ public class AirplaneList {
     public ObservableList<Airplane> getAirplanes() {
         return airplaneList;
     }
-
+    public Airplane getAirplane(int i){
+        return airplaneList.get(i);
+    }
+    public int getLength(){
+        return airplaneList.size();
+    }
+    public String getId(int i){
+        return airplaneList.get(i).getIDNumber();
+    }
 
     public void updateList(ObservableList <Airplane> airplane) {
         airplaneList= airplane;

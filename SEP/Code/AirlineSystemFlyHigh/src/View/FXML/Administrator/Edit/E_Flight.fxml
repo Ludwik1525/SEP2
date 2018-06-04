@@ -129,6 +129,17 @@
             <Button fx:id="confirmArrivalPlace" layoutX="275.0" layoutY="204.0" mnemonicParsing="false" onAction="#confirmArrivalPlace" text="Confirm" />
          </children></AnchorPane>
 
+      <AnchorPane fx:id="airplane" layoutX="372.0" layoutY="0.0" prefHeight="391.0" prefWidth="369.0" visible="false">
+         <children>
+            <Label fx:id="one11" layoutX="14.0" layoutY="142.0" text="AirplaneID">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="airplaneId" layoutX="95.0" layoutY="180.0" prefHeight="31.0" prefWidth="180.0" />
+            <Button fx:id="confirmAirplane" layoutX="281.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAirplane" text="Confirm" />
+         </children></AnchorPane>
+
 
 
 

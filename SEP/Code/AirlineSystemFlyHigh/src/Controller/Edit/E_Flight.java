@@ -1,9 +1,6 @@
 package Controller.Edit;
 
-import Domain.Model.Airport;
-import Domain.Model.AirportList;
-import Domain.Model.Flight;
-import Domain.Model.FlightList;
+import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,12 +29,14 @@ public class E_Flight {
 
     @FXML   AnchorPane departureAirport;
     @FXML   AnchorPane arrivalAirport;
+    @FXML   AnchorPane  airplane;
     @FXML   ChoiceBox<String> countryFrom = new ChoiceBox<>();
     @FXML   ChoiceBox<String> airportFrom = new ChoiceBox<>();
     @FXML   ChoiceBox<String> countryTo = new ChoiceBox<>();
     @FXML   ChoiceBox<String> airportTo = new ChoiceBox<>();
+    @FXML   ChoiceBox <String> airplaneId = new ChoiceBox<>();
 
-
+    AirplaneList airplaneList= new AirplaneList();
     AirportList airportList = new AirportList();
 
 
@@ -65,11 +64,8 @@ public class E_Flight {
     }
 
     public void showAirplanes(ActionEvent actionEvent) {
-//        changeAirport.setVisible(false);
-//        chooseDeparturePlace.setVisible(false);
-//        chooseArrivalPlace.setVisible(false);
-//        changeAirplane.setVisible(true);
-
+            airplane.setVisible(true);
+            getAirplanes();
     }
 
     public void showArrivalAirports(ActionEvent actionEvent) {
@@ -134,5 +130,16 @@ public class E_Flight {
                 return airportList.getAirport(i);
             }
         }return null;
+    }
+
+    public void confirmAirplane(ActionEvent actionEvent) {
+    }
+
+    public void getAirplanes() {
+        for (int i = 0; i < airplaneList.getLength(); i++) {
+            airplaneId.getItems().add(airplaneList.getId(i));
+        }
+        airplaneId.getSelectionModel().select(0);
+
     }
 }

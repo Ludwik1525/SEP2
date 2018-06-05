@@ -1,6 +1,7 @@
 package Domain.Model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Flight {
@@ -11,32 +12,37 @@ public class Flight {
     private Airplane plane;
     private String airplaneIdNumber;
     private Crew crew;
-    private String departurePlace;
-    private String arrivalPlace;
+    private Airport departurePlace;
+    private Airport arrivalPlace;
     private PassengerList passengers;
     private  String status;
+    private Double price;
 
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Crew crew, Airport departure, Airport arrival, String status) {
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
+            , Crew crew, Airport departure, Airport arrival, String status, Double price) {
         this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.airplaneIdNumber = airplaneIdNumber;
         this.crew=crew;
         this.passengers= new PassengerList();
-        this.departurePlace=departure.getCity();
-        this.arrivalPlace= arrival.getCity();
+        this.departurePlace=departure;
+        this.arrivalPlace= arrival;
         this.status = status;
+        this.price = price;
     }
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber, Airport departure, Airport arrival, String status) {
+    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
+            , Airport departure, Airport arrival, String status, Double price) {
         this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.airplaneIdNumber = airplaneIdNumber;
         this.crew=new Crew();
         this.passengers= new PassengerList();
-        this.departurePlace=departure.getCity();
-        this.arrivalPlace= arrival.getCity();
+        this.departurePlace=departure;
+        this.arrivalPlace= arrival;
         this.status = status;
+        this.price = price;
     }
 
     public Flight() {
@@ -52,11 +58,11 @@ public class Flight {
     }
 
     public void setDeparturePlace(Airport departure) {
-        this.departurePlace = departure.getCity();
+        this.departurePlace = departure;
     }
 
     public void setArrivalPlace(Airport arrival) {
-        this.arrivalPlace = arrival.getCity();
+        this.arrivalPlace = arrival;
     }
 
     public void setAirplaneIdNumber(String airplaneIdNumber) {
@@ -75,12 +81,16 @@ public class Flight {
         this.passengers = passengers;
     }
 
-    public void setNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
     public String getFlightNumber() {
@@ -95,11 +105,11 @@ public class Flight {
         return departureTime;
     }
 
-    public String getDeparturePlace() {
+    public Airport getDeparturePlace() {
         return departurePlace;
     }
 
-    public String getArrivalPlace() {
+    public Airport getArrivalPlace() {
         return arrivalPlace;
     }
 
@@ -121,6 +131,10 @@ public class Flight {
 
     public String getAirplaneIdNumber() {
         return airplaneIdNumber;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     @Override

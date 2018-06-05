@@ -65,6 +65,10 @@ public class Airport {
         return postcode;
     }
 
+    public String getShortInfo() {
+        return getCity()+", "+getName();
+    }
+
     @Override
     public String toString() {
         return "Name: "+getName()+"; Code: "+getCode()+"; Country: "+getCountry()+"; City: "+getCity()+"; Postcode: "

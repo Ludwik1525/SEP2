@@ -1,7 +1,3 @@
 - process report
-- scrum things
-
--project report
--sequence diagram
--finishing analysis and design diagram
--tcp connection diagram
+- project report
+- finishing analysis and design diagram

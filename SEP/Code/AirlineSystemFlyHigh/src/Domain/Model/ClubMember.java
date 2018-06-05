@@ -1,6 +1,7 @@
 package Domain.Model;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 public class ClubMember  {
@@ -10,17 +11,18 @@ public class ClubMember  {
     private String phoneNumber;
     private String email;
     private String address;
-    private LocalDate membershipDate;
+    private LocalDate membershipDate= LocalDate.now();
+    private boolean subscription;
 
     public ClubMember(String name, String id, LocalDate birthday, String phoneNumber
-            , String email,String address, LocalDate membershipDate) {
+            , String email,String address, boolean subscription) {
         this.name=name;
         this.id=id;
         this.birthday=birthday;
         this.phoneNumber=phoneNumber;
         this.email=email;
         this.address = address;
-        this.membershipDate = membershipDate;
+        this.subscription=subscription;
     }
 
 

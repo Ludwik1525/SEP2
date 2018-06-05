@@ -11,8 +11,8 @@ public class ClubMemberList {
     LocalDate date= LocalDate.of(1998,03,04);
     public ClubMemberList() {
         clubMemberList = FXCollections.observableArrayList(
-                new ClubMember("name","id", date, "phoneNumber", "email", "address", date ),
-                new ClubMember("name","id", date, "phoneNumber", "email", "address", date )
+                new ClubMember("name","id", date, "phoneNumber", "email", "address",  true ),
+                new ClubMember("name","id", date, "phoneNumber", "email", "address",  false )
         );
 
     }

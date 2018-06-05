@@ -10,15 +10,15 @@
 <AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
     <children>
         <Label layoutX="29.0" layoutY="89.0" text="Name:" />
-        <Label layoutX="29.0" layoutY="145.0" text="Address:" />
-        <Label layoutX="29.0" layoutY="197.0" text="Birthdate:" />
-        <Label layoutX="29.0" layoutY="249.0" text="ID number:" />
-        <Label layoutX="29.0" layoutY="298.0" text="Phone Number:" />
+        <Label layoutX="29.0" layoutY="130.0" text="Address:" />
+        <Label layoutX="29.0" layoutY="172.0" text="Birthdate:" />
+        <Label layoutX="29.0" layoutY="216.0" text="ID number:" />
+        <Label layoutX="29.0" layoutY="257.0" text="Phone Number:" />
         <TextField layoutX="181.0" layoutY="88.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="144.0" prefHeight="31.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="248.0" prefWidth="218.0" />
-        <TextField layoutX="181.0" layoutY="297.0" prefWidth="218.0" />
-        <DatePicker layoutX="181.0" layoutY="196.0" prefHeight="31.0" prefWidth="218.0" />
+        <TextField layoutX="181.0" layoutY="129.0" prefHeight="31.0" prefWidth="218.0" />
+        <TextField layoutX="181.0" layoutY="215.0" prefWidth="218.0" />
+        <TextField layoutX="181.0" layoutY="256.0" prefWidth="218.0" />
+        <DatePicker layoutX="181.0" layoutY="171.0" prefHeight="31.0" prefWidth="218.0" />
         <Button cancelButton="true" layoutX="29.0" layoutY="353.0" mnemonicParsing="false" onAction="#RegistrationGoBack" prefHeight="50.0" prefWidth="170.0" text="Back" />
         <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="170.0" text="Register" />
         <Label layoutX="108.0" layoutY="29.0" text="Registration Form">
@@ -26,5 +26,7 @@
                 <Font name="System Bold" size="25.0" />
             </font>
         </Label>
+      <Label layoutX="31.0" layoutY="305.0" text="Email:" />
+      <TextField layoutX="181.0" layoutY="300.0" prefWidth="218.0" />
     </children>
 </AnchorPane>

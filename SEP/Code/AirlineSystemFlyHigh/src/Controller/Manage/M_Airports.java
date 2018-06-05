@@ -128,7 +128,6 @@ public class M_Airports implements Initializable{
         selected.forEach(airports::remove);
         makeFilteredList(airports);
         airportList.updateList(airports);
-
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {

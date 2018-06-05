@@ -8,11 +8,11 @@ public class CrewMember {
     private String position;
     private String address;
     private String id;
-    private String phoneNumber;
+    private int phoneNumber;
     private String email;
     private LocalDate birthdate;
 
-    public CrewMember(String name, String position, String address, String id, String phoneNumber, String email,LocalDate birthdate) {
+    public CrewMember(String name, String position, String address, String id, int phoneNumber, String email,LocalDate birthdate) {
         this.name = name;
         this.position = position;
         this.address = address;
@@ -26,7 +26,7 @@ public class CrewMember {
 
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -54,7 +54,7 @@ public class CrewMember {
         this.position = position;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 

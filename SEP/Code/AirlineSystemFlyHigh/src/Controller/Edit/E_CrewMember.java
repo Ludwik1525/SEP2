@@ -36,7 +36,7 @@ public class E_CrewMember implements Initializable {
         nameField.setText(crewMember.getName());
         idField.setText(crewMember.getId());
         birthdayField.setValue(crewMember.getBirthdate());
-        phoneNumberField.setText(crewMember.getPhoneNumber());
+        phoneNumberField.setText(String.valueOf(crewMember.getPhoneNumber()));
         emailField.setText(crewMember.getEmail());
         addresField.setText(crewMember.getAddress());
         positionField.setText(crewMember.getPosition());
@@ -51,7 +51,7 @@ public class E_CrewMember implements Initializable {
     public void confirmButtonPressed() {
         crewMembers.remove(crewMember);
         crewMembers.add(new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
-                , idField.getText(),phoneNumberField.getText(), emailField.getText(), birthdayField.getValue()));
+                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue()));
         crew.updateList(crewMembers);
         Stage stage = (Stage) editCrewMemberPanel.getScene().getWindow();
         stage.close();

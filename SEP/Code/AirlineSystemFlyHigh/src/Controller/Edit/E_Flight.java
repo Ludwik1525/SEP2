@@ -44,9 +44,9 @@ public class E_Flight {
         this.flight = flight;
         this.flightList = flightList;
         this.flights = flightList.getFlights();
-        flightNumberField.setText(this.flight.getFlightNumber());
-        arrivalPlaceField.setText(flight.getArrivalPlace().getShortInfo());
-        departurePlaceField.setText(flight.getDeparturePlace().getShortInfo());
+        flightNumberField.setText(String.valueOf(this.flight.getFlightNumber()));
+        arrivalPlaceField.setText(flight.getArrivalPlace());
+        departurePlaceField.setText(flight.getDeparturePlace());
         departureTimeField.setValue(flight.getDepartureTime());
         arrivalTimeField.setValue(flight.getArrivalTime());
         planeField.setText(flight.getAirplaneIdNumber());
@@ -114,13 +114,13 @@ public class E_Flight {
     public void confirmDeparturePlace(ActionEvent actionEvent) {
         String country= countryFrom.getValue();
         String airport= airportFrom.getValue();
-        flight.setDeparturePlace(findAirport(country, airport));
+        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
 // change old flight to the new one in the flight list
     }
     public void confirmArrivalPlace(ActionEvent actionEvent) {
         String country= countryFrom.getValue();
         String airport= airportFrom.getValue();
-        flight.setDeparturePlace(findAirport(country, airport));
+        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
 // change old flight to the new one in the flight list
     }
     public Airport findAirport(String country, String airport){

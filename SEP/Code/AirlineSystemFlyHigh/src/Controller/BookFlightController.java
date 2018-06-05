@@ -62,8 +62,8 @@ public class BookFlightController implements Initializable{
         ObservableList<Flight> flights = FXCollections.observableArrayList();
         for (int i = 0; i <flightList.getFlights().size() ; i++) {
             if ((flightList.getFlights().get(i).getArrivalTime().equals(departureDate))
-                    && (flightList.getFlights().get(i).getDeparturePlace().getShortInfo().equals(departurePlace))
-                    &&(flightList.getFlights().get(i).getArrivalPlace().getShortInfo().equals(arrivalPlace))) {
+                    && (flightList.getFlights().get(i).getDeparturePlace().equals(departurePlace))
+                    &&(flightList.getFlights().get(i).getArrivalPlace().equals(arrivalPlace))) {
                 flights.add(flightList.getFlights().get(i));
             }
         }

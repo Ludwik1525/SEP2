@@ -45,9 +45,9 @@ public class PassengersFormController implements Initializable {
         idNumberField.setText(passenger.getId());
         nationalityField.setText(passenger.getNationality());
         birthdateField.setText(passenger.getBirthday().toString());
-        phoneNumberField.setText(passenger.getPhoneNumber());
+        phoneNumberField.setText(String.valueOf(passenger.getPhoneNumber()));
         emailField.setText(passenger.getEmail());
-        seatNumberField.setText(passenger.getSeatNo());
+        seatNumberField.setText(String.valueOf(passenger.getSeatNo()));
         luggageSizeField.setText(passenger.getLuggageSize()+"");
         paymentMethodField.setText(passenger.getPaymentMethod());
     }

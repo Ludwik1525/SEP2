@@ -122,13 +122,13 @@ public class A_Flight implements Initializable {
     public void confirmDeparturePlace(ActionEvent actionEvent) {
         String country= countryFrom.getValue();
         String airport= airportFrom.getValue();
-        flight.setDeparturePlace(findAirport(country, airport));
+        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
 // change old flight to the new one in the flight list
     }
     public void confirmArrivalPlace(ActionEvent actionEvent) {
         String country= countryFrom.getValue();
         String airport= airportFrom.getValue();
-        flight.setDeparturePlace(findAirport(country, airport));
+        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
 // change old flight to the new one in the flight list
     }
     public Airport findAirport(String country, String airport){

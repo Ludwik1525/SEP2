@@ -6,48 +6,49 @@ import java.util.Date;
 
 public class Flight {
 
-    private String flightNumber;
+    private int flightNumber;
     private LocalDate departureTime;
     private LocalDate arrivalTime;
     private Airplane plane;
     private String airplaneIdNumber;
     private Crew crew;
-    private Airport departurePlace;
-    private Airport arrivalPlace;
+    private String departurePlace;
+    private String arrivalPlace;
     private PassengerList passengers;
     private  String status;
     private Double price;
 
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
-            , Crew crew, Airport departure, Airport arrival, String status, Double price) {
+
+//    public Flight(int flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
+//            , Crew crew, String departure, String arrival, String status, Double price) {
+//        this.flightNumber = flightNumber;
+//        this.departureTime = departureTime;
+//        this.arrivalTime = arrivalTime;
+//        this.airplaneIdNumber = airplaneIdNumber;
+//        this.crew=crew;
+//        this.passengers= new PassengerList();
+//        this.departurePlace=departure;
+//        this.arrivalPlace= arrival;
+//        this.status = status;
+//        this.price = price;
+//    }
+    public Flight(int flightNumber, LocalDate departureDate, LocalDate arrivalDate, String airplaneIdNumber
+            , String departure, String arrival, String status, double price) {
         this.flightNumber = flightNumber;
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
+        this.departureTime = departureDate;
+        this.arrivalTime = arrivalDate;
         this.airplaneIdNumber = airplaneIdNumber;
-        this.crew=crew;
-        this.passengers= new PassengerList();
-        this.departurePlace=departure;
-        this.arrivalPlace= arrival;
-        this.status = status;
-        this.price = price;
-    }
-    public Flight(String flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
-            , Airport departure, Airport arrival, String status, Double price) {
-        this.flightNumber = flightNumber;
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
-        this.airplaneIdNumber = airplaneIdNumber;
-        this.crew=new Crew();
-        this.passengers= new PassengerList();
+       // this.crew=new Crew();
+     //   this.passengers= new PassengerList();
         this.departurePlace=departure;
         this.arrivalPlace= arrival;
         this.status = status;
         this.price = price;
     }
 
-    public Flight() {
-
-    }
+//    public Flight() {
+//
+//    }
 
     public void setArrivalTime(LocalDate arrivalTime) {
         this.arrivalTime = arrivalTime;
@@ -57,11 +58,11 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
-    public void setDeparturePlace(Airport departure) {
+    public void setDeparturePlace(String departure) {
         this.departurePlace = departure;
     }
 
-    public void setArrivalPlace(Airport arrival) {
+    public void setArrivalPlace(String arrival) {
         this.arrivalPlace = arrival;
     }
 
@@ -89,11 +90,11 @@ public class Flight {
         this.price = price;
     }
 
-    public void setFlightNumber(String flightNumber) {
+    public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
     }
 
-    public String getFlightNumber() {
+    public int getFlightNumber() {
         return flightNumber;
     }
 
@@ -105,11 +106,11 @@ public class Flight {
         return departureTime;
     }
 
-    public Airport getDeparturePlace() {
+    public String getDeparturePlace() {
         return departurePlace;
     }
 
-    public Airport getArrivalPlace() {
+    public String getArrivalPlace() {
         return arrivalPlace;
     }
 

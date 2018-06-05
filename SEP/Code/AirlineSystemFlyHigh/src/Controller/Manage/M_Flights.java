@@ -100,7 +100,7 @@ public class M_Flights implements Initializable {
                 if(newValue==null||newValue.isEmpty()){
                     return true;
                 }
-                if(flight.getFlightNumber().toLowerCase().contains(newValue.toLowerCase())){
+                if(String.valueOf(flight.getFlightNumber()).toLowerCase().contains(newValue.toLowerCase())){
                     return true;
                 }
                 return false;

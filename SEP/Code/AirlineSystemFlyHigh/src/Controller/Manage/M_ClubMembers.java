@@ -36,6 +36,7 @@ public class M_ClubMembers implements Initializable {
     @FXML private TableColumn<ClubMember, String> emailColumn;
     @FXML private TableColumn<ClubMember, LocalDate> membershipDateColumn;
     @FXML private TableColumn<ClubMember, String> addressColumn;
+//    @FXML private TableColumn<ClubMember, String> sub;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
 
@@ -54,6 +55,7 @@ public class M_ClubMembers implements Initializable {
         emailColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("email"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("address"));
         membershipDateColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("membershipDate"));
+       // sub.setCellFactory(new PropertyValueFactory<ClubMember, String>("Subscription"));
 
         clubMemberList= new ClubMemberList();
         clubMembersTable.setItems(clubMemberList.getClubMembers());

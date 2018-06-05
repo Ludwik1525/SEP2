@@ -6,20 +6,21 @@ public class ClubMember  {
     private String name;
     private String id;
     private LocalDate birthdate;
-    private String phoneNumber;
+    private int phoneNumber;
     private String email;
     private String address;
     private LocalDate membershipDate= LocalDate.now();
-    private LocalDate subscription;
+    private boolean subscription;
 
-    public ClubMember(String name, String id, LocalDate birthday, String phoneNumber
-            , String email,String address, LocalDate subscription) {
+    public ClubMember(String name, String id, LocalDate birthday, int phoneNumber
+            , String email,String address, LocalDate membershipDate, boolean subscription) {
         this.name=name;
         this.id=id;
         this.birthdate =birthday;
         this.phoneNumber=phoneNumber;
         this.email=email;
         this.address = address;
+        this.membershipDate=membershipDate;
         this.subscription=subscription;
     }
 
@@ -44,7 +45,7 @@ public class ClubMember  {
         this.id = id;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -68,7 +69,7 @@ public class ClubMember  {
         return birthdate;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 

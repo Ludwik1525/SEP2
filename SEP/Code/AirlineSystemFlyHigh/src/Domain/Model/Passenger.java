@@ -9,14 +9,14 @@ public class Passenger {
     private String idType;
     private String nationality;
     private LocalDate birthdate;
-    private String phoneNumber;
+    private int phoneNumber;
     private String email;
-    private String seatNo;
+    private int seatNo;
     private int luggageSize;
     private String paymentMethod;
 
-    public Passenger(String name, String id, String idType, String nationality, LocalDate birthday, String phoneNumber
-            , String email, String seatNo, int luggageSize, String paymentMethod) {
+    public Passenger(String name, String id, String idType, String nationality, LocalDate birthday, int phoneNumber
+            , String email, int seatNo, int luggageSize, String paymentMethod) {
         this.name = name;
         this.id = id;
         this.idType = idType;
@@ -58,7 +58,7 @@ public class Passenger {
         this.email = email;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -82,7 +82,7 @@ public class Passenger {
         return birthdate;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -98,7 +98,7 @@ public class Passenger {
         return luggageSize;
     }
 
-    public String getSeatNo() {
+    public int getSeatNo() {
         return seatNo;
     }
 
@@ -118,7 +118,7 @@ public class Passenger {
         this.paymentMethod = paymentMethod;
     }
 
-    public void setSeatNo(String seatNo) {
+    public void setSeatNo(int seatNo) {
         this.seatNo = seatNo;
     }
 

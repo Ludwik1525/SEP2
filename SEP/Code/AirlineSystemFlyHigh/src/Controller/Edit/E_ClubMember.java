@@ -1,5 +1,6 @@
 package Controller.Edit;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.ClubMember;
 import Domain.Model.ClubMemberList;
 import javafx.collections.ObservableList;
@@ -24,6 +25,8 @@ public class E_ClubMember implements Initializable {
     @FXML TextField addresField;
     @FXML DatePicker membershipDateField;
 
+    DatabaseAdapter adapter= new DatabaseAdapter();
+
     private ClubMemberList clubMemberList;
     private ClubMember member;
     private ObservableList<ClubMember> members;
@@ -40,7 +43,7 @@ public class E_ClubMember implements Initializable {
         nameField.setText(member.getName());
         idField.setText(member.getId());
         birthdayField.setValue(member.getBirthday());
-        phoneNumberField.setText(member.getPhoneNumber());
+        phoneNumberField.setText(String.valueOf(member.getPhoneNumber()));
         emailField.setText(member.getEmail());
         addresField.setText(member.getAddress());
         membershipDateField.setValue(member.getMembershipDate());
@@ -48,11 +51,14 @@ public class E_ClubMember implements Initializable {
 
     public void confirmButtonPressed() {
         members.remove(member);
-//        members.add(new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
-//                , phoneNumberField.getText(), emailField.getText(), addresField.getText()
-//                , membershipDateField.getValue()));
+        ClubMember temp = new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
+                , Integer.parseInt(phoneNumberField.getText()), emailField.getText(), addresField.getText()
+                , membershipDateField.getValue(), true);
+        adapter.updateClubMembers(temp);
+       members.add(temp);
         clubMemberList.updateList(members);
         Stage stage = (Stage) editClubMemberPanel.getScene().getWindow();
+
         stage.close();
     }
 

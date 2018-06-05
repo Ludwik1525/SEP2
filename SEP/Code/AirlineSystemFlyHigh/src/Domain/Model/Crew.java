@@ -1,5 +1,6 @@
 package Domain.Model;
 
+import Domain.Mediator.DatabaseAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -7,12 +8,10 @@ import java.time.LocalDate;
 
 public class Crew {
     private ObservableList<CrewMember> crewMemberList;
-    LocalDate date= LocalDate.of(1999,02,03);
+    DatabaseAdapter adapter= new DatabaseAdapter();
+
     public Crew() {
-        crewMemberList = FXCollections.observableArrayList(
-                new CrewMember("name", "position","address", "id","phoneNumber",  "email", date),
-                new CrewMember("name", "position","address", "id","phoneNumber",  "email", date)
-        );
+        crewMemberList = adapter.loadCrewMembers();
 
     }
 

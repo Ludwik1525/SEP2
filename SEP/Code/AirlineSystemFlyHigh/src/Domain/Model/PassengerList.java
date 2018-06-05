@@ -1,5 +1,6 @@
 package Domain.Model;
 
+import Domain.Mediator.DatabaseAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -8,12 +9,10 @@ import java.util.ArrayList;
 
 public class PassengerList {
     private ObservableList<Passenger> passengers;
-    LocalDate date = LocalDate.of(1999,3,5);
+    DatabaseAdapter adapter;
+
     public PassengerList() {
-        this.passengers = FXCollections.observableArrayList(
-         new Passenger("Dragos","0503992493","CPR","Romania",date,"50265890","dragsirbu@gmail.com","16A",5,"Bank Transfer"),
-                new Passenger("NotDragos","0503992493","CPR","Romania",date,"50265890","notdragsirbu@gmail.com","16A",3,"Bank Transfer")
-        );
+        this.passengers = adapter.loadPassengers();
     }
 
     public void addPassenger(Passenger passenger) {

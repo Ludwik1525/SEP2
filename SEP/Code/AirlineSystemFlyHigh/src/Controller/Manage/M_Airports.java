@@ -2,6 +2,7 @@ package Controller.Manage;
 
 
 import Controller.Edit.E_Airport;
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import javafx.collections.ObservableList;
@@ -62,8 +63,6 @@ public class M_Airports implements Initializable{
         airportsTable.setItems(airportList.getAirports());
 
         makeFilteredList(airportList.getAirports());
-
-
     }
 
     //Associate data with column

@@ -9,13 +9,13 @@ public class AirportList {
 
     public AirportList() {
         airportList = FXCollections.observableArrayList(
-                new Airport("code", "name", "city1", "postcode", "country1", 150),
-                new Airport("one", "othername", "city2", "postcode", "country2", 190),
-                new Airport("two", "othername", "city3", "postcode", "country3", 190),
-                new Airport("lol", "othername", "city4", "postcode", "country4", 190),
-                new Airport("RandomCode", "othername", "city5", "postcode", "country5", 190),
-                new Airport("RandomCode", "othername", "city6", "postcode", "country6", 190),
-                new Airport("RandomCode", "othername", "city7", "postcode", "country7", 190)
+                new Airport("LCY", "London City Airport", "London", "postcode", "England", 150),
+                new Airport("ARN", "Arlanda Airport", "Stockholm", "postcode", "Sweden", 190),
+                new Airport("CPH", "Copenhagen Airport", "Copenhagen", "postcode", "Denmark", 190),
+                new Airport("OSL", "Oslo Airport", "Oslo", "postcode", "Norway", 190),
+                new Airport("HLS", "HLS Airport", "Helsinki", "postcode", "Finland", 190),
+                new Airport("BRL", "Berlin Airport", "Berlin", "postcode", "Germany", 190),
+                new Airport("PRS", "Paris Airport", "Paris", "postcode", "France", 190)
         );
 
     }

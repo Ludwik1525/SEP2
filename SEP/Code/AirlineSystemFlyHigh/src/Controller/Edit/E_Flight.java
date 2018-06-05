@@ -45,8 +45,8 @@ public class E_Flight {
         this.flightList = flightList;
         this.flights = flightList.getFlights();
         flightNumberField.setText(this.flight.getFlightNumber());
-        arrivalPlaceField.setText(flight.getArrivalPlace());
-        departurePlaceField.setText(flight.getDeparturePlace());
+        arrivalPlaceField.setText(flight.getArrivalPlace().getShortInfo());
+        departurePlaceField.setText(flight.getDeparturePlace().getShortInfo());
         departureTimeField.setValue(flight.getDepartureTime());
         arrivalTimeField.setValue(flight.getArrivalTime());
         planeField.setText(flight.getAirplaneIdNumber());
@@ -64,8 +64,8 @@ public class E_Flight {
     }
 
     public void showAirplanes(ActionEvent actionEvent) {
-            airplane.setVisible(true);
-            getAirplanes();
+        airplane.setVisible(true);
+        getAirplanes();
     }
 
     public void showArrivalAirports(ActionEvent actionEvent) {

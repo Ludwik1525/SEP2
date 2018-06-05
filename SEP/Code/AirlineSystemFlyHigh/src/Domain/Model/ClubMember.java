@@ -10,10 +10,10 @@ public class ClubMember  {
     private String email;
     private String address;
     private LocalDate membershipDate= LocalDate.now();
-    private boolean subscription;
+    private LocalDate subscription;
 
     public ClubMember(String name, String id, LocalDate birthday, String phoneNumber
-            , String email,String address, boolean subscription) {
+            , String email,String address, LocalDate subscription) {
         this.name=name;
         this.id=id;
         this.birthdate =birthday;

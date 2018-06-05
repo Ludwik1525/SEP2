@@ -4,21 +4,20 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="540.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Manage.M_UserMain">
+<AnchorPane fx:id="anchorPane" maxHeight="400.0" maxWidth="875.0" minHeight="400.0" minWidth="875.0" prefHeight="400.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Manage.M_UserMain">
     <children>
         <VBox layoutX="1.0" prefHeight="400.0" prefWidth="180.0">
             <children>
-                <Button mnemonicParsing="false" onMouseClicked="#getAirports" prefHeight="50.0" prefWidth="184.0" text="Flights (Click Me!)" />
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="184.0" text="Flights (Click Me!)" />
                 <Button disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="184.0" text="Hotels" />
                 <Button disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="184.0" text="Cars" />
                 <Label alignment="CENTER" prefHeight="50.0" prefWidth="184.0" text="Best Deals" />
@@ -37,88 +36,54 @@
                 </ListView>
             </children>
         </VBox>
-        <AnchorPane layoutX="180.0" prefHeight="401.0" prefWidth="610.0">
+        <AnchorPane layoutX="231.0" prefHeight="401.0" prefWidth="610.0">
             <children>
-                <Label fx:id="one" layoutX="24.0" layoutY="29.0" text="From:">
+                <Label fx:id="one" layoutX="65.0" layoutY="31.0" text="From">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font></Label>
+                <Label layoutX="65.0" layoutY="115.0" text="To">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font></Label>
+                <Label layoutX="15.0" layoutY="201.0" text="Departure Date">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label layoutX="24.0" layoutY="115.0" text="To:">
+                <Label fx:id="returnDateLabel" layoutX="45.0" layoutY="243.0" text="Return Date" visible="false">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label layoutX="28.0" layoutY="216.0" text="Departure date: ">
-                    <font>
-                        <Font size="18.0" />
-                    </font></Label>
-                <Label fx:id="returnDateLabel" layoutX="24.0" layoutY="298.0" text="Return Date:" visible="false">
-                    <font>
-                        <Font size="18.0" />
-                    </font></Label>
-                <CheckBox layoutX="24.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#ReturnDateChangeVisibility" text="Both ways">
+                <CheckBox layoutX="402.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#ReturnDateChangeVisibility" text="Both ways">
                     <font>
                         <Font size="18.0" />
                     </font></CheckBox>
-                <ChoiceBox fx:id="countryFrom" layoutX="119.0" layoutY="29.0" prefHeight="31.0" prefWidth="180.0" />
-                <ChoiceBox fx:id="airportFrom" layoutX="119.0" layoutY="68.0" prefHeight="31.0" prefWidth="180.0" />
-                <ChoiceBox fx:id="countryTo" layoutX="119.0" layoutY="115.0" prefHeight="31.0" prefWidth="180.0" />
-                <ChoiceBox fx:id="airportTo" layoutX="119.0" layoutY="158.0" prefHeight="31.0" prefWidth="180.0" />
+                <ComboBox fx:id="countryFrom" layoutX="150.0" layoutY="29.0" onAction="#initAirportsFrom" prefHeight="31.0" prefWidth="200.0" />
+                <ComboBox fx:id="airportFrom" layoutX="150.0" layoutY="71.0" prefHeight="31.0" prefWidth="200.0" visible="false" />
+                <ComboBox fx:id="countryTo" layoutX="150.0" layoutY="113.0" onAction="#initAirportsTo" prefHeight="31.0" prefWidth="200.0" />
+                <ComboBox fx:id="airportTo" layoutX="150.0" layoutY="156.0" prefHeight="31.0" prefWidth="200.0" visible="false" />
 
 
 
-                <DatePicker layoutX="171.0" layoutY="212.0" />
-                <DatePicker fx:id="returnDatePicker" layoutX="167.0" layoutY="296.0" visible="false" />
-                <Button cancelButton="true" layoutX="240.0" layoutY="356.0" mnemonicParsing="false" onAction="#UserMainGoBack" text="&lt;" />
-                <Button fx:id="bookFlight" layoutX="292.0" layoutY="356.0" mnemonicParsing="false" onAction="#bookFlightButtonPressed" text="Book flight" />
-            <Button fx:id="chooseCountryFrom" layoutX="319.0" layoutY="29.0" mnemonicParsing="false" onAction="#filterAirportsFrom" text="Choose" />
-                <Button fx:id="chooseCountryTo" layoutX="319.0" layoutY="115.0" mnemonicParsing="false" onAction="#filterAirportsTo" text="Choose" />
-            <Label fx:id="one1" layoutX="24.0" layoutY="68.0" text="Airport:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="one11" layoutX="24.0" layoutY="158.0" text="Airport:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+                <DatePicker fx:id="departureDateField" layoutX="150.0" layoutY="199.0" prefHeight="31.0" prefWidth="200.0" />
+                <DatePicker fx:id="returnDateField" layoutX="150.0" layoutY="241.0" prefHeight="31.0" prefWidth="200.0" visible="false" />
+                <Button cancelButton="true" layoutX="50.0" layoutY="356.0" mnemonicParsing="false" onAction="#UserMainGoBack" text="&lt;" />
+                <Button  layoutX="404.0" layoutY="356.0" mnemonicParsing="false" onAction="#searchFlightButtonPressed" text="Search flights"  />
+                <Label fx:id="airportFromLabel" layoutX="65.0" layoutY="73.0" text="Airport" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="airportToLabel" layoutX="65.0" layoutY="158.0" text="Airport" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
 
 
 
             </children>
         </AnchorPane>
         <Separator layoutX="180.0" layoutY="-14.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
-        <AnchorPane fx:id="personalInfo" layoutX="586.0" prefHeight="558.0" prefWidth="424.0" visible="false">
-            <children>
-                <Label layoutX="29.0" layoutY="89.0" text="Name:" />
-                <Label layoutX="29.0" layoutY="129.0" text="ID:" />
-                <Label layoutX="29.0" layoutY="173.0" text="ID Type:" />
-                <Label layoutX="29.0" layoutY="213.0" text="Nationality:" />
-                <Label layoutX="29.0" layoutY="252.0" text="Birthdate:" />
-                <Label layoutX="28.0" layoutY="294.0" text="Phone Number:" />
-                <Label layoutX="29.0" layoutY="337.0" text="Email:" />
-                <TextField fx:id="name" layoutX="181.0" layoutY="88.0" prefWidth="218.0" />
-                <TextField fx:id="position" layoutX="181.0" layoutY="128.0" prefHeight="31.0" prefWidth="218.0" />
-                <TextField fx:id="address" layoutX="181.0" layoutY="168.0" prefWidth="218.0" />
-                <TextField fx:id="email" layoutX="178.0" layoutY="289.0" prefWidth="218.0" />
-                <TextField fx:id="phoneNumber" layoutX="181.0" layoutY="332.0" prefWidth="218.0" />
-                <TextField fx:id="id" layoutX="181.0" layoutY="211.0" prefWidth="218.0" />
-                <DatePicker fx:id="birthday" layoutX="181.0" layoutY="247.0" prefHeight="31.0" prefWidth="218.0" />
-                <Button layoutX="97.0" layoutY="494.0" mnemonicParsing="false"  prefHeight="50.0" prefWidth="231.0" text="Confirm" />
-                <Label layoutX="105.0" layoutY="31.0" text="Personal information">
-                    <font>
-                        <Font name="System Bold" size="25.0" />
-                    </font>
-                </Label>
-            <Label layoutX="27.0" layoutY="378.0" text="Seat Number:" />
-            <TextField fx:id="phoneNumber1" layoutX="179.0" layoutY="373.0" prefWidth="218.0" />
-            <Label layoutX="27.0" layoutY="417.0" text="Luggage Size:" />
-            <TextField fx:id="phoneNumber11" layoutX="179.0" layoutY="412.0" prefWidth="218.0" />
-            <Label layoutX="27.0" layoutY="460.0" text="Payment Method" />
-            <TextField fx:id="phoneNumber111" layoutX="179.0" layoutY="455.0" prefWidth="218.0" />
-
-
-            </children>
-        </AnchorPane>
     </children>
 </AnchorPane>

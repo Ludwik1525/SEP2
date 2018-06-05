@@ -89,7 +89,6 @@ public class CrewMembersFlightController implements Initializable {
 
     public void makeFilteredList(ObservableList<CrewMember> list) {
         FilteredList<CrewMember> filteredList = new FilteredList<>(list, p -> true);
-
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredList.setPredicate(crewMember -> {
                 if (newValue == null || newValue.isEmpty()) {

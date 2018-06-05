@@ -90,7 +90,6 @@ public class E_Flight {
     }
 
     public void filterAirportsFrom() {
-
         if (!countryFrom.getSelectionModel().isEmpty()) {
             airportFrom.getItems().clear();
             for (int i = 0; i < airportList.getLength(); i++) {
@@ -108,7 +107,7 @@ public class E_Flight {
             for (int i = 0; i < airportList.getLength(); i++) {
                 if (countryTo.getValue().equals(airportList.getCountry(i))) {
                     airportTo.getItems().add(airportList.getCity(i));
-                }System.out.println("this code is not duplicated, lol");
+                }
             }
         }
     }

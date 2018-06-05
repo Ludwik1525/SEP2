@@ -1,0 +1,182 @@
+SET search_path='FlyHigh';
+
+
+CREATE TABLE AirportList(
+code char(3) PRIMARY KEY NOT NULL,
+name varchar NOT NULL,
+	city varchar NOT NULL,
+	postcode varchar NOT NULL,
+	country varchar NOT NULL,
+	numberOfGates INT NOT NULl
+);
+
+INSERT INTO AirportList(code, name, city, postcode, country, numberOfGates)
+VALUES 
+('AAA', 'Airport Billund', 'Billund', '5400', 'Denmark', 23),
+('AAB', 'Airport Copenhagen', 'Copenhagen', '2500', 'Denmark', 53),
+('AAC', 'Airport Cracow', 'Cracow', '5212', 'Poland', 40),
+('AAD', 'Airport Warsaw', 'Warsaw', '2530', 'Poland', 14),
+('AAE', 'Airport Bucharest', 'Bucharest', '7400', 'Romania', 60),
+('AAF', 'Airport London', 'London', '9470', 'England', 25),
+('AAG', 'Airport Madryt', 'Madryt', '6240', 'Spain', 27),
+('AAH', 'Airport Prague', 'Preague', '2630', 'Chech Republic', 39),
+('AAI', 'Airport Wilno', 'Wilno', '4210', 'Lithuania', 34),
+('AAJ', 'Airport Reykjavik', 'Reykjavik', '2013', 'Iceland', 68);
+
+CREATE TABLE AirplaneList(
+IDNumber varchar(4) PRIMARY KEY NOT NULL,
+model varchar NOT NULL,
+	numberOfSeats INT NOT NULL,
+	purchaseDate DATE NOT NULL,
+	lastMaintenance DATE NOT NULL
+);
+
+INSERT INTO AirplaneList(IDNumber, model, numberOfSeats, purchaseDate, lastMaintenance)
+VALUES 
+('A34B', 'Tu23', 80, TO_DATE('17/12/2015', 'DD/MM/YYYY'), TO_DATE('17/01/2015', 'DD/MM/YYYY')),
+('2A4B', 'OMBB4', 80, TO_DATE('17/12/2015', 'DD/MM/YYYY'), TO_DATE('17/02/2015', 'DD/MM/YYYY')),
+('A14B', 'Tu25', 80, TO_DATE('17/12/2015', 'DD/MM/YYYY'), TO_DATE('17/03/2015', 'DD/MM/YYYY')),
+('A44B', 'ADK24', 80, TO_DATE('17/12/2015', 'DD/MM/YYYY'), TO_DATE('17/04/2015', 'DD/MM/YYYY')),
+('A64B', 'F123', 80, TO_DATE('17/12/2015', 'DD/MM/YYYY'), TO_DATE('17/05/2015', 'DD/MM/YYYY')),
+('A48B', '32werBFB', 80, TO_DATE('17/12/2016', 'DD/MM/YYYY'), TO_DATE('17/06/2015', 'DD/MM/YYYY')),
+('A4B0', 'BDF13', 80, TO_DATE('17/12/2016', 'DD/MM/YYYY'), TO_DATE('17/07/2015', 'DD/MM/YYYY')),
+('A4B9', 'FGT213', 80, TO_DATE('17/12/2016', 'DD/MM/YYYY'), TO_DATE('17/08/2015', 'DD/MM/YYYY')),
+('C4B8', 'TOTO23', 80, TO_DATE('17/12/2016', 'DD/MM/YYYY'), TO_DATE('17/10/2015', 'DD/MM/YYYY')),
+('A%4B', 'Tu13', 80, TO_DATE('17/12/2016', 'DD/MM/YYYY'), TO_DATE('17/09/2015', 'DD/MM/YYYY'));
+
+CREATE TABLE Crew(
+	crewID int references Crews(crewID) NOT NULL,
+ name varchar NOT NULL,
+ position varchar NOT NULL,
+	address varchar NOT NULL,
+	id varchar PRIMARY KEY NOT NULL,
+	phoneNumber INT NOT NULL,
+	email varchar NOT NULL,
+	birthdate DATE NOT NULL
+);
+INSERT INTO Crew (crewID, name, position, address, id, phoneNumber, email, birthdate)
+VALUES
+(1, 'Arnold', 'pilot', 'Horsens 8', 'ZD45g37', 50200400, 'arnold@mail.com',TO_DATE('17/09/1990', 'DD/MM/YYYY')),
+(1, 'David', 'junior pilot', 'Aarhus 1', 'ZD73GB4', 54200400, 'david@mail.com',TO_DATE('17/09/1980', 'DD/MM/YYYY')),
+(1, 'Carl', 'stewardess', 'Aalborg 8', 'RE8J3FT', 50020400, 'carl@mail.com',TO_DATE('17/09/1970', 'DD/MM/YYYY')),
+(1, 'Rick', 'stewardess', 'Odense 8', '14S56D7', 50020000, 'rick@mail.com',TO_DATE('17/09/1985', 'DD/MM/YYYY')),
+(1, 'John', 'stewardess',  ' Copenhagen 7', 'OY89G6B', 25200400, 'john@mail.com',TO_DATE('17/09/1987', 'DD/MM/YYYY')),
+(1, 'Caroline', 'junio pilot', 'Fredericia 4', 'ZXA3D44', 70020040, 'caroline@mail.com',TO_DATE('17/09/1994', 'DD/MM/YYYY')),
+(1, 'Anne', 'pilot', 'Horsens 8', 'AP9J3X5', 50020048, 'anne@mail.com',TO_DATE('17/09/1991', 'DD/MM/YYYY')),
+(2, 'Kate', 'stewardess', 'Uldum 3', '18FG3C5', 10200400, 'kate@mail.com',TO_DATE('17/09/1984', 'DD/MM/YYYY')),
+(2, 'Deniss', 'pilot', 'Kolding 2', 'ZEF342V', 57200400, 'deniss@mail.com',TO_DATE('17/09/1963', 'DD/MM/YYYY')),
+(3, 'Dragos', 'pilot', 'Hamburg 4', '8HG5Y9J', 500203400, 'dragos@mail.com',TO_DATE('17/09/1990', 'DD/MM/YYYY'));
+
+CREATE TABLE ClubMemberList(
+name varchar NOT NULL,
+address varchar NOT NULL,
+	login varchar NOT NULL,
+	password varchar NOT NULL,
+	id varchar PRIMARY KEY NOT NULL,
+	birthdate DATE NOT NULL,
+	phoneNumber INT NOT NULL,
+	email varchar NOT NULL,
+	membershipDate DATE NOT NULL,
+	subscription boolean NOT NULL
+);
+INSERT INTO ClubMemberList (name, address, login, password, id, birthdate, phoneNumber, email, membershipDate, subscription)
+VALUES
+('Karissa', 'Amaaliegade 12', 'logIn', 'password1', 'IDNO1',TO_DATE('17/09/1990', 'DD/MM/YYYY'), 23451768, 'karissa@mail.com',TO_DATE('17/09/2017', 'DD/MM/YYYY'), true),
+('Minerva', 'Amaaliegade 22', 'logIn', 'password2', 'IDNO2',TO_DATE('17/09/1992', 'DD/MM/YYYY'), 23452768, 'minerva@mail.com',TO_DATE('17/09/2018', 'DD/MM/YYYY'), true),
+('Shay', 'Amaaliegade 43', 'logIn', 'password3', 'IDNO3',TO_DATE('17/09/1964', 'DD/MM/YYYY'), 23450738, 'shay@mail.com',TO_DATE('17/09/2016', 'DD/MM/YYYY'), true),
+('Camila', 'Amaaliegade 11', 'logIn', 'password4', 'IDNO4',TO_DATE('17/09/1964', 'DD/MM/YYYY'), 23455768, 'camila@mail.com',TO_DATE('17/10/2018', 'DD/MM/YYYY'), false),
+('Jadon', 'Amaaliegade 15', 'logIn', 'password5', 'IDNO5',TO_DATE('17/09/1983', 'DD/MM/YYYY'), 23450368, 'jadon@mail.com',TO_DATE('17/08/2018', 'DD/MM/YYYY'), false),
+('Molly', 'Amaaliegade 17', 'logIn', 'password6', 'IDNO6',TO_DATE('17/09/1969', 'DD/MM/YYYY'), 23450668, 'molly@mail.com',TO_DATE('17/08/2017', 'DD/MM/YYYY'), false),
+('Mary', 'Amaaliegade 23', 'logIn', 'password7', 'IDNO7',TO_DATE('17/09/1975', 'DD/MM/YYYY'), 23450778, 'mary@mail.com',TO_DATE('17/08/2016', 'DD/MM/YYYY'), false),
+('Pierce', 'Amaaliegade 24', 'logIn', 'password8', 'IDNO8',TO_DATE('17/09/1981', 'DD/MM/YYYY'), 23458768, 'pierce@mail.com',TO_DATE('17/06/2018', 'DD/MM/YYYY'), false),
+('Lindsay', 'Amaaliegade 52', 'logIn', 'password9', 'IDNO10',TO_DATE('17/09/1992', 'DD/MM/YYYY'), 23350768, 'lindsay@mail.com',TO_DATE('17/03/2018', 'DD/MM/YYYY'), true),
+('Saira', 'Amaaliegade 34', 'logIn', 'password10', 'IDNO9',TO_DATE('17/09/1995', 'DD/MM/YYYY'), 23450068, 'saira@mail.com',TO_DATE('17/10/2017', 'DD/MM/YYYY'), true);
+
+CREATE TABLE PassengerList(
+name varchar NOT NULL,
+id varchar PRIMARY KEY NOT NULL,
+idType varchar NOT NULL,
+	nationality varchar NOT NULL,
+	birthdate DATE NOT NULL,
+	phoneNumber INT NOT NULL,
+	email varchar NOT NULL,
+	seatNo INT NOT NULL,
+	luggageSize INT NOT NULL,
+	paymentMethod varchar NOT NULL,
+	passengerListID INT REFERENCES PassengerLists(passengerListID) NOT NULL
+);
+INSERT INTO PassengerList(name, id, idType, nationality, birthdate, phoneNumber, email, seatNo, luggageSize, paymentMethod, passengerListID)
+VALUES
+('Chloe', 'ID1', 'passport', 'Danish',TO_DATE('17/09/1995', 'DD/MM/YYYY'), 27384987, 'chloe@mail.com', 21, 2,'transfer', 1),
+('Jacob', 'ID2', 'passport', 'Danish',TO_DATE('17/09/1991', 'DD/MM/YYYY'), 27384987, 'jacob@mail.com', 21, 2,'transfer', 1),
+('Emily', 'ID3', 'passport', 'Danish',TO_DATE('17/09/1992', 'DD/MM/YYYY'), 27384987, 'emily@mail.com', 21, 2,'transfer', 1),
+('Aaron', 'ID4', 'passport', 'Danish',TO_DATE('17/09/1993', 'DD/MM/YYYY'), 27384987, 'aaron@mail.com', 21, 2,'transfer', 1),
+('Emma', 'ID5', 'passport', 'Danish',TO_DATE('17/09/1994', 'DD/MM/YYYY'), 27384987, 'emma@mail.com', 21, 2,'transfer', 1),
+('Shawn', 'ID6', 'passport', 'Danish',TO_DATE('17/09/1996', 'DD/MM/YYYY'), 27384987, 'shawn@mail.com', 21, 2,'transfer', 1),
+('Olivia', 'ID7', 'passport', 'Danish',TO_DATE('17/09/1997', 'DD/MM/YYYY'), 27384987, 'olivia@mail.com', 21, 2,'transfer', 1),
+('Daniel', 'ID8', 'passport', 'Danish',TO_DATE('17/09/1998', 'DD/MM/YYYY'), 27384987, 'daniel@mail.com', 21, 2,'transfer', 1),
+('Ryan', 'ID9', 'passport', 'Danish',TO_DATE('17/09/1999', 'DD/MM/YYYY'), 27384987, 'ryan@mail.com', 21, 2,'transfer', 9),
+('Lauren', 'ID10', 'passport', 'Danish',TO_DATE('10/09/1995', 'DD/MM/YYYY'), 27384987, 'lauren@mail.com', 21, 2,'transfer', 10);
+
+CREATE TABLE PassengerLists(
+passengerListID INT PRIMARY KEY NOT NULL,, 
+	FlightNumber int 
+);
+
+INSERT INTO PassengerLists(passengerListID, FlightNumber)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
+CREATE TABLE Crews(
+	 CrewID INT PRIMARY KEY NOT NULL,
+	FlightNumber INT 
+);
+
+INSERT INTO Crews (CrewID, FlightNumber)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
+CREATE TABLE FlightList(
+flightNumber INT PRIMARY KEY NOT NULL,
+departureDate DATE NOT NULL,
+departureTime TIME NOT NULL,
+arrivalDate DATE NOT NULL,
+arrivalTime TIME NOT NULL,
+departurePlace varchar NOT NULL,
+arrivalPlace varchar NOT NULL,
+	status varchar NOT NULL,
+	airplaneIDNumber varchar REFERENCES AirplaneList(IDNumber) NOT NULL,
+	passengerListID INT References PassengerLists(passengerListID) NOT NULL,
+	CrewID INT References Crews (CrewID) NOT NULL,
+	price DOUBLE PRECISION
+);
+
+INSERT INTO FlightList (flightNumber, departureDate, departureTime, arrivalDate, arrivalTime, departurePlace, arrivalPlace, status, airplaneIDNumber, passengerListId, crewId, price)
+VALUES
+(2, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '09:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '10:00:00', 'Warsaw', 'Copenhagen', 'delayed', 'A34B', 2, 2, 30.00),
+(3, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '10:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '11:00:00', 'Billund', 'Copenhagen', 'delayed', 'A34B', 3, 3, 30.00),
+(4, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '11:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '14:00:00', 'Bucharest', 'Copenhagen', 'delayed', 'A34B', 4, 4, 30.00),
+(5, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '12:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '20:00:00', 'Billund', 'London', 'delayed', 'A34B', 5, 5, 30.00),
+(6, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '13:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '14:00:00', 'Billund', 'Copenhagen', 'delayed', 'A34B', 6, 6, 30.00),
+(7, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '14:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '19:00:00', 'London', 'Copenhagen', 'delayed', 'A34B', 7, 7, 30.00),
+(8, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '15:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '18:00:00', 'Copenhagen', 'Prague', 'delayed', 'A34B', 8, 8, 30.00),
+(9, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '16:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '19:00:00', 'Billund', 'Cracow', 'delayed', 'A34B', 1, 1, 30.00),
+(10, TO_DATE('10/09/1995', 'DD/MM/YYYY'), '17:00:00', TO_DATE('10/09/1995', 'DD/MM/YYYY'), '20:00:00', 'Billund', 'Copenhagen', 'delayed', 'A34B', 1, 1, 30.00);

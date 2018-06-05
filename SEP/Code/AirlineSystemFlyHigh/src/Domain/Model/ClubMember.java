@@ -1,13 +1,11 @@
 package Domain.Model;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 
 public class ClubMember  {
     private String name;
     private String id;
-    private LocalDate birthday;
+    private LocalDate birthdate;
     private String phoneNumber;
     private String email;
     private String address;
@@ -18,7 +16,7 @@ public class ClubMember  {
             , String email,String address, boolean subscription) {
         this.name=name;
         this.id=id;
-        this.birthday=birthday;
+        this.birthdate =birthday;
         this.phoneNumber=phoneNumber;
         this.email=email;
         this.address = address;
@@ -51,7 +49,7 @@ public class ClubMember  {
     }
 
     public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+        this.birthdate = birthday;
     }
 
     public String getName() {
@@ -67,7 +65,7 @@ public class ClubMember  {
     }
 
     public LocalDate getBirthday() {
-        return birthday;
+        return birthdate;
     }
 
     public String getPhoneNumber() {

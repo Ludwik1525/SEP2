@@ -48,9 +48,9 @@ public class E_ClubMember implements Initializable {
 
     public void confirmButtonPressed() {
         members.remove(member);
-        members.add(new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
-                        , phoneNumberField.getText(), emailField.getText(), addresField.getText()
-                , membershipDateField.getValue()));
+//        members.add(new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
+//                , phoneNumberField.getText(), emailField.getText(), addresField.getText()
+//                , membershipDateField.getValue()));
         clubMemberList.updateList(members);
         Stage stage = (Stage) editClubMemberPanel.getScene().getWindow();
         stage.close();

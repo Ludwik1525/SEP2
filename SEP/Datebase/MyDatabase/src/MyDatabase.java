@@ -13,8 +13,8 @@ public class MyDatabase {
 		{
 			driver = "org.postgresql.Driver";
 			url = "jdbc:postgresql://localhost:5432/postgres";
-			username = "your-username-for-postgres";
-			password = "your-password-for-postgres";
+			username = "cichoszept";
+			password = "owd3sshp";
 			Class.forName(driver);
 			
 			connection  = DriverManager.getConnection(url, username, password);

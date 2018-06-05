@@ -29,12 +29,16 @@ public class A_Flight implements Initializable {
     Crew crew= new Crew();
 
     private Flight flight;
-    @FXML   AnchorPane departureAirport;
-    @FXML   AnchorPane arrivalAirport;
-    @FXML   ChoiceBox<String> countryFrom = new ChoiceBox<>();
-    @FXML   ChoiceBox<String> airportFrom = new ChoiceBox<>();
-    @FXML   ChoiceBox<String> countryTo = new ChoiceBox<>();
-    @FXML   ChoiceBox<String> airportTo = new ChoiceBox<>();
+    @FXML AnchorPane departureAirport;
+    @FXML AnchorPane arrivalAirport;
+    @FXML ChoiceBox<String> countryFrom = new ChoiceBox<>();
+    @FXML ChoiceBox<String> airportFrom = new ChoiceBox<>();
+    @FXML ChoiceBox<String> countryTo = new ChoiceBox<>();
+    @FXML ChoiceBox<String> airportTo = new ChoiceBox<>();
+    @FXML ChoiceBox<String> departureHourBox = new ChoiceBox<>();
+    @FXML ChoiceBox<String> departureMinutesBox = new ChoiceBox<>();
+    @FXML ChoiceBox<String> arrivalHourBox = new ChoiceBox<>();
+    @FXML ChoiceBox<String> arrivalMinutesBox = new ChoiceBox<>();
 
     AirportList airportList = new AirportList();
 
@@ -42,9 +46,13 @@ public class A_Flight implements Initializable {
     FlightList flightList= new FlightList();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    showArrivalAirports();
-    showDepartureAirports();
+    public void initialize(URL location, ResourceBundle resources) { ;
+        departureHourBox.getItems().setAll(makeStringArray(12));
+        arrivalHourBox.getItems().setAll(makeStringArray(12));
+        departureMinutesBox.getItems().setAll(makeStringArray(59));
+        arrivalMinutesBox.getItems().setAll(makeStringArray(59));
+        showArrivalAirports();
+        showDepartureAirports();
     }
     public void setItems(ObservableList <Flight> items) {
         this.items= items;
@@ -129,5 +137,18 @@ public class A_Flight implements Initializable {
                 return airportList.getAirport(i);
             }
         }return null;
+    }
+
+    private String[] makeStringArray(int until) {
+        String[] array = new String[until+1];
+        for (int i=0; i<array.length;i++) {
+            if (i<10) {
+                array[i] = "0"+i;
+            }
+            else {
+                array[i] = i+"";
+            }
+        }
+        return array;
     }
 }

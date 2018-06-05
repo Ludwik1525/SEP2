@@ -135,7 +135,6 @@ public class M_Flights implements Initializable {
         selected.forEach(flights::remove);
         makeFilteredList(flights);
         flightList.updateList(flights);
-
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {

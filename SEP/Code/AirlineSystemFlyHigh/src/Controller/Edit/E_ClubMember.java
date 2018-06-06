@@ -54,7 +54,7 @@ public class E_ClubMember implements Initializable {
         ClubMember temp = new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
                 , Integer.parseInt(phoneNumberField.getText()), emailField.getText(), addresField.getText()
                 , membershipDateField.getValue(), true);
-        adapter.updateClubMembers(temp);
+        adapter.updateClubMember(temp);
        members.add(temp);
         clubMemberList.updateList(members);
         Stage stage = (Stage) editClubMemberPanel.getScene().getWindow();

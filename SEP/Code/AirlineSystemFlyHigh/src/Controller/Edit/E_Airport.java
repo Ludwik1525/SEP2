@@ -1,5 +1,6 @@
 package Controller.Edit;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ public class E_Airport implements Initializable {
     Airport airport;
     AirportList airportList;
     ObservableList<Airport> airports;
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,8 +46,10 @@ public class E_Airport implements Initializable {
 
     public void confirmButtonPressed() {
         airports.remove(airport);
-        airports.add(new Airport(codeField.getText(), nameField.getText(), cityField.getText(),postcodeField.getText()
-                , countryField.getText(), Integer.parseInt(numberOfGatesField.getText())));
+        Airport temp= new Airport(codeField.getText(), nameField.getText(), cityField.getText(),postcodeField.getText()
+                , countryField.getText(), Integer.parseInt(numberOfGatesField.getText()));
+        adapter.updateAirport(temp);
+        airports.add(temp);
         Stage stage = (Stage) editAirportPanel.getScene().getWindow();
         stage.close();
     }

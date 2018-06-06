@@ -11,7 +11,22 @@ public interface Target {
     public ObservableList<Passenger> loadPassengers();
     public ObservableList<Flight> loadFlights();
 
+    public void updateClubMember(ClubMember clubMember);
+    public void updateAirport(Airport airport);
+    public void updateAirplane(Airplane airplane);
+    public void updateCrewMember(CrewMember crewMember);
+    public void updateFlight(Flight flight);
 
-    public void updateClubMembers(ClubMember clubMember);
+    public void addClubMember(ClubMember clubMember);
+    public void addAirport(Airport airport);
+    public void addAirplane(Airplane airplane);
+    public void addCrewMember(CrewMember crewMember);
+    public void addPassenger(Passenger passenger);
+    public void addFlight(Flight flight);
+
+    public void removeClubMember(ClubMember clubMember);
+    public void removeAirport(Airport airport);
+    public void removeAirplane(Airplane airplane);
+    public void removeCrewMember(CrewMember crewMember);
 
 }

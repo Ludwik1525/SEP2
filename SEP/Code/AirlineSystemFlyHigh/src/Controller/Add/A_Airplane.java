@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airplane;
 import Domain.Model.AirplaneList;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ public class A_Airplane implements Initializable{
     @FXML DatePicker addLastMaintenance;
     ObservableList<Airplane> items;
     public AirplaneList airplaneList= new AirplaneList();
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,6 +44,7 @@ public class A_Airplane implements Initializable{
     public void addAirplaneToTheList(ActionEvent actionEvent) {
         items.add(new Airplane(addIDNumber.getText(), addModel.getText(), Integer.parseInt(addNumberOfSeats.getText()), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
 
+        adapter.addAirplane(new Airplane(addIDNumber.getText(), addModel.getText(), Integer.parseInt(addNumberOfSeats.getText()), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
         airplaneList.updateList(items);
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();

@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ public class A_Airport implements Initializable {
     @FXML TextField numberOfGates;
     ObservableList<Airport> items;
     public AirportList airportList= new AirportList();
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,7 +42,7 @@ public class A_Airport implements Initializable {
 
     public void addAirportToTheList(ActionEvent actionEvent) {
         items.add(new Airport(code.getText(), name.getText(), city.getText(), postcode.getText(), country.getText(), Integer.parseInt(numberOfGates.getText())));
-
+        adapter.addAirport(new Airport(code.getText(), name.getText(), city.getText(), postcode.getText(), country.getText(), Integer.parseInt(numberOfGates.getText())));
         airportList.updateList(items);
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();

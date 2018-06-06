@@ -1,6 +1,7 @@
 package Controller.Manage;
 
 import Controller.Edit.E_CrewMember;
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -44,6 +45,8 @@ public class M_CrewMembers implements Initializable {
     @FXML Button forsake;
     @FXML Button confirm;
     @FXML Button editButton;
+
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,6 +124,8 @@ public class M_CrewMembers implements Initializable {
     public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<CrewMember> crewMembers= crew.getCrewMembers();
         ObservableList<CrewMember> selected= crewMembersTable.getSelectionModel().getSelectedItems();
+        CrewMember temp = crewMembersTable.getSelectionModel().getSelectedItem();
+        adapter.removeCrewMember(temp);
         selected.forEach(crewMembers::remove);
         makeFilteredList(crewMembers);
         crew.updateList(crewMembers);

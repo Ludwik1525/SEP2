@@ -1,5 +1,6 @@
 package Controller.Edit;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airplane;
 import Domain.Model.AirplaneList;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ public class E_Airplane implements Initializable {
     private Airplane airplane;
     private ObservableList<Airplane> airplanes;
     private AirplaneList airplaneList;
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,9 +44,9 @@ public class E_Airplane implements Initializable {
     }
     public void confirmButtonPressed() {
         airplanes.remove(airplane);
-        airplanes.add(new Airplane(idField.getText(),modelField.getText(),Integer.parseInt(seatsField.getText())
-                ,purchaseDateField.getValue(),lastMaintenanceField.getValue()));
-        airplaneList.updateList(airplanes);
+        Airplane temp = new Airplane(idField.getText(), modelField.getText(), Integer.parseInt(seatsField.getText()), purchaseDateField.getValue(), lastMaintenanceField.getValue());
+        adapter.updateAirplane(temp);
+        airplanes.add(temp);
         Stage stage = (Stage) editAirplanesPanel.getScene().getWindow();
         stage.close();
     }

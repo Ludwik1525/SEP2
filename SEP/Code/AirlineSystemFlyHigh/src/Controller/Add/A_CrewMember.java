@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.CrewMember;
 import Domain.Model.Crew;
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ public class A_CrewMember implements Initializable {
     @FXML DatePicker birthday;
     ObservableList<CrewMember> items;
     public Crew crew = new Crew();
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,6 +46,7 @@ public class A_CrewMember implements Initializable {
     public void addCrewMemberToTheList(ActionEvent actionEvent) {
         items.add(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(), Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
 
+        adapter.addCrewMember(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(), Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
         crew.updateList(items);
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();

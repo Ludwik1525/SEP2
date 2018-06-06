@@ -1,5 +1,10 @@
 package Controller;
 
+import Domain.Mediator.DatabaseAdapter;
+import Domain.Model.Airplane;
+import Domain.Model.ClubMember;
+import Domain.Model.ClubMemberList;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +16,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class MainController {
     @FXML
@@ -22,6 +29,8 @@ public class MainController {
     @FXML
     private Label wrongDataLabel;
     @FXML Button removeButton;
+
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     //    @FXML
 //    private ComboBox country;
@@ -185,10 +194,32 @@ public class MainController {
 
 
     //Add Club Member Form
+    @FXML TextField name;
+    @FXML TextField idNumber;
+    @FXML DatePicker birthdate;
+    @FXML TextField phoneNumber;
+    @FXML TextField email;
+    @FXML TextField address;
+    LocalDate membershipDate= LocalDate.of(Calendar.YEAR, Calendar.DAY_OF_MONTH, Calendar.MONTH);
+
+
+
+
     public void goBack(ActionEvent actionEvent) {
     }
 
     public void register(ActionEvent actionEvent) {
+
+
+        ClubMember temp = new ClubMember(name.getText(), idNumber.getText(), birthdate.getValue()
+                , Integer.parseInt(phoneNumber.getText()), email.getText(), address.getText()
+                , membershipDate, true);
+
+        adapter.addClubMember(temp);
+
+
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 
 

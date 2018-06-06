@@ -1,5 +1,6 @@
 package Controller.Edit;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Crew;
 import Domain.Model.CrewMember;
 import javafx.collections.ObservableList;
@@ -26,6 +27,7 @@ public class E_CrewMember implements Initializable {
     Crew crew;
     CrewMember crewMember;
     ObservableList<CrewMember> crewMembers;
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
 
 
@@ -50,8 +52,10 @@ public class E_CrewMember implements Initializable {
 
     public void confirmButtonPressed() {
         crewMembers.remove(crewMember);
-        crewMembers.add(new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
-                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue()));
+        CrewMember temp= new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
+                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue());
+        adapter.updateCrewMember(temp);
+        crewMembers.add(temp);
         crew.updateList(crewMembers);
         Stage stage = (Stage) editCrewMemberPanel.getScene().getWindow();
         stage.close();

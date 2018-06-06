@@ -1,6 +1,7 @@
 package Controller.Manage;
 
 import Controller.Edit.E_Airplane;
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.Airplane;
 import Domain.Model.AirplaneList;
 
@@ -31,6 +32,7 @@ public class M_Airplanes implements Initializable {
     @FXML AnchorPane anchorPane;
 
     AirplaneList airplaneList;
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @FXML protected TableView<Airplane> airplanesTable;
     @FXML protected TableColumn<Airplane, String> IDNumber;
@@ -112,6 +114,8 @@ public class M_Airplanes implements Initializable {
     public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<Airplane> airplanes= airplaneList.getAirplanes();
         ObservableList<Airplane> selected= airplanesTable.getSelectionModel().getSelectedItems();
+        Airplane temp= airplanesTable.getSelectionModel().getSelectedItem();
+        adapter.removeAirplane(temp);
         selected.forEach(airplanes::remove);
         makeFilteredList(airplanes);
         airplaneList.updateList(airplanes);

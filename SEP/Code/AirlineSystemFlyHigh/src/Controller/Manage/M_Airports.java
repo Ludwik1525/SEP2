@@ -3,6 +3,8 @@ package Controller.Manage;
 
 import Controller.Edit.E_Airport;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import javafx.collections.ObservableList;
@@ -48,6 +50,10 @@ public class M_Airports implements Initializable{
     @FXML Button confirm;
     @FXML Button editButton;
 
+    DatabaseAdapter adapter= new DatabaseAdapter();
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,7 +68,7 @@ public class M_Airports implements Initializable{
         airportList= new AirportList();
         airportsTable.setItems(airportList.getAirports());
 
-        makeFilteredList(airportList.getAirports());
+
     }
 
     //Associate data with column
@@ -84,7 +90,6 @@ public class M_Airports implements Initializable{
         selected.forEach(airports::remove);
         makeFilteredList(airports);
         airportList.updateList(airports);
-
     }
     public void makeFilteredList(ObservableList<Airport> list){
         FilteredList<Airport> filteredList= new FilteredList<>(list, p->true);
@@ -124,6 +129,9 @@ public class M_Airports implements Initializable{
     public void confirmButtonPressed(ActionEvent actionEvent) {
         ObservableList<Airport> airports= airportList.getAirports();
         ObservableList<Airport> selected= airportsTable.getSelectionModel().getSelectedItems();
+        Airport temp = airportsTable.getSelectionModel().getSelectedItem();
+        adapter.removeAirport(temp);
+        System.out.println(selected);
         selected.forEach(airports::remove);
         makeFilteredList(airports);
         airportList.updateList(airports);

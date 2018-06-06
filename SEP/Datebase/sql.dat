@@ -162,11 +162,11 @@ arrivalDate DATE NOT NULL,
 arrivalTime TIME NOT NULL,
 departurePlace varchar NOT NULL,
 arrivalPlace varchar NOT NULL,
-	status varchar NOT NULL,
-	airplaneIDNumber varchar REFERENCES AirplaneList(IDNumber) NOT NULL,
-	passengerListID INT References PassengerLists(passengerListID) NOT NULL,
-	CrewID INT References Crews (CrewID) NOT NULL,
-	price DOUBLE PRECISION
+status varchar NOT NULL,
+airplaneIDNumber varchar REFERENCES AirplaneList(IDNumber) NOT NULL,
+passengerListID INT References PassengerLists(passengerListID) NOT NULL,
+CrewID INT References Crews (CrewID) NOT NULL,
+price DOUBLE PRECISION
 );
 
 INSERT INTO FlightList (flightNumber, departureDate, departureTime, arrivalDate, arrivalTime, departurePlace, arrivalPlace, status, airplaneIDNumber, passengerListId, crewId, price)

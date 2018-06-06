@@ -1,3 +1,0 @@
-- process report
-- project report
-- finishing analysis and design diagram

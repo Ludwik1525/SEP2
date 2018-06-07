@@ -2,18 +2,21 @@ package Domain.Model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Flight {
 
-    private int flightNumber;
-    private LocalDate departureTime;
-    private LocalDate arrivalTime;
+    private String flightNumber;
+    private LocalDate departureDate;
+    private LocalTime departureTime;
+    private LocalDate arrivalDate;
+    private LocalTime arrivalTime;
     private Airplane plane;
     private String airplaneIdNumber;
     private Crew crew;
-    private String departurePlace;
-    private String arrivalPlace;
+    private Airport departurePlace;
+    private Airport arrivalPlace;
     private PassengerList passengers;
     private  String status;
     private Double price;
@@ -32,11 +35,13 @@ public class Flight {
 //        this.status = status;
 //        this.price = price;
 //    }
-    public Flight(int flightNumber, LocalDate departureDate, LocalDate arrivalDate, String airplaneIdNumber
-            , String departure, String arrival, String status, double price) {
+    public Flight(String flightNumber, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate,
+                  LocalTime arrivalTime, String airplaneIdNumber, Airport departure, Airport arrival, String status, double price) {
         this.flightNumber = flightNumber;
-        this.departureTime = departureDate;
-        this.arrivalTime = arrivalDate;
+        this.departureDate = departureDate;
+        this.departureTime = departureTime;
+        this.arrivalDate = arrivalDate;
+        this.arrivalTime = arrivalTime;
         this.airplaneIdNumber = airplaneIdNumber;
        // this.crew=new Crew();
      //   this.passengers= new PassengerList();
@@ -50,19 +55,36 @@ public class Flight {
 //
 //    }
 
-    public void setArrivalTime(LocalDate arrivalTime) {
+
+    public LocalDate getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setArrivalDate(LocalDate arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public void setArrivalTime(LocalTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public void setDepartureTime(LocalDate departureTime) {
+    public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
     }
 
-    public void setDeparturePlace(String departure) {
+    public void setDeparturePlace(Airport departure) {
         this.departurePlace = departure;
     }
 
-    public void setArrivalPlace(String arrival) {
+    public void setArrivalPlace(Airport arrival) {
         this.arrivalPlace = arrival;
     }
 
@@ -90,27 +112,27 @@ public class Flight {
         this.price = price;
     }
 
-    public void setFlightNumber(int flightNumber) {
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 
-    public int getFlightNumber() {
+    public String getFlightNumber() {
         return flightNumber;
     }
 
-    public LocalDate getArrivalTime() {
+    public LocalTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public LocalDate getDepartureTime() {
+    public LocalTime getDepartureTime() {
         return departureTime;
     }
 
-    public String getDeparturePlace() {
+    public Airport getDeparturePlace() {
         return departurePlace;
     }
 
-    public String getArrivalPlace() {
+    public Airport getArrivalPlace() {
         return arrivalPlace;
     }
 
@@ -138,9 +160,25 @@ public class Flight {
         return price;
     }
 
+    public String getArrivalDateTime() {
+        return getArrivalDate().toString()+" "+getArrivalTime().toString();
+    }
+    public String getDepartureDateTime() {
+        return getDepartureDate().toString()+" "+getDepartureTime().toString();
+    }
+
     @Override
     public String toString() {
         return  "Flight number: "+getFlightNumber()+"; Departure time: "+getDepartureTime()+"; Arrival time: "+
                 getArrivalTime()+"; Status: "+getStatus();
+    }
+
+    private Airport searchAirport(String shortName) {
+        AirportList airportList = new AirportList();
+        for (int i = 0; i < airportList.getAirports().size(); i++) {
+            if (airportList.getAirports().get(i).getShortInfo().equals(shortName))
+                return airportList.getAirports().get(i);
+        }
+        return null;
     }
 }

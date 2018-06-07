@@ -40,6 +40,7 @@ public class M_Flights implements Initializable {
     @FXML protected TableColumn<Flight, String> departurePlaceName;
     @FXML protected TableColumn<Flight, String> arrivalPlaceName;
     @FXML protected TableColumn<Flight, String> status;
+    @FXML protected TableColumn<Flight, Double> price;
 
     @FXML protected Button seeCrew;
     @FXML protected Button seePassengers;
@@ -55,6 +56,7 @@ public class M_Flights implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
         departureTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDateTime"));

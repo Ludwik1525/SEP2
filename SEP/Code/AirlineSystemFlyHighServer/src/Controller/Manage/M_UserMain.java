@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -34,10 +35,16 @@ public class M_UserMain implements Initializable{
     @FXML ComboBox <String> airportTo=new ComboBox<>();
 
     AirportList airportList= new AirportList();
-    FlightList flightList = new FlightList();
+    FlightList flightList;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
+
         for(int i=0; i<airportList.getLength(); i++){
             countryFrom.getItems().add(airportList.getCountry(i));
             countryTo.getItems().add(airportList.getCountry(i));
@@ -88,10 +95,6 @@ public class M_UserMain implements Initializable{
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/LogIn.fxml"))));
     }
 
-    public void bookFlightButtonPressed(ActionEvent actionEvent) {
-        personalInfo.setVisible(true);
-    }
-
     public void initAirportsFrom() {
         airportFromLabel.setVisible(true);
         airportFrom.setVisible(true);
@@ -121,8 +124,9 @@ public class M_UserMain implements Initializable{
     public void searchFlightButtonPressed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../View/FXML/BookFlight.fxml"));
         loader.setController(new BookFlightController());
-
         BookFlightController controller = loader.getController();
+
+
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(loader.load()));
@@ -151,4 +155,6 @@ public class M_UserMain implements Initializable{
         }
         return false;
     }
+
+
 }

@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -17,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,7 +30,8 @@ import java.util.ResourceBundle;
 public class BookFlightController implements Initializable{
 
     @FXML private AnchorPane anchorPane;
-    @FXML private TableView flightsTable;
+    @FXML private Button bookFlightButton;
+    @FXML private TableView<Flight> flightsTable;
     @FXML private TableColumn<Flight, String> flightNumberColumn;
     @FXML private TableColumn<Flight, Airport> departurePlaceColumn;
     @FXML private TableColumn<Flight, LocalDate> departureTimeColumn;
@@ -55,6 +58,27 @@ public class BookFlightController implements Initializable{
                 }
             }
         });
+        bookFlightButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Flight selectedFlight = flightsTable.getSelectionModel().getSelectedItem();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("../View/FXML/BookFlightForm.fxml"));
+                try {
+                    loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                BookFlightFormController controller = loader.getController();
+                controller.initData(selectedFlight);
+                Parent window = loader.getRoot();
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Book flight");
+                stage.setScene(new Scene(window));
+                stage.showAndWait();
+            }
+        });
     }
 
     private ObservableList<Flight>  getFlights() {
@@ -62,8 +86,8 @@ public class BookFlightController implements Initializable{
         ObservableList<Flight> flights = FXCollections.observableArrayList();
         for (int i = 0; i <flightList.getFlights().size() ; i++) {
             if ((flightList.getFlights().get(i).getDepartureDate().equals(departureDate))
-                    && (flightList.getFlights().get(i).getDeparturePlace().equals(departurePlace))
-                    &&(flightList.getFlights().get(i).getArrivalPlace().equals(arrivalPlace))) {
+                    && (flightList.getFlights().get(i).getDeparturePlace().getShortInfo().equals(departurePlace))
+                    &&(flightList.getFlights().get(i).getArrivalPlace().getShortInfo().equals(arrivalPlace))) {
                 flights.add(flightList.getFlights().get(i));
             }
         }
@@ -84,5 +108,10 @@ public class BookFlightController implements Initializable{
         priceColumn.setCellValueFactory(new PropertyValueFactory<Flight, Double>("price"));
 
         flightsTable.setItems(getFlights());
+    }
+
+    public void bookFlightButtonPressed() throws IOException {
+
+
     }
 }

@@ -44,7 +44,7 @@ public class Flight {
         this.arrivalTime = arrivalTime;
         this.airplaneIdNumber = airplaneIdNumber;
        // this.crew=new Crew();
-     //   this.passengers= new PassengerList();
+        this.passengers= new PassengerList();
         this.departurePlace=departure;
         this.arrivalPlace= arrival;
         this.status = status;
@@ -128,6 +128,8 @@ public class Flight {
         return departureTime;
     }
 
+
+
     public Airport getDeparturePlace() {
         return departurePlace;
     }
@@ -146,6 +148,10 @@ public class Flight {
 
     public Airplane getPlane() {
         return plane;
+    }
+
+    public void addPasanger(Passenger passenger) {
+        passengers.addPassenger(passenger);
     }
 
     public Crew getCrew() {

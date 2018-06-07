@@ -12,7 +12,8 @@ public class PassengerList {
     DatabaseAdapter adapter;
 
     public PassengerList() {
-        this.passengers = adapter.loadPassengers();
+//        this.passengers = adapter.loadPassengers();
+        this.passengers = FXCollections.observableArrayList();
     }
 
     public void addPassenger(Passenger passenger) {

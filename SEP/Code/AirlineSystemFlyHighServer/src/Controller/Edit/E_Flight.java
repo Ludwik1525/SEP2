@@ -26,7 +26,7 @@ public class E_Flight {
     @FXML ComboBox<String> departureMinutesBox = new ComboBox<>();
     @FXML ComboBox<String> arrivalHourBox = new ComboBox<>();
     @FXML ComboBox<String> arrivalMinutesBox = new ComboBox<>();
-    @FXML TextField airplaneIdField;
+    @FXML   ChoiceBox <String> airplaneId = new ChoiceBox<>();
     private DatabaseAdapter adapter = new DatabaseAdapter();
     @FXML TextField statusField;
     private Flight flight;
@@ -62,7 +62,6 @@ public class E_Flight {
         countryTo.setValue(flight.getArrivalPlace().getCountry());
         airportFrom.setValue(flight.getDeparturePlace());
         airportTo.setValue(flight.getArrivalPlace());
-        airplaneIdField.setText(flight.getAirplaneIdNumber());
         statusField.setText(flight.getStatus());
     }
 
@@ -73,7 +72,7 @@ public class E_Flight {
                         ,Integer.parseInt(departureMinutesBox.getSelectionModel().getSelectedItem()),0)
                 ,arrivalDateField.getValue(),LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
                 ,Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()),0)
-                ,airplaneIdField.getText(),airportFrom.getSelectionModel().getSelectedItem()
+                ,flightNumberField.getText(),airportFrom.getSelectionModel().getSelectedItem()
                 ,airportTo.getSelectionModel().getSelectedItem(),statusField.getText(),150.0);
         adapter.updateFlight(toBeEdited);
         flights.remove(flight);
@@ -100,13 +99,13 @@ public class E_Flight {
     public void confirmAirplane(ActionEvent actionEvent) {
     }
 
-//    public void getAirplanes() {
-//        for (int i = 0; i < airplaneList.getLength(); i++) {
-//            airplaneId.getItems().add(airplaneList.getId(i));
-//        }
-//        airplaneId.getSelectionModel().select(0);
-//
-//    }
+    public void getAirplanes() {
+        for (int i = 0; i < airplaneList.getLength(); i++) {
+            airplaneId.getItems().add(airplaneList.getId(i));
+        }
+        airplaneId.getSelectionModel().select(0);
+
+    }
 
     private void makeDates(DatePicker dp) {
         dp.setDayCellFactory(picker -> new DateCell() {

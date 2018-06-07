@@ -13,6 +13,8 @@ import java.sql.SQLException;
 public class Start extends Application {
     public static void main(String[] args) {
 
+
+
         System.out.println("PostgreSQL JDBC connection testing ");
         try {
             Class.forName("org.postgresql.Driver");
@@ -28,8 +30,8 @@ public class Start extends Application {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/fly_high_database", "postgres",
-                    "postgres");
+                    "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
+                    "owd3sshp");
 
         } catch (SQLException e) {
             System.out.println("Connection failed. Check output console");

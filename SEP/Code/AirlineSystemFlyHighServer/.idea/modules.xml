@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AirlineSystemFlyHighServer.iml" filepath="$PROJECT_DIR$/AirlineSystemFlyHighServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AirlineSystemFlyHigh_Server.iml" filepath="$PROJECT_DIR$/AirlineSystemFlyHigh_Server.iml" />
     </modules>
   </component>
 </project>

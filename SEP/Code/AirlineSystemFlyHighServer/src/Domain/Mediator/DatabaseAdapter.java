@@ -23,8 +23,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection() throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
-                        "postgres");
+                        "jdbc:postgresql://localhost:5432/Fly_High_Database?currentSchema=FlyHigh", "postgres",
+                        "owd3sshp");
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -38,8 +38,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection(String username, String password) throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
-                        "postgres");
+                        "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
+                        "owd3sshp");
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -87,8 +87,8 @@ public class DatabaseAdapter implements Target  {
     public void connect(){
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
-                    "postgres");
+                    "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
+                    "owd3sshp");
 
         } catch (SQLException e) {
             System.out.println("Connection failed. Check output console");
@@ -128,26 +128,59 @@ public class DatabaseAdapter implements Target  {
 
     @Override
     public ObservableList<Airport> loadAirports() {
-        connect();
+        Connection c=null;
+        Statement stmt=null;
         ObservableList<Airport> airportList= FXCollections.observableArrayList(
         );
         try{
-            statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM airportlist;");
-            while (resultSet.next()){
-                String code= resultSet.getString("code");
-                String name= resultSet.getString("name");
-                 String city=resultSet.getString("city");
-                String postcode=resultSet.getString("postcode");
-                String country= resultSet.getString("country");
-                int numberofGates= resultSet.getInt("numberofgates");
+        Class.forName("org.postgresql.Driver");
+        c=DriverManager.getConnection("jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres", "owd3sshp");
+        c.setAutoCommit(false);
+            System.out.println("OPENED");
+
+            stmt=c.createStatement();
+            ResultSet rs= stmt.executeQuery("SELECT * FROM airportlist;");
+            while(rs.next()){
+                String code= rs.getString("code");
+                String name= rs.getString("name");
+                String city= rs.getString("city");
+                String postcode=rs.getString("postcode");
+                String country= rs.getString("country");
+                int numberofGates= rs.getInt("numberofgates");
 
                 airportList.add(new Airport(code, name, city, postcode, country, numberofGates));
+                System.out.println("success");
             }
+            rs.close();
+            stmt.close();
+            c.close();
         }catch (Exception e){
-            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
-        System.out.println("Retrieved airports successfully");
+        System.out.println("gucci");
+
+//
+//        ObservableList<Airport> airportList= FXCollections.observableArrayList(
+//        );
+//        try{
+//            statement=connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery("SELECT * FROM airportlist;");
+//
+//            while (resultSet.next()){
+//                String code= resultSet.getString("code");
+//                String name= resultSet.getString("name");
+//                 String city=resultSet.getString("city");
+//                String postcode=resultSet.getString("postcode");
+//                String country= resultSet.getString("country");
+//                int numberofGates= resultSet.getInt("numberofgates");
+//
+//                airportList.add(new Airport(code, name, city, postcode, country, numberofGates));
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        System.out.println("Retrieved airports successfully");
         return airportList;
     }
 
@@ -251,18 +284,19 @@ public class DatabaseAdapter implements Target  {
               //  Time departureTime=resultSet.getTime("departureTime");
                 LocalDate arrivalDate=resultSet.getDate("arrivalDate").toLocalDate();
                 //Time arrivalTime= resultSet.getTime("arrivalTime");
+                System.out.println(resultSet.getString("departurePlace"));
                 String departurePlace= resultSet.getString("departurePlace");
                 Airport departureAirport = makeAirport(departurePlace);
                 String arrivalPlace= resultSet.getString("arrivalPlace");
                 Airport arrivalAirport = makeAirport(arrivalPlace);
                 String status= resultSet.getString("status");
+                System.out.println(resultSet.getString("status"));
                 String airplaneIdNumber= resultSet.getString("airplaneIdNumber");
                 LocalTime departureTime =  resultSet.getTime("departureTime").toLocalTime();
                 LocalTime arrivalTime = resultSet.getTime("arrivalTime").toLocalTime();
                // int passengerListId=resultSet.getInt("passengerListId");
               //  int  crewId=resultSet.getInt("CrewID");
                 double price=resultSet.getDouble("price");
-                System.out.println("co sie dzieje");
 
                 flightList.add(new Flight(flightNumber, departureDate, departureTime, arrivalDate, arrivalTime
                         , airplaneIdNumber, departureAirport, arrivalAirport, status, price));
@@ -373,7 +407,7 @@ public class DatabaseAdapter implements Target  {
               "UPDATE crew SET position ='"+crewMember.getPosition()+"' WHERE id='"+temp+"';"+
              "UPDATE crew SET address ='"+crewMember.getAddress()+"' WHERE id='"+temp+"';"+
              "UPDATE crew SET phonenumber ='"+crewMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
-                "UPDATE flyhigh.crew SET email ='"+crewMember.getEmail()+"' WHERE id="+temp+";"+
+                "UPDATE crew SET email ='"+crewMember.getEmail()+"' WHERE id="+temp+";"+
              "UPDATE crew SET birthdate ='"+crewMember.getBirthdate()+"' WHERE id='"+temp+"';";
 
             statement.executeUpdate(sql);
@@ -436,7 +470,7 @@ public class DatabaseAdapter implements Target  {
                     "UPDATE flightlist  SET departuretime='"+flight.getDepartureTime()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET arrivaldate='"+flight.getArrivalDate()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET arrivaltime ='"+flight.getArrivalTime()+"' WHERE flightNumber="+tempId+";"+
-                    "UPDATE flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber'"+tempId+"';"+
                     "UPDATE flightlist  SET arrivalplace='"+flight.getArrivalPlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET status='"+flight.getStatus()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET airplaneidnumber='"+flight.getAirplaneIdNumber()+"' WHERE flightNumber='"+tempId+"';";

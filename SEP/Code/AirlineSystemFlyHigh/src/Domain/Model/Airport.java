@@ -66,12 +66,11 @@ public class Airport {
     }
 
     public String getShortInfo() {
-        return getCity()+", "+getName();
+        return getName()+", "+getCity();
     }
 
     @Override
     public String toString() {
-        return "Name: "+getName()+"; Code: "+getCode()+"; Country: "+getCountry()+"; City: "+getCity()+"; Postcode: "
-                +getPostcode()+"; Number of gates: "+getNumberOfGates();
+        return getName();
     }
 }

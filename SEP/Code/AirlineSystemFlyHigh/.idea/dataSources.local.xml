@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Fly_High_Database@localhost" uuid="1b06f02b-3928-40ab-923b-0d430c9e1c17">
-      <database-info product="PostgreSQL" version="10.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+    <data-source name="fly_high_database@localhost" uuid="84c127e2-d0cd-454b-9208-166ba0449822">
+      <database-info product="PostgreSQL" version="9.6.7" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>postgres</user-name>
-      <introspection-schemas>Fly_High_Database:public</introspection-schemas>
+      <introspection-schemas>fly_high_database:flyhigh,public</introspection-schemas>
     </data-source>
   </component>
 </project>

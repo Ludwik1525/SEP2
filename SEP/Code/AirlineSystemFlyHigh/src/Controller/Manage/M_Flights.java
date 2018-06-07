@@ -1,6 +1,7 @@
 package Controller.Manage;
 
 import Controller.CrewMembersFlightController;
+//import Controller.Edit.E_Flight;
 import Controller.Edit.E_Flight;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
@@ -33,11 +34,11 @@ public class M_Flights implements Initializable {
 
     @FXML protected TableView<Flight> flightsTable;
     @FXML protected TableColumn<Flight, String> flightNumber;
-    @FXML protected TableColumn<Flight, LocalDate> departureTime;
-    @FXML protected TableColumn<Flight, LocalDate> arrivalTime;
+    @FXML protected TableColumn<Flight, String> departureTime;
+    @FXML protected TableColumn<Flight, String> arrivalTime;
     @FXML protected TableColumn<Flight, String> airplaneIDNumber;
-    @FXML protected TableColumn<Flight, String> departurePlace;
-    @FXML protected TableColumn<Flight, String> arrivalPlace;
+    @FXML protected TableColumn<Flight, String> departurePlaceName;
+    @FXML protected TableColumn<Flight, String> arrivalPlaceName;
     @FXML protected TableColumn<Flight, String> status;
 
     @FXML protected Button seeCrew;
@@ -56,11 +57,11 @@ public class M_Flights implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
-        departureTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("departureTime"));
-        arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, LocalDate>("arrivalTime"));
+        departureTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDateTime"));
+        arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalDateTime"));
         airplaneIDNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("airplaneIdNumber"));
-        departurePlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
-        arrivalPlace.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
+        departurePlaceName.setCellValueFactory(new PropertyValueFactory<Flight, String>("departurePlace"));
+        arrivalPlaceName.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalPlace"));
         status.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
 
 

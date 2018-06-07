@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Domain.Mediator.DatabaseAdapter;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,48 +12,67 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class A_Flight implements Initializable {
     @FXML AnchorPane anchorPane;
-    @FXML TextField numberField;
-    @FXML TextField departureTimeField;
-    @FXML TextField arrivalTimeField;
-    @FXML TextField departurePlaceField;
-    @FXML TextField arrivalPlaceField;
     @FXML TextField statusField;
 
 
     Crew crew= new Crew();
 
     private Flight flight;
-    @FXML AnchorPane departureAirport;
-    @FXML AnchorPane arrivalAirport;
-    @FXML ChoiceBox<String> countryFrom = new ChoiceBox<>();
-    @FXML ChoiceBox<String> airportFrom = new ChoiceBox<>();
-    @FXML ChoiceBox<String> countryTo = new ChoiceBox<>();
-    @FXML ChoiceBox<String> airportTo = new ChoiceBox<>();
-    @FXML ChoiceBox<String> departureHourBox = new ChoiceBox<>();
-    @FXML ChoiceBox<String> departureMinutesBox = new ChoiceBox<>();
-    @FXML ChoiceBox<String> arrivalHourBox = new ChoiceBox<>();
-    @FXML ChoiceBox<String> arrivalMinutesBox = new ChoiceBox<>();
+    @FXML TextField flightNumberField;
+    @FXML DatePicker departureDateField;
+    @FXML DatePicker arrivalDateField;
+    @FXML ComboBox<String> countryFrom = new ComboBox<>();
+    @FXML ComboBox<Airport> airportFrom = new ComboBox<>();
+    @FXML ComboBox<String> countryTo = new ComboBox<>();
+    @FXML ComboBox<Airport> airportTo = new ComboBox<>();
+    @FXML ComboBox<String> departureHourBox = new ComboBox<>();
+    @FXML ComboBox<String> departureMinutesBox = new ComboBox<>();
+    @FXML ComboBox<String> arrivalHourBox = new ComboBox<>();
+    @FXML ComboBox<String> arrivalMinutesBox = new ComboBox<>();
 
     AirportList airportList = new AirportList();
 
     ObservableList<Flight> items;
     FlightList flightList= new FlightList();
+    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) { ;
+    public void initialize(URL location, ResourceBundle resources) {
+
+        Callback<ListView<Airport>, ListCell<Airport>> factory = lv -> new ListCell<Airport>() {
+
+            @Override
+            protected void updateItem(Airport item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getShortInfo());
+            }
+        };
+        airportFrom.setCellFactory(factory);
+        airportTo.setCellFactory(factory);
+
+        items = flightList.getFlights();
+        for(int i=0; i<airportList.getLength(); i++){
+            if (!(countryFrom.getItems().contains(airportList.getCountry(i)))) {
+                countryFrom.getItems().add(airportList.getCountry(i));
+                countryTo.getItems().add(airportList.getCountry(i));
+            }
+
+        }
+        countryFrom.setPromptText("Select country");
+        countryTo.setPromptText("Select country");
         departureHourBox.getItems().setAll(makeStringArray(12));
         arrivalHourBox.getItems().setAll(makeStringArray(12));
         departureMinutesBox.getItems().setAll(makeStringArray(59));
         arrivalMinutesBox.getItems().setAll(makeStringArray(59));
-        showArrivalAirports();
-        showDepartureAirports();
     }
     public void setItems(ObservableList <Flight> items) {
         this.items= items;
@@ -77,66 +97,39 @@ public class A_Flight implements Initializable {
         controller.setItems(crew.getCrewMembers());
         window.showAndWait();
     }
-    public void showArrivalAirports() {
-        arrivalAirport.setVisible(true);
-        getAirports();
-    }
 
-    public void showDepartureAirports() {
-        departureAirport.setVisible(true);
-        getAirports();
-    }
-
-    public void getAirports() {
-        for (int i = 0; i < airportList.getLength(); i++) {
-            countryFrom.getItems().add(airportList.getCountry(i));
-            countryTo.getItems().add(airportList.getCountry(i));
-        }
-        countryFrom.getSelectionModel().select(0);
-        countryTo.getSelectionModel().select(0);
-    }
-
-    public void filterAirportsFrom() {
-
-        if (!countryFrom.getSelectionModel().isEmpty()) {
-            airportFrom.getItems().clear();
-            for (int i = 0; i < airportList.getLength(); i++) {
-                if (countryFrom.getValue().equals(airportList.getCountry(i))) {
-                    System.out.println("this code is not duplicated, lol");
-                    airportFrom.getItems().add(airportList.getCity(i));
-                }
+    public void getAirportsFrom() {
+        airportFrom.getItems().clear();
+        String country = countryFrom.getSelectionModel().getSelectedItem();
+        for(int i=0; i<airportList.getLength(); i++) {
+            if (airportList.getAirports().get(i).getCountry().equals(country)) {
+                airportFrom.getItems().add(airportList.getAirports().get(i));
             }
         }
     }
 
-    public void filterAirportsTo() {
-        if (!countryTo.getSelectionModel().isEmpty()) {
-            airportTo.getItems().clear();
-            for (int i = 0; i < airportList.getLength(); i++) {
-                if (countryTo.getValue().equals(airportList.getCountry(i))) {
-                    airportTo.getItems().add(airportList.getCity(i));
-                }System.out.println("this code is not duplicated, lol");
+    public void getAirportsTo() {
+        airportTo.getItems().clear();
+        String country = countryTo.getSelectionModel().getSelectedItem();
+        for(int i=0; i<airportList.getLength(); i++) {
+            if (airportList.getAirports().get(i).getCountry().equals(country)) {
+                airportTo.getItems().add(airportList.getAirports().get(i));
             }
         }
+        airportTo.getItems().remove(airportFrom.getSelectionModel().getSelectedItem());
     }
-    public void confirmDeparturePlace(ActionEvent actionEvent) {
-        String country= countryFrom.getValue();
-        String airport= airportFrom.getValue();
-        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
-// change old flight to the new one in the flight list
-    }
-    public void confirmArrivalPlace(ActionEvent actionEvent) {
-        String country= countryFrom.getValue();
-        String airport= airportFrom.getValue();
-        flight.setDeparturePlace(String.valueOf(findAirport(country, airport).getCity()));
-// change old flight to the new one in the flight list
-    }
-    public Airport findAirport(String country, String airport){
-        for(int i=0; i<airportList.getLength();i++){
-            if(country.equals(airportList.getCountry(i))&& airport.equals(airportList.getCity(i))){
-                return airportList.getAirport(i);
-            }
-        }return null;
+
+    public void addFlightButtonPressed() {
+        Flight toBeAdded = new Flight(flightNumberField.getText(),departureDateField.getValue(),
+                LocalTime.of(Integer.parseInt(departureHourBox.getSelectionModel().getSelectedItem())
+                        ,Integer.parseInt(departureMinutesBox.getSelectionModel().getSelectedItem()),0)
+                ,arrivalDateField.getValue(),LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
+                ,Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()),0),
+                flightNumberField.getText(),airportFrom.getSelectionModel().getSelectedItem(),airportTo.getSelectionModel().getSelectedItem(),"inactive",150);
+        System.out.println("flight to be added: "+toBeAdded.toString());
+        items.add(toBeAdded);
+        adapter.addFlight(toBeAdded);
+        flightList.updateList(items);
     }
 
     private String[] makeStringArray(int until) {
@@ -151,4 +144,6 @@ public class A_Flight implements Initializable {
         }
         return array;
     }
+
+
 }

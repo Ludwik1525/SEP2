@@ -424,16 +424,16 @@ public class DatabaseAdapter implements Target  {
             connection.setAutoCommit(false);
 
             statement=connection.createStatement();
-//            String tempId= flight
-//            String sql= "UPDATE ClubMemberList SET name ='"+clubMember.getName()+"' WHERE id='"+tempId+"';"+
-//              "UPDATE ClubMemberList SET address ='"+clubMember.getAddress()+"' WHERE id='"+tempId+"';"+
-//             "UPDATE ClubMemberList SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+tempId+"';"+
-//             "UPDATE ClubMemberList SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+tempId+"';"+
-//                "UPDATE ClubMemberList SET email ='"+clubMember.getEmail()+"' WHERE id="+tempId+";"+
-//             "UPDATE ClubMemberList SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+tempId+"';";
+            String tempId= flight
+            String sql= "UPDATE ClubMemberList SET name ='"+flight()+"' WHERE id='"+tempId+"';"+
+              "UPDATE ClubMemberList SET address ='"+clubMember.getAddress()+"' WHERE id='"+tempId+"';"+
+             "UPDATE ClubMemberList SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+tempId+"';"+
+             "UPDATE ClubMemberList SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+tempId+"';"+
+                "UPDATE ClubMemberList SET email ='"+clubMember.getEmail()+"' WHERE id="+tempId+";"+
+             "UPDATE ClubMemberList SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+tempId+"';";
 
-//            statement.executeUpdate(sql);
-//            connection.commit();
+            statement.executeUpdate(sql);
+            connection.commit();
 
             System.out.println("Updated successfully.");
 

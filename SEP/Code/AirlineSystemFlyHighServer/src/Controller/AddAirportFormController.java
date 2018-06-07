@@ -42,7 +42,7 @@ public class AddAirportFormController implements Initializable {
     }
 
     public void addAirportToTheList(ActionEvent actionEvent) {
-        items.add(new Airport(code.getText(), name.getText(), city.getText(), postcode.getText(), country.getText(), numberOfGates.getText()));
+        items.add(new Airport(code.getText(), name.getText(), city.getText(), postcode.getText(), country.getText(), Integer.parseInt(numberOfGates.getText())));
 
         airportList.updateList(items);
 

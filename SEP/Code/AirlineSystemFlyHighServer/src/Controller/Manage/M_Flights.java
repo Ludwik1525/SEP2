@@ -115,7 +115,6 @@ public class M_Flights implements Initializable {
     }
 
     public void buttonsAppear(MouseEvent mouseEvent) {
-        removeButton.setVisible(true);
         seeCrew.setVisible(true);
         seePassengers.setVisible(true);
         editButton.setVisible(true);
@@ -124,26 +123,6 @@ public class M_Flights implements Initializable {
     public void goBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../View/FXML/Administrator/AdministratorMain.fxml"))));
-    }
-
-
-    public void removeFlightButtonPressed(ActionEvent actionEvent) throws IOException {
-        confirmationLabel.setVisible(true);
-        forsake.setVisible(true);
-        confirm.setVisible(true);
-    }
-    public void confirmButtonPressed(ActionEvent actionEvent) {
-        ObservableList<Flight> flights= flightList.getFlights();
-        ObservableList<Flight> selected= flightsTable.getSelectionModel().getSelectedItems();
-        selected.forEach(flights::remove);
-        makeFilteredList(flights);
-        flightList.updateList(flights);
-    }
-
-    public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
-        confirmationLabel.setVisible(false);
-        forsake.setVisible(false);
-        confirm.setVisible(false);
     }
 
     public void editButtonPressed() throws IOException {

@@ -69,8 +69,8 @@ public class A_Flight implements Initializable {
         }
         countryFrom.setPromptText("Select country");
         countryTo.setPromptText("Select country");
-        departureHourBox.getItems().setAll(makeStringArray(12));
-        arrivalHourBox.getItems().setAll(makeStringArray(12));
+        departureHourBox.getItems().setAll(makeStringArray(24));
+        arrivalHourBox.getItems().setAll(makeStringArray(24));
         departureMinutesBox.getItems().setAll(makeStringArray(59));
         arrivalMinutesBox.getItems().setAll(makeStringArray(59));
     }
@@ -125,11 +125,14 @@ public class A_Flight implements Initializable {
                         ,Integer.parseInt(departureMinutesBox.getSelectionModel().getSelectedItem()),0)
                 ,arrivalDateField.getValue(),LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
                 ,Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()),0),
-                flightNumberField.getText(),airportFrom.getSelectionModel().getSelectedItem(),airportTo.getSelectionModel().getSelectedItem(),"inactive",150);
+                "A34B",airportFrom.getSelectionModel().getSelectedItem(),airportTo.getSelectionModel().getSelectedItem(),statusField.getText(),150);
         System.out.println("flight to be added: "+toBeAdded.toString());
         items.add(toBeAdded);
         adapter.addFlight(toBeAdded);
         flightList.updateList(items);
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+
     }
 
     private String[] makeStringArray(int until) {
@@ -144,6 +147,5 @@ public class A_Flight implements Initializable {
         }
         return array;
     }
-
 
 }

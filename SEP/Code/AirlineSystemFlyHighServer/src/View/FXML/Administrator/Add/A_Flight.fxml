@@ -51,12 +51,8 @@
                 <ComboBox fx:id="airportFrom" layoutX="65.0" layoutY="61.0" prefHeight="31.0" prefWidth="220.0" />
                 <ComboBox fx:id="countryTo" layoutX="65.0" layoutY="113.0" onAction="#getAirportsTo" prefHeight="31.0" prefWidth="220.0" />
             </children></AnchorPane>
-      <ComboBox fx:id="departureHourBox" layoutX="390.0" layoutY="134.0" prefHeight="31.0" prefWidth="60.0" />
-      <ComboBox fx:id="departureMinutesBox" layoutX="459.0" layoutY="134.0" prefHeight="31.0" prefWidth="60.0" />
-      <ComboBox fx:id="arrivalMinutesBox" layoutX="459.0" layoutY="174.0" prefHeight="31.0" prefWidth="60.0" />
-      <ComboBox fx:id="arrivalHourBox" layoutX="390.0" layoutY="174.0" prefHeight="31.0" prefWidth="60.0" />
-      <Label layoutX="452.0" layoutY="139.0" text=":" />
-      <Label layoutX="452.0" layoutY="179.0" text=":" />
+      <Label layoutX="459.0" layoutY="139.0" prefHeight="21.0" prefWidth="4.0" text=":" />
+      <Label layoutX="459.0" layoutY="179.0" text=":" />
       <DatePicker fx:id="departureDateField" layoutX="224.0" layoutY="134.0" prefHeight="31.0" prefWidth="160.0" />
       <DatePicker fx:id="arrivalDateField" layoutX="224.0" layoutY="174.0" prefHeight="31.0" prefWidth="160.0" />
           <Label layoutX="56.0" layoutY="224.0" text="Departure country">
@@ -75,5 +71,9 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <ComboBox fx:id="departureHourBox" layoutX="387.0" layoutY="134.0" prefHeight="31.0" prefWidth="70.0" />
+      <ComboBox fx:id="departureMinutesBox" layoutX="464.0" layoutY="134.0" prefHeight="31.0" prefWidth="70.0" />
+      <ComboBox fx:id="arrivalMinutesBox" layoutX="464.0" layoutY="174.0" prefHeight="31.0" prefWidth="70.0" />
+      <ComboBox fx:id="arrivalHourBox" layoutX="387.0" layoutY="174.0" prefHeight="31.0" prefWidth="70.0" />
     </children>
 </AnchorPane>

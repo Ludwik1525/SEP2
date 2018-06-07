@@ -42,7 +42,7 @@ public class AddCrewMemberController  implements Initializable {
     }
 
     public void addCrewMemberToTheList(ActionEvent actionEvent) {
-        items.add(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(), phoneNumber.getText(), email.getText(), birthday.getValue()));
+        items.add(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(), Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
 
         crew.updateList(items);
 

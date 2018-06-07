@@ -72,7 +72,7 @@ public class CrewMembersFlightController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<CrewMember, String>("email"));
         birthday.setCellValueFactory(new PropertyValueFactory<CrewMember, LocalDate>("birthdate"));
 
-        crew = flight.getCrew();
+        crew = new Crew();
         crewMembersTable.setItems(crew.getCrewMembers());
 
 //        makeFilteredList(crew.getCrewMembers());

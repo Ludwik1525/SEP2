@@ -23,7 +23,7 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection() throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/Fly_High_Database?currentSchema=FlyHigh", "postgres",
+                        "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
                         "owd3sshp");
 
             } catch (SQLException e) {
@@ -40,6 +40,7 @@ public class DatabaseAdapter implements Target  {
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
                         "owd3sshp");
+
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -128,37 +129,31 @@ public class DatabaseAdapter implements Target  {
 
     @Override
     public ObservableList<Airport> loadAirports() {
-        Connection c=null;
-        Statement stmt=null;
+        connect();
+
         ObservableList<Airport> airportList= FXCollections.observableArrayList(
         );
         try{
-        Class.forName("org.postgresql.Driver");
-        c=DriverManager.getConnection("jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres", "owd3sshp");
-        c.setAutoCommit(false);
-            System.out.println("OPENED");
+       statement=connection.createStatement();
 
-            stmt=c.createStatement();
-            ResultSet rs= stmt.executeQuery("SELECT * FROM airportlist;");
-            while(rs.next()){
-                String code= rs.getString("code");
-                String name= rs.getString("name");
-                String city= rs.getString("city");
-                String postcode=rs.getString("postcode");
-                String country= rs.getString("country");
-                int numberofGates= rs.getInt("numberofgates");
+
+            ResultSet resultSet= statement.executeQuery("SELECT * FROM airportlist;");
+            while(resultSet.next()){
+                String code= resultSet.getString("code");
+                String name= resultSet.getString("name");
+                String city= resultSet.getString("city");
+                String postcode=resultSet.getString("postcode");
+                String country= resultSet.getString("country");
+                int numberofGates= resultSet.getInt("numberofgates");
 
                 airportList.add(new Airport(code, name, city, postcode, country, numberofGates));
-                System.out.println("success");
             }
-            rs.close();
-            stmt.close();
-            c.close();
+
         }catch (Exception e){
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        System.out.println("gucci");
+
 
 //
 //        ObservableList<Airport> airportList= FXCollections.observableArrayList(
@@ -284,13 +279,11 @@ public class DatabaseAdapter implements Target  {
               //  Time departureTime=resultSet.getTime("departureTime");
                 LocalDate arrivalDate=resultSet.getDate("arrivalDate").toLocalDate();
                 //Time arrivalTime= resultSet.getTime("arrivalTime");
-                System.out.println(resultSet.getString("departurePlace"));
                 String departurePlace= resultSet.getString("departurePlace");
                 Airport departureAirport = makeAirport(departurePlace);
                 String arrivalPlace= resultSet.getString("arrivalPlace");
                 Airport arrivalAirport = makeAirport(arrivalPlace);
                 String status= resultSet.getString("status");
-                System.out.println(resultSet.getString("status"));
                 String airplaneIdNumber= resultSet.getString("airplaneIdNumber");
                 LocalTime departureTime =  resultSet.getTime("departureTime").toLocalTime();
                 LocalTime arrivalTime = resultSet.getTime("arrivalTime").toLocalTime();
@@ -422,55 +415,23 @@ public class DatabaseAdapter implements Target  {
 
     }
 
-
-
-//    @Override
-//    public void updatePassenger(Passenger passenger) {
-//        connect();
-//
-//        try{
-//            connection = dataSource.getConnection();
-//            connection.setAutoCommit(false);
-//
-//            statement=connection.createStatement();
-//            String temp= passenger.getId();
-//            String sql= "UPDATE passengerlist SET name ='"+passenger.getName()+"' WHERE id='"+temp+"';"+
-//              "UPDATE passengerlist SET idtype ='"+passenger.getIdType()+"' WHERE id='"+temp+"';"+
-//             "UPDATE passengerlist SET nationality ='"+passenger.getNationality()+"' WHERE id='"+temp+"';"+
-//             "UPDATE passengerlist SET birthdate ='"+passenger.getBirthday()+"' WHERE id='"+temp+"';"+
-//              "UPDATE passengerlist SET phonenumber ='"+passenger.getPhoneNumber()+"' WHERE id="+temp+";"+
-//              "UPDATE passengerlist SET email ='"+passenger.getEmail()+"' WHERE id='"+temp+"';"+
-//            "UPDATE passengerlist SET seatno ='"+passenger.getSeatNo()+"' WHERE id="+temp+";"+
-//            "UPDATE passengerlist SET luggagesize ='"+passenger.getLuggageSize()+"' WHERE id="+temp+";"+
-//             "UPDATE passengerlist SET paymentmethod ='"+passenger.getPaymentMethod()+"' WHERE id="+temp+";";
-//
-//            statement.executeUpdate(sql);
-//            connection.commit();
-//
-//            System.out.println("Updated successfully.");
-//
-//        }catch (Exception e){
-//            System.err.println(e.getClass().getName()+": "+e.getMessage());
-//            System.exit(0);
-//        }
-//
-//    }
-
     @Override
     public void updateFlight(Flight flight) {
-        connect();
 
+        connect();
         try{
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
 
+
             int tempId = Integer.parseInt(flight.getFlightNumber());
+
             statement=connection.createStatement();
             String sql= "UPDATE flightlist  SET departuredate ='"+flight.getDepartureDate()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET departuretime='"+flight.getDepartureTime()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET arrivaldate='"+flight.getArrivalDate()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET arrivaltime ='"+flight.getArrivalTime()+"' WHERE flightNumber="+tempId+";"+
-                    "UPDATE flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber'"+tempId+"';"+
+                    "UPDATE flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET arrivalplace='"+flight.getArrivalPlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET status='"+flight.getStatus()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET airplaneidnumber='"+flight.getAirplaneIdNumber()+"' WHERE flightNumber='"+tempId+"';";
@@ -508,11 +469,9 @@ public class DatabaseAdapter implements Target  {
             statement.executeUpdate(sql);
             connection.commit();
             System.out.println("Added successfully.");
-
         }catch (Exception e){
-            e.printStackTrace();
-           // System.err.println(e.getClass().getName()+": "+e.getMessage());
-           // System.exit(0);
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
     }
 
@@ -625,31 +584,30 @@ public class DatabaseAdapter implements Target  {
 
     @Override
     public void addFlight(Flight flight) {
-//        connect();
-//
-//
-//        try{
-//
-//            connection = dataSource.getConnection();
-//            connection.setAutoCommit(false);
-//
-//            statement=connection.createStatement();
-//            String sql= "INSERT INTO  fly_high_database.flyhigh.flightlist(flightnumber, departuredate, departuretime" +
-//                    ", arrivaldate, arrivaltime, departureplace, arrivalplace, status, airplaneidnumber" +
-//                    ", passengerlistid, crewid,price) VALUES" +
-//                    "('"+flight.getFlightNumber()+"', '"+flight.getDepartureDate()+"', '"+passenger.getIdType()+"', '"+passenger.getNationality()+"', '"+passenger.getBirthday()+"', '"+passenger.getPhoneNumber()+"', '"+passenger.getEmail()+"', '"+passenger.getSeatNo()+"', '"+passenger.getLuggageSize()+"', '"+passenger.getPaymentMethod()+"', 1);";
-//
-//            statement.executeUpdate(sql);
-//            statement.close();
-//            connection.commit();
-//            connection.close();
-//
-//            System.out.println("Updated successfully.");
-//
-//        }catch (Exception e){
-//            System.err.println(e.getClass().getName()+": "+e.getMessage());
-//            System.exit(0);
-//        }
+        connect();
+        try{
+
+            connection = dataSource.getConnection();
+            connection.setAutoCommit(false);
+
+            statement=connection.createStatement();
+            String sql= "INSERT INTO  flightlist(flightnumber, departuredate, departuretime, arrivaldate, arrivaltime," +
+                    "departureplace,arrivalplace, status, airplaneidnumber, passengerListID, CrewId, price) VALUES" +
+                    "('"+flight.getFlightNumber()+"', '"+flight.getDepartureDate()+"', '"+flight.getDepartureTime()+"', " +
+                    "'"+flight.getArrivalDate()+"', '"+flight.getArrivalTime()+"', '"+flight.getDeparturePlace()+"', '"+
+                    flight.getArrivalPlace()+"', '"+flight.getStatus()+"', '"+flight.getAirplaneIdNumber()+"', 1, 1,"+flight.getPrice()+");";
+
+            statement.executeUpdate(sql);
+            statement.close();
+            connection.commit();
+            connection.close();
+
+            System.out.println("Added successfully.");
+
+        }catch (Exception e){
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
     }
 
     @Override

@@ -6,9 +6,11 @@ import javafx.collections.ObservableList;
 
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
+import javax.xml.transform.Result;
 import java.io.PrintWriter;
 import java.lang.reflect.Executable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.logging.Logger;
@@ -21,8 +23,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection() throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://127.0.0.1:5433/Fly_High_Database", "postgres",
-                        "owd3sshp");
+                        "jdbc:postgresql://localhost:5432/fly_high_database", "postgres",
+                        "postgres");
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -36,8 +38,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection(String username, String password) throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://127.0.0.1:5433/Fly_High_Database", "postgres",
-                        "owd3sshp");
+                        "jdbc:postgresql://localhost:5432/Fly_High_Database", "postgres",
+                        "postgres");
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -85,8 +87,8 @@ public class DatabaseAdapter implements Target  {
     public void connect(){
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5433/Fly_High_Database", "postgres",
-                    "owd3sshp");
+                    "jdbc:postgresql://localhost:5432/fly_high_database", "postgres",
+                    "postgres");
 
         } catch (SQLException e) {
             System.out.println("Connection failed. Check output console");
@@ -103,7 +105,7 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM clubmemberlist;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.clubmemberlist;");
             while (resultSet.next()){
                 String name= resultSet.getString("name");
                 String id= resultSet.getString("id");
@@ -131,7 +133,7 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM airportlist;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.airportlist;");
             while (resultSet.next()){
                 String code= resultSet.getString("code");
                 String name= resultSet.getString("name");
@@ -143,8 +145,7 @@ public class DatabaseAdapter implements Target  {
                 airportList.add(new Airport(code, name, city, postcode, country, numberofGates));
             }
         }catch (Exception e){
-            System.err.println(e.getClass().getName()+"e.getMessage()");
-            System.exit(0);
+            e.printStackTrace();
         }
         System.out.println("Retrieved airports successfully");
         return airportList;
@@ -157,7 +158,7 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM airplanelist;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.airplanelist;");
             while (resultSet.next()){
                 String idNumber= resultSet.getString("IDNumber");
                 String model= resultSet.getString("model");
@@ -182,7 +183,7 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM crew;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.crew;");
             while (resultSet.next()){
                 int crewID=resultSet.getInt("crewID");
                 String name= resultSet.getString("name");
@@ -210,7 +211,7 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM passengerlist;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.passengerlist;");
             while (resultSet.next()){
                 String name= resultSet.getString("name");
                 String id= resultSet.getString("id");
@@ -242,23 +243,29 @@ public class DatabaseAdapter implements Target  {
         );
         try{
             statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM flightlist;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM fly_high_database.flyhigh.flightlist;");
+            AirportList airportList = new AirportList();
             while (resultSet.next()){
-                int flightNumber=resultSet.getInt("flightNumber");
+                String flightNumber=resultSet.getString("flightNumber");
                 LocalDate departureDate=resultSet.getDate("departureDate").toLocalDate();
               //  Time departureTime=resultSet.getTime("departureTime");
                 LocalDate arrivalDate=resultSet.getDate("arrivalDate").toLocalDate();
                 //Time arrivalTime= resultSet.getTime("arrivalTime");
                 String departurePlace= resultSet.getString("departurePlace");
+                Airport departureAirport = makeAirport(departurePlace);
                 String arrivalPlace= resultSet.getString("arrivalPlace");
+                Airport arrivalAirport = makeAirport(arrivalPlace);
                 String status= resultSet.getString("status");
                 String airplaneIdNumber= resultSet.getString("airplaneIdNumber");
+                LocalTime departureTime =  resultSet.getTime("departureTime").toLocalTime();
+                LocalTime arrivalTime = resultSet.getTime("arrivalTime").toLocalTime();
                // int passengerListId=resultSet.getInt("passengerListId");
               //  int  crewId=resultSet.getInt("CrewID");
                 double price=resultSet.getDouble("price");
                 System.out.println("co sie dzieje");
 
-                flightList.add(new Flight(flightNumber, departureDate, arrivalDate, departurePlace, arrivalPlace, status, airplaneIdNumber, price));
+                flightList.add(new Flight(flightNumber, departureDate, departureTime, arrivalDate, arrivalTime
+                        , airplaneIdNumber, departureAirport, arrivalAirport, status, price));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -279,12 +286,12 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             String temp= clubMember.getId();
-            String sql= "UPDATE ClubMemberList SET name ='"+clubMember.getName()+"' WHERE id='"+temp+"';"+
-              "UPDATE ClubMemberList SET address ='"+clubMember.getAddress()+"' WHERE id='"+temp+"';"+
-             "UPDATE ClubMemberList SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+temp+"';"+
-             "UPDATE ClubMemberList SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
-                "UPDATE ClubMemberList SET email ='"+clubMember.getEmail()+"' WHERE id="+temp+";"+
-             "UPDATE ClubMemberList SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+temp+"';";
+            String sql= "UPDATE fly_high_database.flyhigh.clubmemberlist SET name ='"+clubMember.getName()+"' WHERE id='"+temp+"';"+
+              "UPDATE fly_high_database.flyhigh.clubmemberlist SET address ='"+clubMember.getAddress()+"' WHERE id='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.clubmemberlist SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.clubmemberlist SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
+                "UPDATE fly_high_database.flyhigh.clubmemberlist SET email ='"+clubMember.getEmail()+"' WHERE id="+temp+";"+
+             "UPDATE fly_high_database.flyhigh.clubmemberlist SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+temp+"';";
 
              statement.executeUpdate(sql);
              connection.commit();
@@ -308,11 +315,11 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             String temp= airport.getCode();
-            String sql= "UPDATE airportlist SET name ='"+airport.getName()+"' WHERE code='"+temp+"';"+
-              "UPDATE airportlist SET city ='"+airport.getCity()+"' WHERE code='"+temp+"';"+
-             "UPDATE airportlist SET postcode ='"+airport.getPostcode()+"' WHERE code='"+temp+"';"+
-             "UPDATE airportlist SET country ='"+airport.getCountry()+"' WHERE code='"+temp+"';"+
-                "UPDATE airportlist SET numberOfGates ='"+airport.getNumberOfGates()+"' WHERE code="+temp+";";
+            String sql= "UPDATE fly_high_database.flyhigh.airportlist SET name ='"+airport.getName()+"' WHERE code='"+temp+"';"+
+              "UPDATE fly_high_database.flyhigh.airportlist SET city ='"+airport.getCity()+"' WHERE code='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.airportlist SET postcode ='"+airport.getPostcode()+"' WHERE code='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.airportlist SET country ='"+airport.getCountry()+"' WHERE code='"+temp+"';"+
+                "UPDATE fly_high_database.flyhigh.airportlist SET numberOfGates ='"+airport.getNumberOfGates()+"' WHERE code="+temp+";";
             statement.executeUpdate(sql);
             connection.commit();
 
@@ -335,10 +342,10 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             String temp= airplane.getIDNumber();
-            String sql= "UPDATE airplanelist SET model ='"+airplane.getModel()+"' WHERE IDNumber='"+temp+"';"+
-             "UPDATE airplanelist SET numberofseats ='"+airplane.getNumberOfSeats()+"' WHERE IDNumber='"+temp+"';"+
-             "UPDATE airplanelist SET purchaseDate ='"+airplane.getPurchaseDate()+"' WHERE IDNumber='"+temp+"';"+
-             "UPDATE airplanelist SET lastMaintenance ='"+airplane.getLastMaintenance()+"' WHERE IDNumber='"+temp+"';";
+            String sql= "UPDATE fly_high_database.flyhigh.airplanelist SET model ='"+airplane.getModel()+"' WHERE IDNumber='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.airplanelist SET numberofseats ='"+airplane.getNumberOfSeats()+"' WHERE IDNumber='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.airplanelist SET purchaseDate ='"+airplane.getPurchaseDate()+"' WHERE IDNumber='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.airplanelist SET lastMaintenance ='"+airplane.getLastMaintenance()+"' WHERE IDNumber='"+temp+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -362,12 +369,12 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             String temp= crewMember.getId();
-            String sql= "UPDATE crew SET name ='"+crewMember.getName()+"' WHERE id='"+temp+"';"+
-              "UPDATE crew SET position ='"+crewMember.getPosition()+"' WHERE id='"+temp+"';"+
-             "UPDATE crew SET address ='"+crewMember.getAddress()+"' WHERE id='"+temp+"';"+
-             "UPDATE crew SET phonenumber ='"+crewMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
-                "UPDATE crew SET email ='"+crewMember.getEmail()+"' WHERE id="+temp+";"+
-             "UPDATE crew SET birthdate ='"+crewMember.getBirthdate()+"' WHERE id='"+temp+"';";
+            String sql= "UPDATE fly_high_database.flyhigh.crew SET name ='"+crewMember.getName()+"' WHERE id='"+temp+"';"+
+              "UPDATE fly_high_database.flyhigh.crew SET position ='"+crewMember.getPosition()+"' WHERE id='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.crew SET address ='"+crewMember.getAddress()+"' WHERE id='"+temp+"';"+
+             "UPDATE fly_high_database.flyhigh.crew SET phonenumber ='"+crewMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
+                "UPDATE fly_high_database.flyhigh.crew SET email ='"+crewMember.getEmail()+"' WHERE id="+temp+";"+
+             "UPDATE fly_high_database.flyhigh.crew SET birthdate ='"+crewMember.getBirthdate()+"' WHERE id='"+temp+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -423,14 +430,18 @@ public class DatabaseAdapter implements Target  {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
 
+            int tempId = Integer.parseInt(flight.getFlightNumber());
             statement=connection.createStatement();
-            String tempId= flight
-            String sql= "UPDATE ClubMemberList SET name ='"+flight()+"' WHERE id='"+tempId+"';"+
-              "UPDATE ClubMemberList SET address ='"+clubMember.getAddress()+"' WHERE id='"+tempId+"';"+
-             "UPDATE ClubMemberList SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+tempId+"';"+
-             "UPDATE ClubMemberList SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+tempId+"';"+
-                "UPDATE ClubMemberList SET email ='"+clubMember.getEmail()+"' WHERE id="+tempId+";"+
-             "UPDATE ClubMemberList SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+tempId+"';";
+            String sql= "UPDATE fly_high_database.flyhigh.flightlist  SET departuredate ='"+flight.getDepartureDate()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist  SET departuretime='"+flight.getDepartureTime()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist SET arrivaldate='"+flight.getArrivalDate()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist SET arrivaltime ='"+flight.getArrivalTime()+"' WHERE flightNumber="+tempId+";"+
+                    "UPDATE fly_high_database.flyhigh.flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber'"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist  SET arrivalplace='"+flight.getArrivalPlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist  SET status='"+flight.getStatus()+"' WHERE flightNumber='"+tempId+"';"+
+                    "UPDATE fly_high_database.flyhigh.flightlist  SET airplaneidnumber='"+flight.getAirplaneIdNumber()+"' WHERE flightNumber='"+tempId+"';";
+//                    "UPDATE fly_high_database.flyhigh.flightlist  SET crewid='"+flight.getCrew()+"' WHERE id='"+tempId+"';";
+
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -438,6 +449,7 @@ public class DatabaseAdapter implements Target  {
             System.out.println("Updated successfully.");
 
         }catch (Exception e){
+            e.getStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
@@ -454,7 +466,7 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             System.out.println(clubMember.getBirthday());
-            String sql= "INSERT INTO ClubMemberList (name, address, login, password, id, birthdate, phoneNumber, email, membershipDate, subscription) VALUES" +
+            String sql= "INSERT INTO fly_high_database.flyhigh.clubmemberlist(name, address, login, password, id, birthdate, phoneNumber, email, membershipDate, subscription) VALUES" +
                     "('"+clubMember.getName()+"', '"+clubMember.getAddress()+"', 'logIn', 'password1', '"
                     +clubMember.getId()+"', '"+clubMember.getBirthday()+"', '"
                     +clubMember.getPhoneNumber()+"', '"+clubMember.getEmail()+"', '"+clubMember.getMembershipDate()+"', true)";
@@ -481,7 +493,7 @@ public class DatabaseAdapter implements Target  {
             connection.setAutoCommit(false);
 
             statement=connection.createStatement();
-            String sql= "INSERT INTO  airportlist(code, name, city, postcode, country, numberofgates) VALUES" +
+            String sql= "INSERT INTO  fly_high_database.flyhigh.airportlist(code, name, city, postcode, country, numberofgates) VALUES" +
                     "('"+airport.getCode()+"', '"+airport.getName()+"', '"+airport.getCity()+"', '"+airport.getPostcode()+"', '"+airport.getCountry()+"', '"+airport.getNumberOfGates()+"');";
 
             statement.executeUpdate(sql);
@@ -507,7 +519,7 @@ public class DatabaseAdapter implements Target  {
             connection.setAutoCommit(false);
 
             statement=connection.createStatement();
-            String sql= "INSERT INTO  airplanelist(idnumber, model, numberofseats, purchasedate, lastmaintenance) VALUES" +
+            String sql= "INSERT INTO  fly_high_database.flyhigh.airplanelist(idnumber, model, numberofseats, purchasedate, lastmaintenance) VALUES" +
                     "('"+airplane.getIDNumber()+"', '"+airplane.getModel()+"', '"+airplane.getNumberOfSeats()+"', '"+airplane.getPurchaseDate()+"', '"+airplane.getLastMaintenance()+"');";
 
             statement.executeUpdate(sql);
@@ -534,7 +546,7 @@ public class DatabaseAdapter implements Target  {
             connection.setAutoCommit(false);
 
             statement=connection.createStatement();
-            String sql= "INSERT INTO  crew(crewid, name, position, address, id, phonenumber, email, birthdate) VALUES " +
+            String sql= "INSERT INTO  fly_high_database.flyhigh.crew(crewid, name, position, address, id, phonenumber, email, birthdate) VALUES " +
              "( 1, '"+crewMember.getName()+"', '"+crewMember.getPosition()+"', '"+crewMember.getAddress()+"', '"+crewMember.getId()+"', '"+crewMember.getPhoneNumber()+"', '"+crewMember.getEmail()+"', '"+crewMember.getBirthdate()+"');";
 
             statement.executeUpdate(sql);
@@ -561,7 +573,7 @@ public class DatabaseAdapter implements Target  {
             connection.setAutoCommit(false);
 
             statement=connection.createStatement();
-            String sql= "INSERT INTO  passengerlist(name, id, idType, nationality, birthdate, phonenumber, email, seatno, luggagesize, paymentmethod, passengerlistid) VALUES" +
+            String sql= "INSERT INTO  fly_high_database.flyhigh.passengerlist(name, id, idType, nationality, birthdate, phonenumber, email, seatno, luggagesize, paymentmethod, passengerlistid) VALUES" +
                     "('"+passenger.getName()+"', '"+passenger.getId()+"', '"+passenger.getIdType()+"', '"+passenger.getNationality()+"', '"+passenger.getBirthday()+"', '"+passenger.getPhoneNumber()+"', '"+passenger.getEmail()+"', '"+passenger.getSeatNo()+"', '"+passenger.getLuggageSize()+"', '"+passenger.getPaymentMethod()+"', 1);";
 
             statement.executeUpdate(sql);
@@ -579,7 +591,31 @@ public class DatabaseAdapter implements Target  {
 
     @Override
     public void addFlight(Flight flight) {
-
+//        connect();
+//
+//
+//        try{
+//
+//            connection = dataSource.getConnection();
+//            connection.setAutoCommit(false);
+//
+//            statement=connection.createStatement();
+//            String sql= "INSERT INTO  fly_high_database.flyhigh.flightlist(flightnumber, departuredate, departuretime" +
+//                    ", arrivaldate, arrivaltime, departureplace, arrivalplace, status, airplaneidnumber" +
+//                    ", passengerlistid, crewid,price) VALUES" +
+//                    "('"+flight.getFlightNumber()+"', '"+flight.getDepartureDate()+"', '"+passenger.getIdType()+"', '"+passenger.getNationality()+"', '"+passenger.getBirthday()+"', '"+passenger.getPhoneNumber()+"', '"+passenger.getEmail()+"', '"+passenger.getSeatNo()+"', '"+passenger.getLuggageSize()+"', '"+passenger.getPaymentMethod()+"', 1);";
+//
+//            statement.executeUpdate(sql);
+//            statement.close();
+//            connection.commit();
+//            connection.close();
+//
+//            System.out.println("Updated successfully.");
+//
+//        }catch (Exception e){
+//            System.err.println(e.getClass().getName()+": "+e.getMessage());
+//            System.exit(0);
+//        }
     }
 
     @Override
@@ -592,7 +628,7 @@ public class DatabaseAdapter implements Target  {
 
 
             statement=connection.createStatement();
-            String sql= "DELETE FROM clubmemberlist WHERE id ='"+clubMember.getId()+"';";
+            String sql= "DELETE FROM fly_high_database.flyhigh.clubmemberlist WHERE id ='"+clubMember.getId()+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -615,7 +651,7 @@ public class DatabaseAdapter implements Target  {
 
 
             statement=connection.createStatement();
-            String sql= "DELETE FROM airportlist WHERE code ='"+airport.getCode()+"';";
+            String sql= "DELETE FROM fly_high_database.flyhigh.airportlist WHERE code ='"+airport.getCode()+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -638,7 +674,7 @@ public class DatabaseAdapter implements Target  {
 
 
             statement=connection.createStatement();
-            String sql= "DELETE FROM airplanelist WHERE idNumber ='"+airplane.getIDNumber()+"';";
+            String sql= "DELETE FROM fly_high_database.flyhigh.airplanelist WHERE idNumber ='"+airplane.getIDNumber()+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -663,7 +699,7 @@ public class DatabaseAdapter implements Target  {
 
 
             statement=connection.createStatement();
-            String sql= "DELETE FROM crew WHERE id ='"+crewMember.getId()+"';";
+            String sql= "DELETE FROM fly_high_database.flyhigh.crew WHERE id ='"+crewMember.getId()+"';";
 
             statement.executeUpdate(sql);
             connection.commit();
@@ -674,5 +710,15 @@ public class DatabaseAdapter implements Target  {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
+    }
+
+    private Airport makeAirport(String name) {
+        AirportList airportList = new AirportList();
+        for (int i = 0; i <airportList.getAirports().size() ; i++) {
+            if (airportList.getAirports().get(i).getName().equals(name)) {
+                return airportList.getAirports().get(i);
+            }
+        }
+        return null;
     }
 }

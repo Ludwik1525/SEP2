@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="507.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+    <children>
+        <AnchorPane fx:id="right" layoutX="253.0" prefHeight="507.0" prefWidth="388.0">
+            <children>
+                <Button fx:id="manageAirports" layoutX="52.0" layoutY="229.0" mnemonicParsing="false" onAction="#ManageAirportsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airports" />
+                <Button fx:id="manageFlights" layoutX="52.0" layoutY="163.0" mnemonicParsing="false" onAction="#ManageFlightsButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Flights" />
+                <Button fx:id="manageClubMembers" layoutX="52.0" layoutY="295.0" mnemonicParsing="false" onAction="#ManageClubMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Club Members" />
+                <Button fx:id="LogOutButton" cancelButton="true" layoutX="302.0" layoutY="462.0" mnemonicParsing="false" onAction="#LogOut" text="Log out" />
+                <Button fx:id="manageAirplanes" layoutX="52.0" layoutY="96.0" mnemonicParsing="false" onAction="#ManageAirplanesButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Airplanes" />
+                <Button fx:id="manageCrewMembers" layoutX="52.0" layoutY="361.0" mnemonicParsing="false" onAction="#ManageCrewMembersButtonController" prefHeight="50.0" prefWidth="250.0" text="Manage Crew Members" />
+            </children></AnchorPane>
+        <AnchorPane prefHeight="507.0" prefWidth="252.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1d9ff" height="106.0" layoutX="126.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                <Label layoutX="45.0" layoutY="61.0" text="Name" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="41.0" layoutY="88.0" text="Position" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Italic" size="16.0" />
+                    </font>
+                </Label>
+                <ListView layoutX="-1.0" layoutY="201.0" prefHeight="307.0" prefWidth="252.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="First item" />
+                            <String fx:value="Second item" />
+                            <String fx:value="Third item" />
+                            <String fx:value="Fourth item" />
+
+
+                        </FXCollections>
+
+                    </items>
+
+                </ListView>
+                <Label layoutX="61.0" layoutY="168.0" prefHeight="31.0" prefWidth="130.0" text="Last activities" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Separator layoutX="245.0" orientation="VERTICAL" prefHeight="507.0" prefWidth="17.0" />
+        <Separator layoutY="162.0" prefHeight="3.0" prefWidth="252.0" />
+    </children>
+
+</AnchorPane>

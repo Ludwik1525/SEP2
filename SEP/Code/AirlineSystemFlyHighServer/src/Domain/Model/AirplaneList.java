@@ -10,12 +10,13 @@ import java.time.LocalDate;
 public class AirplaneList {
 
     private ObservableList<Airplane> airplaneList;
-    DatabaseAdapter adapter= new DatabaseAdapter();
 
     public AirplaneList() {
+        airplaneList = FXCollections.observableArrayList();
+    }
 
-        airplaneList = adapter.loadAirplanes();
-
+    public AirplaneList(ObservableList<Airplane> airplaneList) {
+        this.airplaneList = airplaneList;
     }
 
     public ObservableList<Airplane> getAirplanes() {

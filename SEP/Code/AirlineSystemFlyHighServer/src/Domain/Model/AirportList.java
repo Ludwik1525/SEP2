@@ -7,11 +7,13 @@ import javafx.scene.control.MenuItem;
 
 public class AirportList {
     private ObservableList<Airport> airportList;
-    DatabaseAdapter adapter= new DatabaseAdapter();
 
     public AirportList() {
-        airportList = adapter.loadAirports();
+        airportList = FXCollections.observableArrayList();
+    }
 
+    public AirportList(ObservableList<Airport> airportList) {
+        this.airportList = airportList;
     }
 
     public ObservableList<Airport> getAirports() {

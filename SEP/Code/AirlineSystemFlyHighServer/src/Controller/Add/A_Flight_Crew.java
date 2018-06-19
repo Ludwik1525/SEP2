@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Domain.Mediator.Model;
 import Domain.Model.Crew;
 import Domain.Model.CrewMember;
 import Domain.Model.Flight;
@@ -38,7 +39,7 @@ public class A_Flight_Crew implements Initializable {
     @FXML protected TableColumn<CrewMember, LocalDate> birthday;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
-    Crew crew= new Crew();
+    private Model modelManager;
     ObservableList<CrewMember> items;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,10 +52,10 @@ public class A_Flight_Crew implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<CrewMember, String>("email"));
         birthday.setCellValueFactory(new PropertyValueFactory<CrewMember, LocalDate>("birthdate"));
 
-        crew = new Crew();
-        crewMembersTable.setItems(crew.getCrewMembers());
 
-        makeFilteredList(crew.getCrewMembers());
+        crewMembersTable.setItems(modelManager.getCrewMembers().getCrewMembers());
+
+        makeFilteredList(modelManager.getCrewMembers().getCrewMembers());
     }
 
 

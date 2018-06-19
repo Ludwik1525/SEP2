@@ -30,8 +30,8 @@ public class Start extends Application {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
-                    "owd3sshp");
+                    "jdbc:postgresql://localhost:5432/postgres", "postgres",
+                    "postgres");
 
         } catch (SQLException e) {
             System.out.println("Connection failed. Check output console");

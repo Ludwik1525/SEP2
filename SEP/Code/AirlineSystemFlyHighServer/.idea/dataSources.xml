@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres@localhost" uuid="81a87389-c3a7-489e-9890-e7879a5ead27">
+    <data-source source="LOCAL" name="fly_high_database@localhost" uuid="5b6ef883-87bc-494f-9b82-f406226e8c2c">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5433/postgres</jdbc-url>
-      <driver-properties>
-        <property name="ApplicationName" value="DataGrip" />
-      </driver-properties>
+      <jdbc-url>jdbc:postgresql://localhost:5432/fly_high_database</jdbc-url>
     </data-source>
   </component>
 </project>

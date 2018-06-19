@@ -2,6 +2,8 @@ package Controller.Manage;
 
 import Controller.Edit.E_CrewMember;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -27,7 +29,7 @@ import Controller.Add.A_CrewMember;
 
 public class M_CrewMembers implements Initializable {
 
-    Crew crew;
+    private Model modelManager;
     @FXML AnchorPane anchorPane;
     @FXML protected TableView<CrewMember> crewMembersTable;
     @FXML protected TableColumn<CrewMember, String> name;
@@ -46,10 +48,10 @@ public class M_CrewMembers implements Initializable {
     @FXML Button confirm;
     @FXML Button editButton;
 
-    DatabaseAdapter adapter= new DatabaseAdapter();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        this.modelManager = new ModelManager();
 
         name.setCellValueFactory(new PropertyValueFactory<CrewMember, String>("name"));
         position.setCellValueFactory(new PropertyValueFactory<CrewMember, String>("position"));
@@ -59,10 +61,9 @@ public class M_CrewMembers implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<CrewMember, String>("email"));
         birthday.setCellValueFactory(new PropertyValueFactory<CrewMember, LocalDate>("birthdate"));
 
-        crew = new Crew();
-        crewMembersTable.setItems(crew.getCrewMembers());
+        crewMembersTable.setItems(modelManager.getCrewMembers().getCrewMembers());
 
-        makeFilteredList(crew.getCrewMembers());
+        makeFilteredList(modelManager.getCrewMembers().getCrewMembers());
     }
 
     //Associate data with column
@@ -74,18 +75,10 @@ public class M_CrewMembers implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_CrewMember.fxml")));
         window.setScene(new Scene(loader.load()));
         A_CrewMember controller = loader.getController();
-        controller.setItems(crew.getCrewMembers());
+        controller.setItems(modelManager.getCrewMembers().getCrewMembers());
         window.showAndWait();
     }
 
-    public void removeCrewMemberButtonPressed() throws IOException {
-        ObservableList<CrewMember> crewMembers= crew.getCrewMembers();
-        ObservableList<CrewMember> selected= crewMembersTable.getSelectionModel().getSelectedItems();
-        selected.forEach(crewMembers::remove);
-        makeFilteredList(crewMembers);
-        crew.updateList(crewMembers);
-
-    }
     public void makeFilteredList(ObservableList<CrewMember> list){
         FilteredList<CrewMember> filteredList= new FilteredList<>(list, p->true);
 
@@ -122,14 +115,10 @@ public class M_CrewMembers implements Initializable {
         confirm.setVisible(true);
     }
     public void confirmButtonPressed(ActionEvent actionEvent) {
-        ObservableList<CrewMember> crewMembers= crew.getCrewMembers();
-        ObservableList<CrewMember> selected= crewMembersTable.getSelectionModel().getSelectedItems();
-        CrewMember temp = crewMembersTable.getSelectionModel().getSelectedItem();
-        adapter.removeCrewMember(temp);
-        selected.forEach(crewMembers::remove);
-        makeFilteredList(crewMembers);
-        crew.updateList(crewMembers);
-
+        CrewMember selected = crewMembersTable.getSelectionModel().getSelectedItem();
+        modelManager.removeCrewMember(selected);
+        crewMembersTable.setItems(modelManager.getCrewMembers().getCrewMembers());
+        makeFilteredList(modelManager.getCrewMembers().getCrewMembers());
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
@@ -144,7 +133,7 @@ public class M_CrewMembers implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_CrewMember.fxml"));
         loader.load();
         E_CrewMember controller = loader.getController();
-        controller.initData(selectedCrewMember,crew);
+        controller.initData(selectedCrewMember,modelManager.getCrewMembers());
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

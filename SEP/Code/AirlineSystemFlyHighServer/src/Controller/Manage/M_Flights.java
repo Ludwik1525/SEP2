@@ -3,6 +3,8 @@ package Controller.Manage;
 import Controller.CrewMembersFlightController;
 //import Controller.Edit.E_Flight;
 import Controller.Edit.E_Flight;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -30,7 +32,7 @@ public class M_Flights implements Initializable {
     @FXML
     AnchorPane anchorPane;
 
-    FlightList flightList;
+    private Model modelManager;
 
     @FXML protected TableView<Flight> flightsTable;
     @FXML protected TableColumn<Flight, String> flightNumber;
@@ -45,9 +47,9 @@ public class M_Flights implements Initializable {
     @FXML protected Button seeCrew;
     @FXML protected Button seePassengers;
     @FXML protected Button editButton;
-    @FXML Label confirmationLabel;
-    @FXML Button forsake;
-    @FXML Button confirm;
+//    @FXML Label confirmationLabel;
+//    @FXML Button forsake;
+//    @FXML Button confirm;
     @FXML TextField searchField;
 
 
@@ -57,6 +59,7 @@ public class M_Flights implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        modelManager = new ModelManager();
 
         flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
         departureTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDateTime"));
@@ -67,10 +70,10 @@ public class M_Flights implements Initializable {
         status.setCellValueFactory(new PropertyValueFactory<Flight, String>("status"));
 
 
-        flightList= new FlightList();
-        flightsTable.setItems(flightList.getFlights());
 
-        makeFilteredList(flightList.getFlights());
+        flightsTable.setItems(modelManager.getFlights().getFlights());
+
+        makeFilteredList(modelManager.getFlights().getFlights());
 
     }
 
@@ -83,18 +86,18 @@ public class M_Flights implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Flight.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Flight controller = loader.getController();
-        controller.setItems(flightList.getFlights());
+        controller.setItems(modelManager.getFlights().getFlights());
         window.showAndWait();
     }
 
-    public void removeFlightButtonPressed() throws IOException {
-        ObservableList<Flight> flights= flightList.getFlights();
-        ObservableList<Flight> selected= flightsTable.getSelectionModel().getSelectedItems();
-        selected.forEach(flights::remove);
-        makeFilteredList(flights);
-        flightList.updateList(flights);
-
-    }
+//    public void removeFlightButtonPressed() throws IOException {
+//        ObservableList<Flight> flights= flightList.getFlights();
+//        ObservableList<Flight> selected= flightsTable.getSelectionModel().getSelectedItems();
+//        selected.forEach(flights::remove);
+//        makeFilteredList(flights);
+//        flightList.updateList(flights);
+//
+//    }
     public void makeFilteredList(ObservableList<Flight> list){
         FilteredList<Flight> filteredList= new FilteredList<>(list, p->true);
 
@@ -131,7 +134,7 @@ public class M_Flights implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Flight.fxml"));
         loader.load();
         E_Flight controller = loader.getController();
-        controller.initData(selectedFlight,flightList);
+        controller.initData(selectedFlight,modelManager.getFlights());
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

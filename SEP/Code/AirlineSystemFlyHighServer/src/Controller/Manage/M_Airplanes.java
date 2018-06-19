@@ -2,6 +2,8 @@ package Controller.Manage;
 
 import Controller.Edit.E_Airplane;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.Airplane;
 import Domain.Model.AirplaneList;
 
@@ -30,16 +32,12 @@ import Controller.Add.A_Airplane;
 public class M_Airplanes implements Initializable {
 
     @FXML AnchorPane anchorPane;
-
-    AirplaneList airplaneList;
-    DatabaseAdapter adapter= new DatabaseAdapter();
-
-    @FXML protected TableView<Airplane> airplanesTable;
-    @FXML protected TableColumn<Airplane, String> IDNumber;
-    @FXML protected TableColumn<Airplane, String> model;
-    @FXML protected TableColumn<Airplane, String> numberOfSeats;
-    @FXML  protected TableColumn<Airplane, LocalDate> purchaseDate;
-    @FXML  protected TableColumn<Airplane, LocalDate> lastMaintenance;
+    @FXML public TableView<Airplane> airplanesTable;
+    @FXML protected TableColumn<Airplane, String> IDNumberField;
+    @FXML protected TableColumn<Airplane, String> modelField;
+    @FXML protected TableColumn<Airplane, Integer> numberOfSeatsField;
+    @FXML protected TableColumn<Airplane, LocalDate> purchaseDateField;
+    @FXML protected TableColumn<Airplane, LocalDate> lastMaintenanceField;
     @FXML private Button remove;
     @FXML private TextField searchField;
     @FXML Label confirmationLabel;
@@ -47,19 +45,21 @@ public class M_Airplanes implements Initializable {
     @FXML Button confirm;
     @FXML Button editButton;
 
+    private Model modelManager;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        IDNumber.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
-        model.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
-        numberOfSeats.setCellValueFactory(new PropertyValueFactory<Airplane, String>("numberOfSeats"));
-        purchaseDate.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("purchaseDate"));
-        lastMaintenance.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("lastMaintenance"));
+        modelManager = new ModelManager();
 
-        airplaneList= new AirplaneList();
-        airplanesTable.setItems(airplaneList.getAirplanes());
+        IDNumberField.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
+        modelField.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
+        numberOfSeatsField.setCellValueFactory(new PropertyValueFactory<Airplane, Integer>("numberOfSeats"));
+        purchaseDateField.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("purchaseDate"));
+        lastMaintenanceField.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("lastMaintenance"));
 
-        makeFilteredList(airplaneList.getAirplanes());
+        airplanesTable.setItems(modelManager.getAirplanes().getAirplanes());
+        makeFilteredList(modelManager.getAirplanes().getAirplanes());
 
     }
 
@@ -72,7 +72,7 @@ public class M_Airplanes implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Airplane.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Airplane controller = loader.getController();
-        controller.setItems(airplaneList.getAirplanes());
+        controller.setItems(modelManager.getAirplanes().getAirplanes());
         window.showAndWait();
     }
 
@@ -112,14 +112,10 @@ public class M_Airplanes implements Initializable {
         confirm.setVisible(true);
     }
     public void confirmButtonPressed(ActionEvent actionEvent) {
-        ObservableList<Airplane> airplanes= airplaneList.getAirplanes();
-        ObservableList<Airplane> selected= airplanesTable.getSelectionModel().getSelectedItems();
-        Airplane temp= airplanesTable.getSelectionModel().getSelectedItem();
-        adapter.removeAirplane(temp);
-        selected.forEach(airplanes::remove);
-        makeFilteredList(airplanes);
-        airplaneList.updateList(airplanes);
-
+        Airplane selected = airplanesTable.getSelectionModel().getSelectedItem();
+        modelManager.removeAirplane(selected);
+        airplanesTable.setItems(modelManager.getAirplanes().getAirplanes());
+        makeFilteredList(modelManager.getAirplanes().getAirplanes());
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
@@ -141,13 +137,17 @@ public class M_Airplanes implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Airplane.fxml"));
         loader.load();
         E_Airplane controller = loader.getController();
-        controller.initData(selectedAirplane,airplaneList);
+        controller.initData(selectedAirplane,modelManager.getAirplanes());
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Edit airplane");
         stage.setScene(new Scene(window));
         stage.showAndWait();
+    }
+
+    public void refreshTable(ObservableList<Airplane> airplanes) {
+        airplanesTable.setItems(airplanes);
     }
 
 

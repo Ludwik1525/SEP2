@@ -2,6 +2,8 @@ package Controller.Manage;
 
 import Controller.Edit.E_ClubMember;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,7 +30,7 @@ public class M_ClubMembers implements Initializable {
     @FXML
     AnchorPane anchorPane;
 
-    ClubMemberList clubMemberList;
+    private Model modelManager;
 
     @FXML private TableView<ClubMember> clubMembersTable;
     @FXML private TableColumn<ClubMember, String> nameColumn;
@@ -51,6 +53,8 @@ public class M_ClubMembers implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        modelManager = new ModelManager();
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("name"));
         birthdayColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("birthday"));
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, String>("phoneNumber"));
@@ -59,10 +63,10 @@ public class M_ClubMembers implements Initializable {
         membershipDateColumn.setCellValueFactory(new PropertyValueFactory<ClubMember, LocalDate>("membershipDate"));
        // sub.setCellFactory(new PropertyValueFactory<ClubMember, String>("Subscription"));
 
-        clubMemberList= new ClubMemberList();
-        clubMembersTable.setItems(clubMemberList.getClubMembers());
 
-        makeFilteredList(clubMemberList.getClubMembers());
+        clubMembersTable.setItems(modelManager.getClubMembers().getClubMembers());
+
+        makeFilteredList(modelManager.getClubMembers().getClubMembers());
 
 
     }
@@ -79,14 +83,6 @@ public class M_ClubMembers implements Initializable {
 //        window.showAndWait();
 //    }
 
-    public void removeAirportButtonPressed() throws IOException {
-        ObservableList<ClubMember> clubMembers= clubMemberList.getClubMembers();
-        ObservableList<ClubMember> selected= clubMembersTable.getSelectionModel().getSelectedItems();
-        selected.forEach(clubMembers::remove);
-        makeFilteredList(clubMembers);
-        clubMemberList.updateList(clubMembers);
-
-    }
     public void makeFilteredList(ObservableList<ClubMember> list){
         FilteredList<ClubMember> filteredList= new FilteredList<>(list, p->true);
 
@@ -123,14 +119,10 @@ public class M_ClubMembers implements Initializable {
         confirm.setVisible(true);
     }
     public void confirmButtonPressed(ActionEvent actionEvent) {
-        ObservableList<ClubMember> clubMembers= clubMemberList.getClubMembers();
-        ObservableList<ClubMember> selected=clubMembersTable.getSelectionModel().getSelectedItems();
-        ClubMember temp= clubMembersTable.getSelectionModel().getSelectedItem();
-        adapter.removeClubMember(temp);
-        selected.forEach(clubMembers::remove);
-        makeFilteredList(clubMembers);
-        clubMemberList.updateList(clubMembers);
-
+        ClubMember selected=clubMembersTable.getSelectionModel().getSelectedItem();
+        modelManager.removeClubMember(selected);
+        clubMembersTable.setItems(modelManager.getClubMembers().getClubMembers());
+        makeFilteredList(modelManager.getClubMembers().getClubMembers());
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
@@ -145,7 +137,7 @@ public class M_ClubMembers implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_ClubMember.fxml"));
         loader.load();
         E_ClubMember controller = loader.getController();
-        controller.initData(clubMemberList,selectedMember);
+        controller.initData(modelManager.getClubMembers(),selectedMember);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

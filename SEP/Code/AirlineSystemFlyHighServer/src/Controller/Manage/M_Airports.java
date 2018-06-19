@@ -31,9 +31,6 @@ import Controller.Add.A_Airport;
 public class M_Airports implements Initializable{
 
     @FXML AnchorPane anchorPane;
-
-    AirportList airportList;
-
     @FXML protected TableView<Airport> airportsTable;
     @FXML protected TableColumn<Airport, String> code;
     @FXML protected TableColumn<Airport, String> name;
@@ -43,20 +40,20 @@ public class M_Airports implements Initializable{
     @FXML protected TableColumn<Airport, Integer> numberOfGates;
     @FXML private Button removeButton;
     @FXML private TextField searchField;
-
-    @FXML
-    Label confirmationLabel;
+    @FXML Label confirmationLabel;
     @FXML Button forsake;
     @FXML Button confirm;
     @FXML Button editButton;
 
-    DatabaseAdapter adapter= new DatabaseAdapter();
+    private Model modelManager;
 
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        modelManager = new ModelManager();
 
         code.setCellValueFactory(new PropertyValueFactory<Airport, String>("code"));
         name.setCellValueFactory(new PropertyValueFactory<Airport, String>("name"));
@@ -65,8 +62,8 @@ public class M_Airports implements Initializable{
         country.setCellValueFactory(new PropertyValueFactory<Airport, String>("country"));
         numberOfGates.setCellValueFactory(new PropertyValueFactory<Airport, Integer>("numberOfGates"));
 
-        airportList= new AirportList();
-        airportsTable.setItems(airportList.getAirports());
+        airportsTable.setItems(modelManager.getAirports().getAirports());
+        makeFilteredList(modelManager.getAirports().getAirports());
 
 
     }
@@ -80,17 +77,10 @@ public class M_Airports implements Initializable{
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Airport.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Airport controller = loader.getController();
-        controller.setItems(airportList.getAirports());
+        controller.setItems(modelManager.getAirports().getAirports());
         window.showAndWait();
     }
 
-    public void removeAirportButtonPressed() throws IOException {
-        ObservableList<Airport> airports= airportList.getAirports();
-        ObservableList<Airport> selected= airportsTable.getSelectionModel().getSelectedItems();
-        selected.forEach(airports::remove);
-        makeFilteredList(airports);
-        airportList.updateList(airports);
-    }
     public void makeFilteredList(ObservableList<Airport> list){
         FilteredList<Airport> filteredList= new FilteredList<>(list, p->true);
 
@@ -127,14 +117,10 @@ public class M_Airports implements Initializable{
         confirm.setVisible(true);
     }
     public void confirmButtonPressed(ActionEvent actionEvent) {
-        ObservableList<Airport> airports= airportList.getAirports();
-        ObservableList<Airport> selected= airportsTable.getSelectionModel().getSelectedItems();
-        Airport temp = airportsTable.getSelectionModel().getSelectedItem();
-        adapter.removeAirport(temp);
-        System.out.println(selected);
-        selected.forEach(airports::remove);
-        makeFilteredList(airports);
-        airportList.updateList(airports);
+        Airport selected = airportsTable.getSelectionModel().getSelectedItem();
+        modelManager.removeAirport(selected);
+        airportsTable.setItems(modelManager.getAirports().getAirports());
+        makeFilteredList(modelManager.getAirports().getAirports());
     }
 
     public void forsakeButtonPressed(ActionEvent actionEvent) throws IOException {
@@ -149,7 +135,7 @@ public class M_Airports implements Initializable{
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Airport.fxml"));
         loader.load();
         E_Airport controller = loader.getController();
-        controller.initData(selectedAirport,airportList);
+        controller.initData(selectedAirport,modelManager.getAirports());
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

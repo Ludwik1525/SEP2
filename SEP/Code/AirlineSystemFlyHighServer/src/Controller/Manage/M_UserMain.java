@@ -1,6 +1,8 @@
 package Controller.Manage;
 
 import Controller.BookFlightController;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.Airport;
 import Domain.Model.AirportList;
 import Domain.Model.Flight;
@@ -33,26 +35,21 @@ public class M_UserMain implements Initializable{
     @FXML ComboBox <String> airportFrom=new ComboBox<>();
     @FXML ComboBox <String> countryTo=new ComboBox<>();
     @FXML ComboBox <String> airportTo=new ComboBox<>();
-
-    AirportList airportList= new AirportList();
-    FlightList flightList;
-
-
+    private Model modelManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        this.modelManager = new ModelManager();
 
-
-
-        for(int i=0; i<airportList.getLength(); i++){
-            countryFrom.getItems().add(airportList.getCountry(i));
-            countryTo.getItems().add(airportList.getCountry(i));
+        for(int i=0; i<modelManager.getAirports().getAirports().size(); i++){
+            countryFrom.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
+            countryTo.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
         }
         countryFrom.setPromptText("Select country");
         countryTo.setPromptText("Select country");
-        makeDates(departureDateField);
-        makeDates(returnDateField);
+//        makeDates(departureDateField);
+//        makeDates(returnDateField);
 
 
     }
@@ -100,9 +97,9 @@ public class M_UserMain implements Initializable{
         airportFrom.setVisible(true);
         airportFrom.getItems().clear();
         String country = countryFrom.getSelectionModel().getSelectedItem();
-        for(int i=0; i<airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportFrom.getItems().add(airportList.getAirports().get(i).getShortInfo());
+        for(int i=0; i<modelManager.getAirports().getAirports().size(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportFrom.getItems().add(modelManager.getAirports().getAirports().get(i).getShortInfo());
             }
         }
 
@@ -113,9 +110,9 @@ public class M_UserMain implements Initializable{
         airportTo.setVisible(true);
         airportTo.getItems().clear();
         String country = countryTo.getSelectionModel().getSelectedItem();
-        for(int i=0; i<airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportTo.getItems().add(airportList.getAirports().get(i).getShortInfo());
+        for(int i=0; i<modelManager.getAirports().getAirports().size(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportTo.getItems().add(modelManager.getAirports().getAirports().get(i).getShortInfo());
             }
         }
         airportTo.getItems().remove(airportFrom.getSelectionModel().getSelectedItem());
@@ -150,8 +147,8 @@ public class M_UserMain implements Initializable{
         });
     }
     private boolean toDisable(LocalDate date) {
-        for (int i = 0; i < flightList.getFlights().size(); i++) {
-            return (!(date.equals(flightList.getFlights().get(i).getDepartureTime())));
+        for (int i = 0; i < modelManager.getFlights().getFlights().size(); i++) {
+            return (!(date.equals(modelManager.getFlights().getFlights().get(i).getDepartureTime())));
         }
         return false;
     }

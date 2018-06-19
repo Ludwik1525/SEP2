@@ -1,5 +1,7 @@
 package Controller;
 
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.Airport;
 import Domain.Model.Flight;
 import Domain.Model.FlightList;
@@ -39,7 +41,7 @@ public class BookFlightController implements Initializable{
     @FXML private TableColumn<Flight, LocalDate> arrivalTimeColumn;
     @FXML private TableColumn<Flight, Double> priceColumn;
     @FXML private Button backButton;
-    private FlightList flightList = new FlightList();
+    private Model modelManager;
     private LocalDate departureDate;
     private String departurePlace;
     private String arrivalPlace;
@@ -47,6 +49,9 @@ public class BookFlightController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        modelManager = new ModelManager();
+
         backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -84,11 +89,11 @@ public class BookFlightController implements Initializable{
     private ObservableList<Flight>  getFlights() {
 
         ObservableList<Flight> flights = FXCollections.observableArrayList();
-        for (int i = 0; i <flightList.getFlights().size() ; i++) {
-            if ((flightList.getFlights().get(i).getDepartureDate().equals(departureDate))
-                    && (flightList.getFlights().get(i).getDeparturePlace().getShortInfo().equals(departurePlace))
-                    &&(flightList.getFlights().get(i).getArrivalPlace().getShortInfo().equals(arrivalPlace))) {
-                flights.add(flightList.getFlights().get(i));
+        for (int i = 0; i <modelManager.getFlights().getFlights().size() ; i++) {
+            if ((modelManager.getFlights().getFlights().get(i).getDepartureDate().equals(departureDate))
+                    && (modelManager.getFlights().getFlights().get(i).getDeparturePlace().getShortInfo().equals(departurePlace))
+                    &&(modelManager.getFlights().getFlights().get(i).getArrivalPlace().getShortInfo().equals(arrivalPlace))) {
+                flights.add(modelManager.getFlights().getFlights().get(i));
             }
         }
         return flights;

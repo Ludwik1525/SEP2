@@ -23,8 +23,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection() throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
-                        "owd3sshp");
+                        "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
+                        "postgres");
 
             } catch (SQLException e) {
                 System.out.println("Connection failed. Check output console");
@@ -38,8 +38,8 @@ public class DatabaseAdapter implements Target  {
         public Connection getConnection(String username, String password) throws SQLException {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
-                        "owd3sshp");
+                        "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
+                        "postgres");
 
 
             } catch (SQLException e) {
@@ -88,8 +88,8 @@ public class DatabaseAdapter implements Target  {
     public void connect(){
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5433/Fly_High_Database", "postgres",
-                    "owd3sshp");
+                    "jdbc:postgresql://localhost:5432/fly_high_database?currentSchema=flyhigh", "postgres",
+                    "postgres");
 
         } catch (SQLException e) {
             System.out.println("Connection failed. Check output console");
@@ -705,10 +705,10 @@ public class DatabaseAdapter implements Target  {
     }
 
     private Airport makeAirport(String name) {
-        AirportList airportList = new AirportList();
-        for (int i = 0; i <airportList.getAirports().size() ; i++) {
-            if (airportList.getAirports().get(i).getName().equals(name)) {
-                return airportList.getAirports().get(i);
+        ObservableList<Airport> list = this.loadAirports();
+        for (int i = 0; i <list.size() ; i++) {
+            if (list.get(i).getName().equals(name)) {
+                return list.get(i);
             }
         }
         return null;

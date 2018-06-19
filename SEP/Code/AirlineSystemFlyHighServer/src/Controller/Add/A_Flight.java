@@ -1,6 +1,7 @@
 package Controller.Add;
 
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,9 +24,6 @@ public class A_Flight implements Initializable {
     @FXML AnchorPane anchorPane;
     @FXML TextField statusField;
 
-
-    Crew crew= new Crew();
-
     private Flight flight;
     @FXML TextField flightNumberField;
     @FXML DatePicker departureDateField;
@@ -39,11 +37,8 @@ public class A_Flight implements Initializable {
     @FXML ComboBox<String> arrivalHourBox = new ComboBox<>();
     @FXML ComboBox<String> arrivalMinutesBox = new ComboBox<>();
 
-    AirportList airportList = new AirportList();
-
+    private Model modelManager;
     ObservableList<Flight> items;
-    FlightList flightList= new FlightList();
-    DatabaseAdapter adapter= new DatabaseAdapter();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,11 +54,11 @@ public class A_Flight implements Initializable {
         airportFrom.setCellFactory(factory);
         airportTo.setCellFactory(factory);
 
-        items = flightList.getFlights();
-        for(int i=0; i<airportList.getLength(); i++){
-            if (!(countryFrom.getItems().contains(airportList.getCountry(i)))) {
-                countryFrom.getItems().add(airportList.getCountry(i));
-                countryTo.getItems().add(airportList.getCountry(i));
+        items = modelManager.getFlights().getFlights();
+        for(int i=0; i<modelManager.getAirports().getLength(); i++){
+            if (!(countryFrom.getItems().contains(modelManager.getAirports().getCountry(i)))) {
+                countryFrom.getItems().add(modelManager.getAirports().getCountry(i));
+                countryTo.getItems().add(modelManager.getAirports().getCountry(i));
             }
 
         }
@@ -94,16 +89,16 @@ public class A_Flight implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Flight_Crew.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Flight_Crew controller = loader.getController();
-        controller.setItems(crew.getCrewMembers());
+        controller.setItems(modelManager.getCrewMembers().getCrewMembers());
         window.showAndWait();
     }
 
     public void getAirportsFrom() {
         airportFrom.getItems().clear();
         String country = countryFrom.getSelectionModel().getSelectedItem();
-        for(int i=0; i<airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportFrom.getItems().add(airportList.getAirports().get(i));
+        for(int i=0; i<modelManager.getAirports().getLength(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportFrom.getItems().add(modelManager.getAirports().getAirports().get(i));
             }
         }
     }
@@ -111,9 +106,9 @@ public class A_Flight implements Initializable {
     public void getAirportsTo() {
         airportTo.getItems().clear();
         String country = countryTo.getSelectionModel().getSelectedItem();
-        for(int i=0; i<airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportTo.getItems().add(airportList.getAirports().get(i));
+        for(int i=0; i<modelManager.getAirports().getLength(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportTo.getItems().add(modelManager.getAirports().getAirports().get(i));
             }
         }
         airportTo.getItems().remove(airportFrom.getSelectionModel().getSelectedItem());
@@ -128,8 +123,7 @@ public class A_Flight implements Initializable {
                 "A34B",airportFrom.getSelectionModel().getSelectedItem(),airportTo.getSelectionModel().getSelectedItem(),statusField.getText(),150);
         System.out.println("flight to be added: "+toBeAdded.toString());
         items.add(toBeAdded);
-        adapter.addFlight(toBeAdded);
-        flightList.updateList(items);
+        modelManager.addFlight(toBeAdded);
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
 

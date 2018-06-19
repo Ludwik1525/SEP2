@@ -22,19 +22,23 @@ public class Flight {
     private Double price;
 
 
-//    public Flight(int flightNumber, LocalDate departureTime, LocalDate arrivalTime, String airplaneIdNumber
-//            , Crew crew, String departure, String arrival, String status, Double price) {
-//        this.flightNumber = flightNumber;
+
+//    public Flight(String flightNumber, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate,
+//                  LocalTime arrivalTime, String airplaneIdNumber, String departure, String arrival, String status, double price) {
+//        this.flightNumber = flightNumber;pg_catalog
+//        this.departureDate = departureDate;
 //        this.departureTime = departureTime;
+//        this.arrivalDate = arrivalDate;
 //        this.arrivalTime = arrivalTime;
 //        this.airplaneIdNumber = airplaneIdNumber;
-//        this.crew=crew;
+//        // this.crew=new Crew();
 //        this.passengers= new PassengerList();
 //        this.departurePlace=departure;
 //        this.arrivalPlace= arrival;
 //        this.status = status;
 //        this.price = price;
 //    }
+
     public Flight(String flightNumber, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate,
                   LocalTime arrivalTime, String airplaneIdNumber, Airport departure, Airport arrival, String status, double price) {
         this.flightNumber = flightNumber;

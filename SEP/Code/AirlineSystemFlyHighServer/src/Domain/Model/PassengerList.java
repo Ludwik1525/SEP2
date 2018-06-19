@@ -9,11 +9,13 @@ import java.util.ArrayList;
 
 public class PassengerList {
     private ObservableList<Passenger> passengers;
-    DatabaseAdapter adapter;
 
     public PassengerList() {
-//        this.passengers = adapter.loadPassengers();
         this.passengers = FXCollections.observableArrayList();
+    }
+
+    public PassengerList(ObservableList<Passenger> passengers) {
+        this.passengers = passengers;
     }
 
     public void addPassenger(Passenger passenger) {

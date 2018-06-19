@@ -1,5 +1,6 @@
 package Controller.Manage;
 
+import Domain.Mediator.Model;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -25,7 +26,7 @@ import Controller.PassengersFormController;
 public class M_Passengers implements Initializable {
 
 
-    PassengerList passengers;
+    private Model modelManager;
     @FXML AnchorPane managePassengersPanel;
     @FXML protected TableView<Passenger> passengersTable;
     @FXML protected TableColumn<Passenger, String> nameColumn;
@@ -39,14 +40,13 @@ public class M_Passengers implements Initializable {
     @FXML protected TableColumn<Passenger, Integer> luggageSizeColumn;
     @FXML protected TableColumn<Passenger, String> paymentMethodColumn;
     @FXML private TextField searchField;
-    private Flight flight;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
     public void initData(Flight flight) {
-        this.flight = flight;
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("name"));
         idColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("id"));
         idTypeColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("idType"));
@@ -58,10 +58,10 @@ public class M_Passengers implements Initializable {
         luggageSizeColumn.setCellValueFactory(new PropertyValueFactory<Passenger, Integer>("luggageSize"));
         paymentMethodColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("paymentMethod"));
 
-        passengers = flight.getPassengers();
-        passengersTable.setItems(passengers.getPassengers());
 
-        makeFilteredList(passengers.getPassengers());
+        passengersTable.setItems(flight.getPassengers().getPassengers());
+
+        makeFilteredList(flight.getPassengers().getPassengers());
     }
 
 
@@ -91,7 +91,7 @@ public class M_Passengers implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/PassengerDetailsForm.fxml"));
         loader.load();
         PassengersFormController controller = loader.getController();
-        controller.initData(selectedPassenger,passengers);
+        controller.initData(selectedPassenger,modelManager.getPassengers());
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

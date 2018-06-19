@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="addCrew" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Add.A_Flight_Crew">
+    <children>
+        <TableView fx:id="crewMembersTable" layoutX="195.0" maxHeight="500.0" maxWidth="721.0" minHeight="500.0" minWidth="692.0" prefHeight="500.0" prefWidth="692.0">
+            <columns>
+                <TableColumn fx:id="name" text="Name" />
+                <TableColumn fx:id="address" text="Address" />
+                <TableColumn fx:id="birthday" prefWidth="99.0" text="Birthday" />
+                <TableColumn fx:id="id" prefWidth="88.0" text="ID" />
+                <TableColumn fx:id="phoneNumber" prefWidth="130.0" text="Phone Number" />
+                <TableColumn fx:id="email" prefWidth="124.0" text="Email" />
+                <TableColumn fx:id="position" prefWidth="99.0" text="Position" />
+            </columns>
+        </TableView>
+        <Button layoutX="14.0" layoutY="68.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" text="Add the the flight" />
+        <TextField fx:id="searchField" layoutX="14.0" layoutY="116.0" prefHeight="31.0" prefWidth="173.0" promptText="Search members" />
+        <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="&lt;" />
+    </children>
+
+</AnchorPane>

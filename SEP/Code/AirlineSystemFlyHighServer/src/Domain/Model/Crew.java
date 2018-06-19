@@ -8,12 +8,13 @@ import java.time.LocalDate;
 
 public class Crew {
     private ObservableList<CrewMember> crewMemberList;
-    DatabaseAdapter adapter;
 
     public Crew() {
-        this.adapter = new DatabaseAdapter();
-        crewMemberList = adapter.loadCrewMembers();
+        this.crewMemberList = FXCollections.observableArrayList();
+    }
 
+    public Crew(ObservableList<CrewMember> crewMemberList) {
+        this.crewMemberList = crewMemberList;
     }
 
     public ObservableList<CrewMember> getCrewMembers() {

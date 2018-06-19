@@ -8,10 +8,13 @@ import java.time.LocalDate;
 
 public class FlightList {
     private ObservableList<Flight> flightList;
-    DatabaseAdapter adapter= new DatabaseAdapter();
-    public FlightList() {
-        flightList = adapter.loadFlights();
 
+    public FlightList() {
+        flightList = FXCollections.observableArrayList();
+    }
+
+    public FlightList(ObservableList<Flight> flightList) {
+        this.flightList = flightList;
     }
 
     public ObservableList<Flight> getFlights() {

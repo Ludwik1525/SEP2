@@ -10,12 +10,11 @@
 <AnchorPane fx:id="anchorPane" prefHeight="403.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Manage.M_Airplanes">
     <TableView fx:id="airplanesTable" layoutX="228.0" onMouseClicked="#removeButtonAppear" prefHeight="400.0" prefWidth="643.0">
         <columns>
-            <TableColumn fx:id="IDNumber" prefWidth="92.0" text="ID Number" />
-            <TableColumn fx:id="model" prefWidth="68.0" text="Model" />
-            <TableColumn fx:id="model2" prefWidth="68.0" text="Model" />
-            <TableColumn fx:id="numberOfSeats" prefWidth="135.0" text="Number of seats" />
-            <TableColumn fx:id="purchaseDate" prefWidth="135.0" text="Purchase date" />
-            <TableColumn fx:id="lastMaintenance" prefWidth="142.0" text="Last maintenance" />
+            <TableColumn fx:id="IDNumberField" prefWidth="103.0" text="ID Number" />
+            <TableColumn fx:id="modelField" prefWidth="133.0" text="Model" />
+            <TableColumn fx:id="numberOfSeatsField" prefWidth="138.0" text="Number of seats" />
+            <TableColumn fx:id="purchaseDateField" prefWidth="129.0" text="Purchase date" />
+            <TableColumn fx:id="lastMaintenanceField" prefWidth="139.0" text="Last maintenance" />
         </columns>
     </TableView>
     <Button cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ManageAirplanesGoBack" text="&lt;" />

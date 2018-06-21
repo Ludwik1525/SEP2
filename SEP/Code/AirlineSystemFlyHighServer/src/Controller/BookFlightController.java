@@ -75,7 +75,7 @@ public class BookFlightController implements Initializable{
                     e.printStackTrace();
                 }
                 BookFlightFormController controller = loader.getController();
-                controller.initData(selectedFlight);
+                controller.initData(BookFlightController.this,modelManager);
                 Parent window = loader.getRoot();
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
@@ -118,5 +118,9 @@ public class BookFlightController implements Initializable{
     public void bookFlightButtonPressed() throws IOException {
 
 
+    }
+
+    public Flight getSelectedFlight() {
+        return flightsTable.getSelectionModel().getSelectedItem();
     }
 }

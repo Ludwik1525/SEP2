@@ -1,6 +1,8 @@
 package Controller.Manage;
 
+import Controller.Controller;
 import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -25,7 +27,6 @@ import Controller.PassengersFormController;
 
 public class M_Passengers implements Initializable {
 
-
     private Model modelManager;
     @FXML AnchorPane managePassengersPanel;
     @FXML protected TableView<Passenger> passengersTable;
@@ -34,12 +35,13 @@ public class M_Passengers implements Initializable {
     @FXML protected TableColumn<Passenger, String> idTypeColumn;
     @FXML protected TableColumn<Passenger, String> nationalityColumn;
     @FXML protected TableColumn<Passenger, LocalDate> birthdateColumn;
-    @FXML protected TableColumn<Passenger, String> phoneNumberColumn;
+    @FXML protected TableColumn<Passenger, Integer> phoneNumberColumn;
     @FXML protected TableColumn<Passenger, String> emailColumn;
-    @FXML protected TableColumn<Passenger, String> seatNumberColumn;
+    @FXML protected TableColumn<Passenger, Integer> seatNumberColumn;
     @FXML protected TableColumn<Passenger, Integer> luggageSizeColumn;
     @FXML protected TableColumn<Passenger, String> paymentMethodColumn;
     @FXML private TextField searchField;
+    private M_Flights controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,21 +49,23 @@ public class M_Passengers implements Initializable {
 
     public void initData(Flight flight) {
 
+        this.modelManager = new ModelManager();
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("name"));
         idColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("id"));
         idTypeColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("idType"));
         nationalityColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("nationality"));
         birthdateColumn.setCellValueFactory(new PropertyValueFactory<Passenger, LocalDate>("birthdate"));
-        phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("phoneNumber"));
+        phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<Passenger, Integer>("phoneNumber"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("email"));
-        seatNumberColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("seatNo"));
+        seatNumberColumn.setCellValueFactory(new PropertyValueFactory<Passenger, Integer>("seatNo"));
         luggageSizeColumn.setCellValueFactory(new PropertyValueFactory<Passenger, Integer>("luggageSize"));
         paymentMethodColumn.setCellValueFactory(new PropertyValueFactory<Passenger, String>("paymentMethod"));
 
 
-        passengersTable.setItems(flight.getPassengers().getPassengers());
-
-        makeFilteredList(flight.getPassengers().getPassengers());
+        System.out.println(modelManager.getFlights().getFlights().get(1).getPassengers().getPassengers());
+        passengersTable.setItems(modelManager.getFlights().getFlights().get(1).getPassengers().getPassengers());
+        makeFilteredList(modelManager.getFlights().getFlights().get(1).getPassengers().getPassengers());
     }
 
 

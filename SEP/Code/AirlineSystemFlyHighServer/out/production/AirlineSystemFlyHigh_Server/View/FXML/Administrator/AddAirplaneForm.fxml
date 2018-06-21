@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddAirplaneFormController">
+<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddForms.AddAirplaneFormController">
     <children>
         <Label layoutX="29.0" layoutY="89.0" text="ID Number:" />
         <Label layoutX="29.0" layoutY="145.0" text="Model:" />

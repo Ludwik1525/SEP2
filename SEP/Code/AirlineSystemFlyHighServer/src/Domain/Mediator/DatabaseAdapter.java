@@ -250,11 +250,11 @@ public class DatabaseAdapter implements Target  {
                 String email= resultSet.getString("email");
                 int seatNo=resultSet.getInt("seatNo");
                 int luggageSize=resultSet.getInt("luggageSize");
-                String paymentMenthod= resultSet.getString("paymentMethod");
+                String paymentMethod= resultSet.getString("paymentMethod");
                 int passengerListID=resultSet.getInt("passengerListID");
 
 
-                passengerList.add(new Passenger(name, id, idType, nationality, birthdate, phoneNumber, email, seatNo, luggageSize, paymentMenthod));
+                passengerList.add(new Passenger(name, id, idType, nationality, birthdate, phoneNumber, email, seatNo, luggageSize, paymentMethod));
             }
         }catch (Exception e){
             System.err.println(e.getClass().getName()+"e.getMessage()");
@@ -287,7 +287,7 @@ public class DatabaseAdapter implements Target  {
                 String airplaneIdNumber= resultSet.getString("airplaneIdNumber");
                 LocalTime departureTime =  resultSet.getTime("departureTime").toLocalTime();
                 LocalTime arrivalTime = resultSet.getTime("arrivalTime").toLocalTime();
-               // int passengerListId=resultSet.getInt("passengerListId");
+                int passengerListId=resultSet.getInt("passengerListId");
               //  int  crewId=resultSet.getInt("CrewID");
                 double price=resultSet.getDouble("price");
 

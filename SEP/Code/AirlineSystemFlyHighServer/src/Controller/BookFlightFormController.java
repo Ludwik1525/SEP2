@@ -1,5 +1,6 @@
 package Controller;
 
+import Domain.Mediator.Model;
 import Domain.Model.Flight;
 import Domain.Model.Passenger;
 import javafx.collections.FXCollections;
@@ -27,7 +28,9 @@ public class BookFlightFormController implements Initializable {
     @FXML TextField emailField;
     @FXML ComboBox<String> seatNoBox = new ComboBox<>();
     @FXML TextField luggageSizeField;
-    private Flight flight;
+//    private Flight flight;
+    private BookFlightController controller;
+    private Model modelManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,9 +38,9 @@ public class BookFlightFormController implements Initializable {
         seatNoBox.setItems(FXCollections.observableArrayList("1","16","22"));
     }
 
-    public void initData(Flight flight) {
-        this.flight = flight;
-        System.out.println(flight);
+    public void initData(BookFlightController controller, Model modelManager) {
+        this.controller = controller;
+        this.modelManager = modelManager;
     }
 
     public void confirmButtonPressed() {
@@ -46,17 +49,17 @@ public class BookFlightFormController implements Initializable {
                 ,Integer.parseInt(phoneNumberField.getText()), emailField.getText(), Integer.parseInt(seatNoBox.getSelectionModel().getSelectedItem())
                 , Integer.parseInt(luggageSizeField.getText()),"Bank Transfer");
 
-        System.out.println(toBeAdded);
-        flight.addPasanger(toBeAdded);
-        System.out.println("Booking successful");
+        controller.getSelectedFlight().addPasanger(toBeAdded);
+        modelManager.addPassenger(toBeAdded);
+        modelManager.updateFlight(controller.getSelectedFlight());
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
-        System.out.println(flight.getPassengers().getPassengers().get(0));
     }
 
     public void cancelButtonPressed() {
-
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 
 

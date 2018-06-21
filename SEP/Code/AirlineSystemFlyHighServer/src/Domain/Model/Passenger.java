@@ -33,10 +33,11 @@ public class Passenger {
 
     }
 
+
+
     public void setName(String name) {
         this.name = name;
     }
-
 
     public void setId(String id) {
         this.id = id;

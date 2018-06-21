@@ -317,7 +317,7 @@ public class DatabaseAdapter implements Target  {
               "UPDATE clubmemberlist SET address ='"+clubMember.getAddress()+"' WHERE id='"+temp+"';"+
              "UPDATE clubmemberlist SET birthdate ='"+clubMember.getBirthday()+"' WHERE id='"+temp+"';"+
              "UPDATE clubmemberlist SET phoneNumber ='"+clubMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
-                "UPDATE clubmemberlist SET email ='"+clubMember.getEmail()+"' WHERE id="+temp+";"+
+                "UPDATE clubmemberlist SET email ='"+clubMember.getEmail()+"' WHERE id='"+temp+"';"+
              "UPDATE clubmemberlist SET membershipDate ='"+clubMember.getMembershipDate()+"' WHERE id='"+temp+"';";
 
              statement.executeUpdate(sql);
@@ -342,11 +342,12 @@ public class DatabaseAdapter implements Target  {
 
             statement=connection.createStatement();
             String temp= airport.getCode();
+
             String sql= "UPDATE airportlist SET name ='"+airport.getName()+"' WHERE code='"+temp+"';"+
               "UPDATE airportlist SET city ='"+airport.getCity()+"' WHERE code='"+temp+"';"+
              "UPDATE airportlist SET postcode ='"+airport.getPostcode()+"' WHERE code='"+temp+"';"+
              "UPDATE airportlist SET country ='"+airport.getCountry()+"' WHERE code='"+temp+"';"+
-                "UPDATE airportlist SET numberOfGates ='"+airport.getNumberOfGates()+"' WHERE code="+temp+";";
+                "UPDATE airportlist SET numberOfGates ='"+airport.getNumberOfGates()+"' WHERE code='"+temp+"';";
             statement.executeUpdate(sql);
             connection.commit();
 
@@ -400,7 +401,7 @@ public class DatabaseAdapter implements Target  {
               "UPDATE crew SET position ='"+crewMember.getPosition()+"' WHERE id='"+temp+"';"+
              "UPDATE crew SET address ='"+crewMember.getAddress()+"' WHERE id='"+temp+"';"+
              "UPDATE crew SET phonenumber ='"+crewMember.getPhoneNumber()+"' WHERE id='"+temp+"';"+
-                "UPDATE crew SET email ='"+crewMember.getEmail()+"' WHERE id="+temp+";"+
+                "UPDATE crew SET email ='"+crewMember.getEmail()+"' WHERE id='"+temp+"';"+
              "UPDATE crew SET birthdate ='"+crewMember.getBirthdate()+"' WHERE id='"+temp+"';";
 
             statement.executeUpdate(sql);
@@ -430,7 +431,7 @@ public class DatabaseAdapter implements Target  {
             String sql= "UPDATE flightlist  SET departuredate ='"+flight.getDepartureDate()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET departuretime='"+flight.getDepartureTime()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET arrivaldate='"+flight.getArrivalDate()+"' WHERE flightNumber='"+tempId+"';"+
-                    "UPDATE flightlist SET arrivaltime ='"+flight.getArrivalTime()+"' WHERE flightNumber="+tempId+";"+
+                    "UPDATE flightlist SET arrivaltime ='"+flight.getArrivalTime()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist SET departureplace ='"+flight.getDeparturePlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET arrivalplace='"+flight.getArrivalPlace().toString()+"' WHERE flightNumber='"+tempId+"';"+
                     "UPDATE flightlist  SET status='"+flight.getStatus()+"' WHERE flightNumber='"+tempId+"';"+

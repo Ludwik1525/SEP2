@@ -1,6 +1,8 @@
 package Controller.Edit;
 
+import Controller.Manage.M_CrewMembers;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
 import Domain.Model.Crew;
 import Domain.Model.CrewMember;
 import javafx.collections.ObservableList;
@@ -24,39 +26,36 @@ public class E_CrewMember implements Initializable {
     @FXML TextField emailField;
     @FXML TextField addresField;
     @FXML TextField positionField;
-    Crew crew;
-    CrewMember crewMember;
-    ObservableList<CrewMember> crewMembers;
-    DatabaseAdapter adapter= new DatabaseAdapter();
-
-
-
-    public void initData(CrewMember crewMember, Crew crew) {
-        this.crew = crew;
-        this.crewMember = crewMember;
-        this.crewMembers = crew.getCrewMembers();
-        nameField.setText(crewMember.getName());
-        idField.setText(crewMember.getId());
-        birthdayField.setValue(crewMember.getBirthdate());
-        phoneNumberField.setText(String.valueOf(crewMember.getPhoneNumber()));
-        emailField.setText(crewMember.getEmail());
-        addresField.setText(crewMember.getAddress());
-        positionField.setText(crewMember.getPosition());
-    }
-
+    private M_CrewMembers controller;
+    private Model modelManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
+    public void initData(M_CrewMembers controller, Model modelManager) {
+        this.modelManager = modelManager;
+        this.controller = controller;
+        nameField.setText(controller.getSelectedMember().getName());
+        idField.setText(controller.getSelectedMember().getId());
+        birthdayField.setValue(controller.getSelectedMember().getBirthdate());
+        phoneNumberField.setText(controller.getSelectedMember().getPhoneNumber()+"");
+        emailField.setText(controller.getSelectedMember().getEmail());
+        addresField.setText(controller.getSelectedMember().getAddress());
+        positionField.setText(controller.getSelectedMember().getPosition());
+    }
+
+
     public void confirmButtonPressed() {
-        crewMembers.remove(crewMember);
-        CrewMember temp= new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
-                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue());
-        adapter.updateCrewMember(temp);
-        crewMembers.add(temp);
-        crew.updateList(crewMembers);
+        modelManager.getCrewMembers().getCrewMembers().remove(controller.getSelectedMember());
+
+        modelManager.getCrewMembers().getCrewMembers().add(new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
+                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue()));
+
+        modelManager.updateCrewMember(new CrewMember(nameField.getText(),positionField.getText(),addresField.getText()
+                , idField.getText(),Integer.parseInt(phoneNumberField.getText()), emailField.getText(), birthdayField.getValue()));
+
         Stage stage = (Stage) editCrewMemberPanel.getScene().getWindow();
         stage.close();
     }

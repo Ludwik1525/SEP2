@@ -137,12 +137,16 @@ public class M_ClubMembers implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_ClubMember.fxml"));
         loader.load();
         E_ClubMember controller = loader.getController();
-        controller.initData(modelManager.getClubMembers(),selectedMember);
+        controller.initData(this, modelManager);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Edit Club Member");
         stage.setScene(new Scene(window));
         stage.showAndWait();
+    }
+
+    public ClubMember getSelectedMember() {
+        return clubMembersTable.getSelectionModel().getSelectedItem();
     }
 }

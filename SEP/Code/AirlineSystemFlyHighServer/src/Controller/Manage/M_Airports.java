@@ -77,7 +77,7 @@ public class M_Airports implements Initializable{
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Airport.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Airport controller = loader.getController();
-        controller.setItems(modelManager.getAirports().getAirports());
+        controller.setItems(this, modelManager);
         window.showAndWait();
     }
 
@@ -135,7 +135,7 @@ public class M_Airports implements Initializable{
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Airport.fxml"));
         loader.load();
         E_Airport controller = loader.getController();
-        controller.initData(selectedAirport,modelManager.getAirports());
+        controller.initData(this, modelManager);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -143,6 +143,10 @@ public class M_Airports implements Initializable{
         stage.setScene(new Scene(window));
         stage.showAndWait();
 
+    }
+
+    public Airport getSelectedAirport() {
+        return airportsTable.getSelectionModel().getSelectedItem();
     }
 
 }

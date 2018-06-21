@@ -1,6 +1,9 @@
 package Controller.Edit;
 
+import Controller.Controller;
+import Controller.Manage.M_ClubMembers;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
 import Domain.Model.ClubMember;
 import Domain.Model.ClubMemberList;
 import javafx.collections.ObservableList;
@@ -25,40 +28,37 @@ public class E_ClubMember implements Initializable {
     @FXML TextField addresField;
     @FXML DatePicker membershipDateField;
 
-    DatabaseAdapter adapter= new DatabaseAdapter();
-
-    private ClubMemberList clubMemberList;
-    private ClubMember member;
-    private ObservableList<ClubMember> members;
+    private Model modelManager;
+    private M_ClubMembers controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(ClubMemberList clubMemberList, ClubMember member) {
-        this.clubMemberList = clubMemberList;
-        this.member = member;
-        this.members = clubMemberList.getClubMembers();
-        nameField.setText(member.getName());
-        idField.setText(member.getId());
-        birthdayField.setValue(member.getBirthday());
-        phoneNumberField.setText(String.valueOf(member.getPhoneNumber()));
-        emailField.setText(member.getEmail());
-        addresField.setText(member.getAddress());
-        membershipDateField.setValue(member.getMembershipDate());
+    public void initData(M_ClubMembers controller, Model modelManager) {
+        this.controller = controller;
+        this.modelManager = modelManager;
+        nameField.setText(controller.getSelectedMember().getName());
+        idField.setText(controller.getSelectedMember().getId());
+        birthdayField.setValue(controller.getSelectedMember().getBirthday());
+        phoneNumberField.setText(String.valueOf(controller.getSelectedMember().getPhoneNumber()));
+        emailField.setText(controller.getSelectedMember().getEmail());
+        addresField.setText(controller.getSelectedMember().getAddress());
+        membershipDateField.setValue(controller.getSelectedMember().getMembershipDate());
     }
 
     public void confirmButtonPressed() {
-        members.remove(member);
+        modelManager.getClubMembers().getClubMembers().remove(controller.getSelectedMember());
+
         ClubMember temp = new ClubMember(nameField.getText(), idField.getText(), birthdayField.getValue()
                 , Integer.parseInt(phoneNumberField.getText()), emailField.getText(), addresField.getText()
                 , membershipDateField.getValue(), true);
-        adapter.updateClubMember(temp);
-       members.add(temp);
-        clubMemberList.updateList(members);
-        Stage stage = (Stage) editClubMemberPanel.getScene().getWindow();
 
+        modelManager.getClubMembers().getClubMembers().add(temp);
+        modelManager.updateClubMember(temp);
+
+        Stage stage = (Stage) editClubMemberPanel.getScene().getWindow();
         stage.close();
     }
 

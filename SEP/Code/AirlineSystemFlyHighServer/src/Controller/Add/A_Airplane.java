@@ -29,35 +29,31 @@ public class A_Airplane implements Initializable{
     @FXML TextField addNumberOfSeats;
     @FXML DatePicker addPurchaseDate;
     @FXML DatePicker addLastMaintenance;
-    ObservableList<Airplane> items;
-    public Model modelManager;
+    private Model modelManager;
+    private M_Airplanes controller;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        modelManager = new ModelManager();
+
     }
-    public void setItems(ObservableList <Airplane> items) {
-        this.items= items;
+    public void setItems(M_Airplanes controller,Model modelManager) {
+        this.controller = controller;
+        this.modelManager = modelManager;
     }
     public void addAirplaneFormGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
-
     }
 
     public void addAirplaneToTheList(ActionEvent actionEvent) {
+        modelManager.getAirplanes().getAirplanes().add(new Airplane(addIDNumber.getText(), addModel.getText(),
+                Integer.parseInt(addNumberOfSeats.getText()), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
+
         modelManager.addAirplane(new Airplane(addIDNumber.getText(), addModel.getText(),
                 Integer.parseInt(addNumberOfSeats.getText()), addPurchaseDate.getValue(), addLastMaintenance.getValue()));
+
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Manage/M_Airplanes.fxml"));
-            loader.load();
-            M_Airplanes controller = loader.getController();
-            controller.refreshTable(modelManager.getAirplanes().getAirplanes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         stage.close();
     }
 

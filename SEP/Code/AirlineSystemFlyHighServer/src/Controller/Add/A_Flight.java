@@ -1,7 +1,9 @@
 package Controller.Add;
 
+import Controller.Manage.M_Flights;
 import Domain.Mediator.DatabaseAdapter;
 import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +26,6 @@ public class A_Flight implements Initializable {
     @FXML AnchorPane anchorPane;
     @FXML TextField statusField;
 
-    private Flight flight;
     @FXML TextField flightNumberField;
     @FXML DatePicker departureDateField;
     @FXML DatePicker arrivalDateField;
@@ -38,10 +39,11 @@ public class A_Flight implements Initializable {
     @FXML ComboBox<String> arrivalMinutesBox = new ComboBox<>();
 
     private Model modelManager;
-    ObservableList<Flight> items;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        this.modelManager = new ModelManager();
 
         Callback<ListView<Airport>, ListCell<Airport>> factory = lv -> new ListCell<Airport>() {
 
@@ -51,11 +53,11 @@ public class A_Flight implements Initializable {
                 setText(empty ? "" : item.getShortInfo());
             }
         };
+
         airportFrom.setCellFactory(factory);
         airportTo.setCellFactory(factory);
 
-        items = modelManager.getFlights().getFlights();
-        for(int i=0; i<modelManager.getAirports().getLength(); i++){
+        for(int i=0; i<modelManager.getAirports().getAirports().size(); i++){
             if (!(countryFrom.getItems().contains(modelManager.getAirports().getCountry(i)))) {
                 countryFrom.getItems().add(modelManager.getAirports().getCountry(i));
                 countryTo.getItems().add(modelManager.getAirports().getCountry(i));
@@ -69,8 +71,8 @@ public class A_Flight implements Initializable {
         departureMinutesBox.getItems().setAll(makeStringArray(59));
         arrivalMinutesBox.getItems().setAll(makeStringArray(59));
     }
-    public void setItems(ObservableList <Flight> items) {
-        this.items= items;
+    public void setItems( Model modelManager) {
+        this.modelManager = modelManager;
     }
 
 
@@ -121,12 +123,13 @@ public class A_Flight implements Initializable {
                 ,arrivalDateField.getValue(),LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
                 ,Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()),0),
                 "A34B",airportFrom.getSelectionModel().getSelectedItem(),airportTo.getSelectionModel().getSelectedItem(),statusField.getText(),150);
-        System.out.println("flight to be added: "+toBeAdded.toString());
-        items.add(toBeAdded);
+
+        modelManager.getFlights().getFlights().add(toBeAdded);
+
         modelManager.addFlight(toBeAdded);
+
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
-
     }
 
     private String[] makeStringArray(int until) {

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="205512d4-b0c8-4ac6-aba8-6edc1a9ba793" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81a87389-c3a7-489e-9890-e7879a5ead27.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../.idea/workspace.xml___jb_tmp___" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../../Documentation/Diagrams.asta.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Airplane.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Airplane.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Airport.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Airport.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_CrewMember.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_CrewMember.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Flight$1.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Add/A_Flight$1.class" />
@@ -17,89 +14,29 @@
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddAirportFormController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddAirportFormController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddCrewMemberController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddCrewMemberController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddFlightFormController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AddFlightFormController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AdministratorController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AdministratorController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AirplanesController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AirplanesController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AirportsController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/AirportsController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController$1.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController$2.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightFormController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/BookFlightFormController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/ClubMembersController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/ClubMembersController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Controller.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Controller.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/CrewMembersController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/CrewMembersController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/CrewMembersFlightController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/CrewMembersFlightController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Airplane.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Airplane.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Airport.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Airport.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_ClubMember.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_ClubMember.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_CrewMember.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_CrewMember.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Flight$1.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Flight$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Flight.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Edit/E_Flight.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/FlightsController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/FlightsController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/MainController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/MainController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Administrators.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Administrators.class" />
       <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Airplanes.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Airplanes.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Airports.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Airports.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_ClubMembers.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_ClubMembers.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_CrewMembers.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_CrewMembers.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Flights.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Flights.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Passengers.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_Passengers.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_UserMain$1.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_UserMain$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_UserMain.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/Manage/M_UserMain.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/PassengersFormController.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Controller/PassengersFormController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/DatabaseAdapter$1.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/DatabaseAdapter$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/DatabaseAdapter.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/DatabaseAdapter.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/Model.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/Model.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/ModelManager.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/ModelManager.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/Target.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Mediator/Target.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Airplane.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Airplane.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/AirplaneList.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/AirplaneList.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Airport.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Airport.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/AirportList.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/AirportList.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/ClubMember.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/ClubMember.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/ClubMemberList.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/ClubMemberList.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Crew.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Crew.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/CrewMember.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/CrewMember.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Flight.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Flight.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/FlightList.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/FlightList.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Passenger.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/Passenger.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/PassengerList.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Domain/Model/PassengerList.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Start.class" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/Start.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/View/FXML/Administrator/Manage/M_Airplanes.fxml" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/View/FXML/Administrator/Manage/M_Airplanes.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/View/FXML/Administrator/PassengerDetailsForm.fxml" afterPath="$PROJECT_DIR$/out/production/AirlineSystemFlyHigh_Server/View/FXML/Administrator/PassengerDetailsForm.fxml" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Add/A_Airplane.java" afterPath="$PROJECT_DIR$/src/Controller/Add/A_Airplane.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Add/A_Airport.java" afterPath="$PROJECT_DIR$/src/Controller/Add/A_Airport.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Add/A_CrewMember.java" afterPath="$PROJECT_DIR$/src/Controller/Add/A_CrewMember.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Add/A_Flight.java" afterPath="$PROJECT_DIR$/src/Controller/Add/A_Flight.java" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java" afterPath="$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddAirplaneFormController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddAirportFormController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddCrewMemberController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddFlightFormController.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AirplanesController.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AirportsController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookFlightController.java" afterPath="$PROJECT_DIR$/src/Controller/BookFlightController.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClubMembersController.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CrewMembersController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Edit/E_Airplane.java" afterPath="$PROJECT_DIR$/src/Controller/Edit/E_Airplane.java" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Edit/E_Airport.java" afterPath="$PROJECT_DIR$/src/Controller/Edit/E_Airport.java" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Edit/E_ClubMember.java" afterPath="$PROJECT_DIR$/src/Controller/Edit/E_ClubMember.java" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Edit/E_CrewMember.java" afterPath="$PROJECT_DIR$/src/Controller/Edit/E_CrewMember.java" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Edit/E_Flight.java" afterPath="$PROJECT_DIR$/src/Controller/Edit/E_Flight.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FlightsController.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_Airports.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_Airports.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_Flights.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_Flights.java" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_Passengers.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_Passengers.java" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Manage/M_UserMain.java" afterPath="$PROJECT_DIR$/src/Controller/Manage/M_UserMain.java" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java" afterPath="$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Mediator/Model.java" afterPath="$PROJECT_DIR$/src/Domain/Mediator/Model.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Mediator/ModelManager.java" afterPath="$PROJECT_DIR$/src/Domain/Mediator/ModelManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/AirplaneList.java" afterPath="$PROJECT_DIR$/src/Domain/Model/AirplaneList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/AirportList.java" afterPath="$PROJECT_DIR$/src/Domain/Model/AirportList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/ClubMemberList.java" afterPath="$PROJECT_DIR$/src/Domain/Model/ClubMemberList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Crew.java" afterPath="$PROJECT_DIR$/src/Domain/Model/Crew.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Flight.java" afterPath="$PROJECT_DIR$/src/Domain/Model/Flight.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/FlightList.java" afterPath="$PROJECT_DIR$/src/Domain/Model/FlightList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/PassengerList.java" afterPath="$PROJECT_DIR$/src/Domain/Model/PassengerList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Start.java" afterPath="$PROJECT_DIR$/src/Start.java" />
-      <change beforePath="$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Airplanes.fxml" afterPath="$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Airplanes.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airport.fxml" afterPath="$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airport.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,7 +48,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/AirlineSystemFlyHigh$Start.coverage" NAME="Start Coverage Results" MODIFIED="1528392279364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/AirlineSystemFlyHighServer$Start.coverage" NAME="Start Coverage Results" MODIFIED="1529410839005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/AirlineSystemFlyHighServer$Start.coverage" NAME="Start Coverage Results" MODIFIED="1529584795025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -127,6 +64,24 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="fly_high_database@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="fly_high_database@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="fly_high_database@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="fly_high_database: database" type="6d9b600a:PostgresImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="fly_high_database@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="fly_high_database: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="flyhigh: schema" type="a16502c0:PostgresImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -138,32 +93,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="A_Flight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Flight.java">
+      <file leaf-file-name="E_ClubMember.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_ClubMember.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
-              <caret line="125" column="42" lean-forward="false" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+            <state relative-caret-position="924">
+              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="A_Flight_Crew.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/com/sun/glass/ui/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-63">
-              <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+            <state relative-caret-position="185">
+              <caret line="555" column="0" lean-forward="false" selection-start-line="555" selection-start-column="0" selection-end-line="555" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AirportList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/AirportList.java">
+      <file leaf-file-name="M_ClubMembers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="237">
+              <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+              <folding>
+                <element signature="e#6016#6017#0" expanded="true" />
+                <element signature="e#6093#6094#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="319" column="97" lean-forward="false" selection-start-line="319" selection-start-column="97" selection-end-line="319" selection-end-column="97" />
+              <folding>
+                <marker date="1529592315636" expanded="true" signature="3183:3211" ph="SELECT * FRO... clubmemberlist" />
+                <marker date="1529592315636" expanded="true" signature="4497:4522" ph="SELECT * FRO... airportlist" />
+                <marker date="1529592315636" expanded="true" signature="6483:6509" ph="SELECT * FRO... airplanelist" />
+                <marker date="1529592315636" expanded="true" signature="7608:7626" ph="SELECT * FRO... crew" />
+                <marker date="1529592315636" expanded="true" signature="8853:8880" ph="SELECT * FRO... passengerlist" />
+                <marker date="1529592315636" expanded="true" signature="10349:10373" ph="SELECT * FRO... flightlist" />
+                <marker date="1529592315636" expanded="true" signature="12492:12570" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="12589:12673" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="12691:12778" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="12796:12888" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="12909:12979" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="12909:12989" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="13007:13105" ph="UPDATE clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="13751:13825" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="13844:13918" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="13936:14018" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="14036:14116" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="14137:14219" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="14137:14229" ph="UPDATE airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="14843:14925" ph="UPDATE airplanelist... " />
+                <marker date="1529592315636" expanded="true" signature="14943:15041" ph="UPDATE airplanelist... " />
+                <marker date="1529592315636" expanded="true" signature="15059:15155" ph="UPDATE airplanelist... " />
+                <marker date="1529592315636" expanded="true" signature="15173:15275" ph="UPDATE airplanelist... " />
+                <marker date="1529592315636" expanded="true" signature="15892:15960" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="15979:16055" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16073:16147" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16165:16247" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16268:16328" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16268:16337" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16268:16338" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="16356:16434" ph="UPDATE crew... " />
+                <marker date="1529592315636" expanded="true" signature="17065:17166" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17191:17291" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17316:17411" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17436:17472" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17436:17520" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17436:17531" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17436:17532" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17557:17669" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17557:17670" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17695:17804" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17829:17915" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="17940:18046" ph="UPDATE flightlist... " />
+                <marker date="1529592315636" expanded="true" signature="18832:19276" ph="INSERT INTO clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="19832:20106" ph="INSERT INTO airportlist" />
+                <marker date="1529592315636" expanded="true" signature="20734:21017" ph="INSERT INTO airplanelist" />
+                <marker date="1529592315636" expanded="true" signature="21648:21977" ph="INSERT INTO crew" />
+                <marker date="1529592315636" expanded="true" signature="22605:23088" ph="INSERT INTO passengerlist" />
+                <marker date="1529592315636" expanded="true" signature="23707:24305" ph="INSERT INTO flightlist" />
+                <marker date="1529592315636" expanded="true" signature="24938:24999" ph="DELETE FROM clubmemberlist... " />
+                <marker date="1529592315636" expanded="true" signature="25562:25621" ph="DELETE FROM airportlist... " />
+                <marker date="1529592315636" expanded="true" signature="26187:26256" ph="DELETE FROM airplanelist... " />
+                <marker date="1529592315636" expanded="true" signature="26830:26881" ph="DELETE FROM crew... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,9 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>item</find>
-      <find>Book</find>
-      <find>boo</find>
       <find>ComboBox</find>
       <find>confi</find>
       <find>Retrieved c</find>
@@ -202,7 +221,6 @@
       <find>add</find>
       <find>loadF</find>
       <find>addF</find>
-      <find>updateF</find>
       <find>updateFli</find>
       <find>win</find>
       <find>go</find>
@@ -211,6 +229,10 @@
       <find>loadAir</find>
       <find>loadAirpla</find>
       <find>loadFl</find>
+      <find>controller</find>
+      <find>updateAir</find>
+      <find>updateCrew</find>
+      <find>updateF</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -224,10 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/Mediator/Target.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Model/Airport.java" />
-        <option value="$PROJECT_DIR$/src/View/FXML/Administrator/Edit/E_Flight.fxml" />
         <option value="$PROJECT_DIR$/src/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/Controller/Manage/M_BookFlight.java" />
         <option value="$PROJECT_DIR$/src/Controller/Manage/BookFlightFormController.java" />
@@ -235,11 +253,9 @@
         <option value="$PROJECT_DIR$/src/View/FXML/BookFlight.fxml" />
         <option value="$PROJECT_DIR$/src/View/FXML/BookFlightForm.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/BookFlightFormController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Edit/E_CrewMember.java" />
         <option value="$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Flights.fxml" />
         <option value="$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Flight.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/CrewMembersFlightController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Edit/E_Flight.java" />
         <option value="$PROJECT_DIR$/src/Start.java" />
         <option value="$PROJECT_DIR$/src/Controller/AddAirportFormController.java" />
         <option value="$PROJECT_DIR$/src/Controller/AddCrewMemberController.java" />
@@ -261,20 +277,26 @@
         <option value="$PROJECT_DIR$/src/Controller/FlightsController.java" />
         <option value="$PROJECT_DIR$/src/Domain/Model/Airplane.java" />
         <option value="$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Airplanes.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Airports.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Flights.java" />
         <option value="$PROJECT_DIR$/src/Controller/Manage/M_Passengers.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java" />
         <option value="$PROJECT_DIR$/src/Domain/Model/Flight.java" />
         <option value="$PROJECT_DIR$/src/Controller/AddAirplaneFormController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Add/A_Airplane.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Add/A_Airport.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Add/A_CrewMember.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Add/A_Flight.java" />
         <option value="$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Edit/E_Airplane.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Add/A_Airplane.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Edit/E_Airport.java" />
+        <option value="$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airport.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/Add/A_Airport.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Airports.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Add/A_CrewMember.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Edit/E_CrewMember.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Manage/M_Flights.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Add/A_Flight.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Edit/E_Flight.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Edit/E_ClubMember.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java" />
       </list>
     </option>
   </component>
@@ -285,7 +307,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -308,9 +330,6 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -342,6 +361,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
               <item name="Edit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlineSystemFlyHighServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlineSystemFlyHighServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Manage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AirlineSystemFlyHighServer" type="b2602c69:ProjectViewProjectNode" />
@@ -396,12 +422,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Java/10_01" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Desktop/All stuff/All stuff/VIA_App" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/View/CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -623,11 +652,13 @@
       <workItem from="1529408264393" duration="3821000" />
       <workItem from="1529414718008" duration="4163000" />
       <workItem from="1529419241496" duration="1340000" />
+      <workItem from="1529420750441" duration="81000" />
+      <workItem from="1529582987756" duration="9396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191424000" />
+    <option name="totallyTimeSpent" value="200901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -640,19 +671,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3524862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.25597268" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.49317408" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1984375" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.7440273" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22541437" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22576967" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -662,7 +694,6 @@
       <window_info id="News Feed" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.092708334" sideWeight="0.5068259" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
@@ -688,94 +719,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5b6ef883-87bc-494f-9b82-f406226e8c2c/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Mediator/Target.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/ManageAirports.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CrewMembersFlightController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1617">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PassengersFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/FXML/UserMain.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-994">
-          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/AirplaneList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding>
-            <element signature="e#284#285#0" expanded="false" />
-            <element signature="e#350#351#0" expanded="false" />
-            <element signature="e#416#417#0" expanded="false" />
-            <element signature="e#464#465#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ClubMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ClubMemberList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/Crew.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -787,7 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,12 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="e#311#312#0" expanded="false" />
-            <element signature="e#380#381#0" expanded="false" />
-            <element signature="e#446#447#0" expanded="false" />
-            <element signature="e#490#491#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,19 +758,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="95" column="66" lean-forward="false" selection-start-line="95" selection-start-column="66" selection-end-line="95" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Flights.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="83" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="83" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FlightsController.java" />
@@ -849,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,26 +790,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="2572" column="0" lean-forward="false" selection-start-line="2572" selection-start-column="0" selection-end-line="2572" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Manage/M_Airplanes.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,85 +816,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#821#822#0" expanded="false" />
-            <element signature="e#858#859#0" expanded="false" />
-            <element signature="e#912#913#0" expanded="false" />
-            <element signature="e#946#947#0" expanded="false" />
-            <element signature="e#1002#1003#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1087#1088#0" expanded="false" />
-            <element signature="e#1114#1115#0" expanded="false" />
-            <element signature="e#1172#1173#0" expanded="false" />
-            <element signature="e#1208#1209#0" expanded="false" />
-            <element signature="e#1260#1261#0" expanded="false" />
-            <element signature="e#1293#1294#0" expanded="false" />
-            <element signature="e#1366#1367#0" expanded="false" />
-            <element signature="e#1417#1418#0" expanded="false" />
-            <element signature="e#1481#1482#0" expanded="false" />
-            <element signature="e#1526#1527#0" expanded="false" />
-            <element signature="e#1593#1594#0" expanded="false" />
-            <element signature="e#1640#1641#0" expanded="false" />
-            <element signature="e#1713#1714#0" expanded="false" />
-            <element signature="e#1764#1765#0" expanded="false" />
-            <element signature="e#1825#1826#0" expanded="false" />
-            <element signature="e#1868#1869#0" expanded="false" />
-            <element signature="e#1938#1939#0" expanded="false" />
-            <element signature="e#1986#1987#0" expanded="false" />
-            <element signature="e#2047#2048#0" expanded="false" />
-            <element signature="e#2089#2090#0" expanded="false" />
-            <element signature="e#2153#2154#0" expanded="false" />
-            <element signature="e#2197#2198#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2315#2316#0" expanded="false" />
-            <element signature="e#2382#2383#0" expanded="false" />
-            <element signature="e#2428#2429#0" expanded="false" />
-            <element signature="e#2486#2487#0" expanded="false" />
-            <element signature="e#2526#2527#0" expanded="false" />
-            <element signature="e#2599#2600#0" expanded="false" />
-            <element signature="e#2650#2651#0" expanded="false" />
-            <element signature="e#2714#2715#0" expanded="false" />
-            <element signature="e#2759#2760#0" expanded="false" />
-            <element signature="e#2826#2827#0" expanded="false" />
-            <element signature="e#2873#2874#0" expanded="false" />
-            <element signature="e#2946#2947#0" expanded="false" />
-            <element signature="e#2997#2998#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Airports.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="65" column="65" lean-forward="false" selection-start-line="65" selection-start-column="65" selection-end-line="65" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ClubMembersController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="139" column="57" lean-forward="false" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CrewMembersController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="135" column="76" lean-forward="false" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Passengers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-938">
           <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,18 +835,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/52d842b9/5b6ef883-87bc-494f-9b82-f406226e8c2c/fly_high_database.flyhigh.flightlist">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/Flight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-491">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -994,15 +846,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
           <caret line="68" column="39" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airplane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddAirplaneFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddAirportFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="51" column="22" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="51" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddCrewMemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="49" column="22" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="49" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddFlightFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="54" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Flights.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Airplane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-984">
-          <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+        <state relative-caret-position="346">
+          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_Airplane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airport.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="das://table:/52d842b9/5b6ef883-87bc-494f-9b82-f406226e8c2c/fly_high_database.flyhigh.airplanelist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/52d842b9/5b6ef883-87bc-494f-9b82-f406226e8c2c/fly_high_database.flyhigh.clubmemberlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1013,167 +943,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Airports.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="712" column="9" lean-forward="false" selection-start-line="712" selection-start-column="9" selection-end-line="712" selection-end-column="9" />
+        <state relative-caret-position="237">
+          <caret line="79" column="46" lean-forward="false" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
           <folding>
-            <marker date="1529417554261" expanded="true" signature="3183:3196" ph="SELECT * FRO... " />
-            <marker date="1529417554261" expanded="true" signature="3183:3211" ph="SELECT * FRO... clubmemberlist" />
-            <marker date="1529417554261" expanded="true" signature="4497:4522" ph="SELECT * FRO... airportlist" />
-            <marker date="1529417554261" expanded="true" signature="6483:6509" ph="SELECT * FRO... airplanelist" />
-            <marker date="1529417554261" expanded="true" signature="7608:7626" ph="SELECT * FRO... crew" />
-            <marker date="1529417554261" expanded="true" signature="8853:8880" ph="SELECT * FRO... passengerlist" />
-            <marker date="1529417554261" expanded="true" signature="10349:10373" ph="SELECT * FRO... flightlist" />
-            <marker date="1529417554261" expanded="true" signature="12492:12570" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="12589:12673" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="12691:12778" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="12796:12888" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="12909:12979" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="13005:13103" ph="UPDATE clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="13748:13822" ph="UPDATE airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="13841:13915" ph="UPDATE airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="13933:14015" ph="UPDATE airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="14033:14113" ph="UPDATE airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="14134:14216" ph="UPDATE airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="14838:14920" ph="UPDATE airplanelist... " />
-            <marker date="1529417554261" expanded="true" signature="14938:15036" ph="UPDATE airplanelist... " />
-            <marker date="1529417554261" expanded="true" signature="15054:15150" ph="UPDATE airplanelist... " />
-            <marker date="1529417554261" expanded="true" signature="15168:15270" ph="UPDATE airplanelist... " />
-            <marker date="1529417554261" expanded="true" signature="15887:15955" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="15974:16050" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="16068:16142" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="16160:16242" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="16263:16323" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="16349:16427" ph="UPDATE crew... " />
-            <marker date="1529417554261" expanded="true" signature="17058:17159" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17184:17284" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17309:17404" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17429:17513" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17548:17661" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17686:17795" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17820:17906" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="17931:18037" ph="UPDATE flightlist... " />
-            <marker date="1529417554261" expanded="true" signature="18823:19267" ph="INSERT INTO clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="19823:20097" ph="INSERT INTO airportlist" />
-            <marker date="1529417554261" expanded="true" signature="20725:21008" ph="INSERT INTO airplanelist" />
-            <marker date="1529417554261" expanded="true" signature="21639:21968" ph="INSERT INTO crew" />
-            <marker date="1529417554261" expanded="true" signature="22596:23079" ph="INSERT INTO passengerlist" />
-            <marker date="1529417554261" expanded="true" signature="23698:24296" ph="INSERT INTO flightlist" />
-            <marker date="1529417554261" expanded="true" signature="24630:24639" ph="//..." />
-            <marker date="1529417554261" expanded="true" signature="24929:24990" ph="DELETE FROM clubmemberlist... " />
-            <marker date="1529417554261" expanded="true" signature="25553:25612" ph="DELETE FROM airportlist... " />
-            <marker date="1529417554261" expanded="true" signature="26178:26247" ph="DELETE FROM airplanelist... " />
-            <marker date="1529417554261" expanded="true" signature="26821:26872" ph="DELETE FROM crew... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Airplane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1806">
-          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-          <folding>
-            <element signature="e#6030#6031#0" expanded="true" />
-            <element signature="e#6080#6081#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddAirplaneFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddAirportFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="51" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Airplane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Airport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="e#921#922#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#5650#5651#0" expanded="false" />
+            <element signature="e#5724#5725#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_CrewMember.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+        <state relative-caret-position="231">
+          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_CrewMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_CrewMembers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="129" column="56" lean-forward="false" selection-start-line="129" selection-start-column="56" selection-end-line="129" selection-end-column="56" />
           <folding>
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#5833#5834#0" expanded="false" />
+            <element signature="e#5910#5911#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddCrewMemberController.java">
+    <entry file="das://table:/52d842b9/5b6ef883-87bc-494f-9b82-f406226e8c2c/fly_high_database.flyhigh.flightlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/FXML/Administrator/Add/A_Flight.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="49" column="22" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="49" selection-end-column="22" />
+        <state relative-caret-position="151">
+          <caret line="39" column="14" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Airport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/AirportList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="315">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddFlightFormController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Airplanes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="54" selection-end-column="7" />
+        <state relative-caret-position="399">
+          <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Flight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="125" column="42" lean-forward="false" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+        <state relative-caret-position="386">
+          <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+          <folding>
+            <element signature="e#1616#1863#0" expanded="true" />
+            <element signature="e#1862#1863#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2790#2791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_Flights.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-462">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#7101#7102#0" expanded="true" />
+            <element signature="e#7174#7175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_Airport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Add/A_Flight_Crew.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_Flight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+        <state relative-caret-position="1077">
+          <caret line="82" column="50" lean-forward="false" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Edit/E_ClubMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/com/sun/glass/ui/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="555" column="0" lean-forward="false" selection-start-line="555" selection-start-column="0" selection-end-line="555" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Manage/M_ClubMembers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <folding>
+            <element signature="e#6016#6017#0" expanded="true" />
+            <element signature="e#6093#6094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Mediator/DatabaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="319" column="97" lean-forward="false" selection-start-line="319" selection-start-column="97" selection-end-line="319" selection-end-column="97" />
+          <folding>
+            <marker date="1529592315636" expanded="true" signature="3183:3211" ph="SELECT * FRO... clubmemberlist" />
+            <marker date="1529592315636" expanded="true" signature="4497:4522" ph="SELECT * FRO... airportlist" />
+            <marker date="1529592315636" expanded="true" signature="6483:6509" ph="SELECT * FRO... airplanelist" />
+            <marker date="1529592315636" expanded="true" signature="7608:7626" ph="SELECT * FRO... crew" />
+            <marker date="1529592315636" expanded="true" signature="8853:8880" ph="SELECT * FRO... passengerlist" />
+            <marker date="1529592315636" expanded="true" signature="10349:10373" ph="SELECT * FRO... flightlist" />
+            <marker date="1529592315636" expanded="true" signature="12492:12570" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="12589:12673" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="12691:12778" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="12796:12888" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="12909:12979" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="12909:12989" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="13007:13105" ph="UPDATE clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="13751:13825" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="13844:13918" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="13936:14018" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="14036:14116" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="14137:14219" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="14137:14229" ph="UPDATE airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="14843:14925" ph="UPDATE airplanelist... " />
+            <marker date="1529592315636" expanded="true" signature="14943:15041" ph="UPDATE airplanelist... " />
+            <marker date="1529592315636" expanded="true" signature="15059:15155" ph="UPDATE airplanelist... " />
+            <marker date="1529592315636" expanded="true" signature="15173:15275" ph="UPDATE airplanelist... " />
+            <marker date="1529592315636" expanded="true" signature="15892:15960" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="15979:16055" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16073:16147" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16165:16247" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16268:16328" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16268:16337" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16268:16338" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="16356:16434" ph="UPDATE crew... " />
+            <marker date="1529592315636" expanded="true" signature="17065:17166" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17191:17291" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17316:17411" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17436:17472" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17436:17520" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17436:17531" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17436:17532" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17557:17669" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17557:17670" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17695:17804" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17829:17915" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="17940:18046" ph="UPDATE flightlist... " />
+            <marker date="1529592315636" expanded="true" signature="18832:19276" ph="INSERT INTO clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="19832:20106" ph="INSERT INTO airportlist" />
+            <marker date="1529592315636" expanded="true" signature="20734:21017" ph="INSERT INTO airplanelist" />
+            <marker date="1529592315636" expanded="true" signature="21648:21977" ph="INSERT INTO crew" />
+            <marker date="1529592315636" expanded="true" signature="22605:23088" ph="INSERT INTO passengerlist" />
+            <marker date="1529592315636" expanded="true" signature="23707:24305" ph="INSERT INTO flightlist" />
+            <marker date="1529592315636" expanded="true" signature="24938:24999" ph="DELETE FROM clubmemberlist... " />
+            <marker date="1529592315636" expanded="true" signature="25562:25621" ph="DELETE FROM airportlist... " />
+            <marker date="1529592315636" expanded="true" signature="26187:26256" ph="DELETE FROM airplanelist... " />
+            <marker date="1529592315636" expanded="true" signature="26830:26881" ph="DELETE FROM crew... " />
+          </folding>
         </state>
       </provider>
     </entry>

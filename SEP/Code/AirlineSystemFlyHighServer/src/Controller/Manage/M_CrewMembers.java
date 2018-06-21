@@ -75,7 +75,7 @@ public class M_CrewMembers implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_CrewMember.fxml")));
         window.setScene(new Scene(loader.load()));
         A_CrewMember controller = loader.getController();
-        controller.setItems(modelManager.getCrewMembers().getCrewMembers());
+        controller.setItems(this, modelManager);
         window.showAndWait();
     }
 
@@ -128,12 +128,11 @@ public class M_CrewMembers implements Initializable {
     }
 
     public void editButtonPressed() throws IOException {
-        CrewMember selectedCrewMember = crewMembersTable.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_CrewMember.fxml"));
         loader.load();
         E_CrewMember controller = loader.getController();
-        controller.initData(selectedCrewMember,modelManager.getCrewMembers());
+        controller.initData(this,modelManager);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -141,6 +140,7 @@ public class M_CrewMembers implements Initializable {
         stage.setScene(new Scene(window));
         stage.showAndWait();
     }
-    public void initData(Flight selectedFlight) {
+    public CrewMember getSelectedMember() {
+        return crewMembersTable.getSelectionModel().getSelectedItem();
     }
 }

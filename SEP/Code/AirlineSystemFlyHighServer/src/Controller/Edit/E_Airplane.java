@@ -1,16 +1,21 @@
 package Controller.Edit;
 
+import Controller.Manage.M_Airplanes;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
+import Domain.Mediator.ModelManager;
 import Domain.Model.Airplane;
 import Domain.Model.AirplaneList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,31 +27,30 @@ public class E_Airplane implements Initializable {
     @FXML TextField seatsField;
     @FXML DatePicker purchaseDateField;
     @FXML DatePicker lastMaintenanceField;
-    private Airplane airplane;
-    private ObservableList<Airplane> airplanes;
-    private AirplaneList airplaneList;
-    DatabaseAdapter adapter= new DatabaseAdapter();
+    private Model modelManager;
+    private M_Airplanes controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void initData(Airplane airplane, AirplaneList airplaneList) {
-        this.airplane = airplane;
-        this.airplaneList = airplaneList;
-        this.airplanes = airplaneList.getAirplanes();
-        idField.setText(airplane.getIDNumber());
-        modelField.setText(airplane.getModel());
-        seatsField.setText(airplane.getNumberOfSeats()+"");
-        purchaseDateField.setValue(airplane.getPurchaseDate());
-        lastMaintenanceField.setValue(airplane.getLastMaintenance());
+    public void initData(M_Airplanes controller, Model modelManager) {
+       this.controller = controller;
+       this.modelManager = modelManager;
+       idField.setText(controller.getSelectedAirplane().getIDNumber());
+       modelField.setText(controller.getSelectedAirplane().getModel());
+       seatsField.setText(controller.getSelectedAirplane().getNumberOfSeats()+"");
+       purchaseDateField.setValue(controller.getSelectedAirplane().getPurchaseDate());
+       lastMaintenanceField.setValue(controller.getSelectedAirplane().getLastMaintenance());
     }
     public void confirmButtonPressed() {
-        airplanes.remove(airplane);
-        Airplane temp = new Airplane(idField.getText(), modelField.getText(), Integer.parseInt(seatsField.getText()), purchaseDateField.getValue(), lastMaintenanceField.getValue());
-        adapter.updateAirplane(temp);
-        airplanes.add(temp);
+        modelManager.getAirplanes().getAirplanes().remove(controller.getSelectedAirplane());
+        modelManager.getAirplanes().getAirplanes().add(new Airplane(idField.getText(), modelField.getText(),
+                Integer.parseInt(seatsField.getText()), purchaseDateField.getValue(), lastMaintenanceField.getValue()));
+        modelManager.updateAirplane(new Airplane(idField.getText(), modelField.getText(),
+                Integer.parseInt(seatsField.getText()), purchaseDateField.getValue(), lastMaintenanceField.getValue()));
+
         Stage stage = (Stage) editAirplanesPanel.getScene().getWindow();
         stage.close();
     }

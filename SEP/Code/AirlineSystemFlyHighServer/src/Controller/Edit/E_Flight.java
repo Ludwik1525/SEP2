@@ -1,6 +1,9 @@
 package Controller.Edit;
 
+import Controller.Controller;
+import Controller.Manage.M_Flights;
 import Domain.Mediator.DatabaseAdapter;
+import Domain.Mediator.Model;
 import Domain.Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,70 +47,72 @@ public class E_Flight {
     private DatabaseAdapter adapter = new DatabaseAdapter();
     @FXML
     TextField statusField;
-    private Flight flight;
-    private FlightList flightList;
-    private ObservableList<Flight> flights;
+    private M_Flights controller;
+    private Model modelManager;
 
 
-    AirplaneList airplaneList = new AirplaneList();
-    AirportList airportList = new AirportList();
 
-
-    public void initData(Flight flight, FlightList flightList) {
-        this.flight = flight;
-        this.flightList = flightList;
-        this.flights = flightList.getFlights();
-        flightNumberField.setText(String.valueOf(this.flight.getFlightNumber()));
-        departureDateField.setValue(flight.getDepartureDate());
+    public void initData(M_Flights controller,Model modelManager) {
+        this.controller = controller;
+        this.modelManager = modelManager;
+        flightNumberField.setText(controller.getSelectedFlight().getFlightNumber()+"");
+        departureDateField.setValue(controller.getSelectedFlight().getDepartureDate());
         departureHourBox.getItems().setAll(makeStringArray(12));
         departureMinutesBox.getItems().setAll(makeStringArray(59));
-        departureHourBox.setValue(flight.getDepartureTime().getHour() + "");
-        departureMinutesBox.setValue(flight.getDepartureTime().getMinute() + "");
-        arrivalDateField.setValue(flight.getDepartureDate());
+        departureHourBox.setValue(controller.getSelectedFlight().getDepartureTime().getHour() + "");
+        departureMinutesBox.setValue(controller.getSelectedFlight().getDepartureTime().getMinute() + "");
+        arrivalDateField.setValue(controller.getSelectedFlight().getDepartureDate());
         arrivalMinutesBox.getItems().setAll(makeStringArray(59));
         arrivalHourBox.getItems().setAll(makeStringArray(12));
-        arrivalHourBox.setValue(flight.getArrivalTime().getHour() + "");
-        arrivalMinutesBox.setValue(flight.getArrivalTime().getMinute() + "");
-        for (int i = 0; i < airportList.getLength(); i++) {
-            countryFrom.getItems().add(airportList.getCountry(i));
-            countryTo.getItems().add(airportList.getCountry(i));
+        arrivalHourBox.setValue(controller.getSelectedFlight().getArrivalTime().getHour() + "");
+        arrivalMinutesBox.setValue(controller.getSelectedFlight().getArrivalTime().getMinute() + "");
+        for (int i = 0; i < modelManager.getAirports().getAirports().size(); i++) {
+            countryFrom.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
+            countryTo.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
         }
-        countryFrom.setValue(flight.getDeparturePlace().getCountry());
-        countryTo.setValue(flight.getArrivalPlace().getCountry());
-        airportFrom.setValue(flight.getDeparturePlace());
-        airportTo.setValue(flight.getArrivalPlace());
-        statusField.setText(flight.getStatus());
+        countryFrom.setValue(controller.getSelectedFlight().getDeparturePlace().getCountry());
+        countryTo.setValue(controller.getSelectedFlight().getArrivalPlace().getCountry());
+        airportFrom.setValue(controller.getSelectedFlight().getDeparturePlace());
+        airportTo.setValue(controller.getSelectedFlight().getArrivalPlace());
+        statusField.setText(controller.getSelectedFlight().getStatus());
     }
 
     public void confirmButtonPressed() {
-        Crew crew = flight.getCrew();
-        Flight toBeEdited = new Flight(flightNumberField.getText(), departureDateField.getValue(),
+        modelManager.getFlights().getFlights().remove(controller.getSelectedFlight());
+
+        modelManager.getFlights().getFlights().add(new Flight(flightNumberField.getText(), departureDateField.getValue(),
                 LocalTime.of(Integer.parseInt(departureHourBox.getSelectionModel().getSelectedItem())
                         , Integer.parseInt(departureMinutesBox.getSelectionModel().getSelectedItem()), 0)
                 , arrivalDateField.getValue(), LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
                 , Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()), 0)
                 , "A34B", airportFrom.getSelectionModel().getSelectedItem()
-                , airportTo.getSelectionModel().getSelectedItem(), statusField.getText(), 150.0);
-        adapter.updateFlight(toBeEdited);
-        flights.remove(flight);
-        flights.add(toBeEdited);
+                , airportTo.getSelectionModel().getSelectedItem(), statusField.getText(), 150.0));
+
+       modelManager.updateFlight(new Flight(flightNumberField.getText(), departureDateField.getValue(),
+               LocalTime.of(Integer.parseInt(departureHourBox.getSelectionModel().getSelectedItem())
+                       , Integer.parseInt(departureMinutesBox.getSelectionModel().getSelectedItem()), 0)
+               , arrivalDateField.getValue(), LocalTime.of(Integer.parseInt(arrivalHourBox.getSelectionModel().getSelectedItem())
+               , Integer.parseInt(arrivalMinutesBox.getSelectionModel().getSelectedItem()), 0)
+               , "A34B", airportFrom.getSelectionModel().getSelectedItem()
+               , airportTo.getSelectionModel().getSelectedItem(), statusField.getText(), 150.0));
+
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
 
     public void getAirports() {
-        for (int i = 0; i < airportList.getLength(); i++) {
-            countryFrom.getItems().add(airportList.getCountry(i));
-            countryTo.getItems().add(airportList.getCountry(i));
+        for (int i = 0; i < modelManager.getAirports().getAirports().size(); i++) {
+            countryFrom.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
+            countryTo.getItems().add(modelManager.getAirports().getAirports().get(i).getCountry());
         }
         countryFrom.getSelectionModel().select(0);
         countryTo.getSelectionModel().select(0);
     }
 
     public Airport findAirport(String country, String airport) {
-        for (int i = 0; i < airportList.getLength(); i++) {
-            if (country.equals(airportList.getCountry(i)) && airport.equals(airportList.getCity(i))) {
-                return airportList.getAirport(i);
+        for (int i = 0; i < modelManager.getAirports().getAirports().size(); i++) {
+            if (country.equals(modelManager.getAirports().getAirports().get(i).getCountry()) && airport.equals(modelManager.getAirports().getAirports().get(i).getCity())) {
+                return modelManager.getAirports().getAirport(i);
             }
         }
         return null;
@@ -117,8 +122,8 @@ public class E_Flight {
     }
 
     public void getAirplanes() {
-        for (int i = 0; i < airplaneList.getLength(); i++) {
-            airplaneId.getItems().add(airplaneList.getId(i));
+        for (int i = 0; i < modelManager.getAirplanes().getAirplanes().size(); i++) {
+            airplaneId.getItems().add(modelManager.getAirplanes().getId(i));
         }
         airplaneId.getSelectionModel().select(0);
 
@@ -142,20 +147,20 @@ public class E_Flight {
     public void initAirportsFrom() {
         airportFrom.getItems().clear();
         String country = countryFrom.getSelectionModel().getSelectedItem();
-        for (int i = 0; i < airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportFrom.getItems().add(airportList.getAirports().get(i));
+        for (int i = 0; i < modelManager.getAirports().getAirports().size(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportFrom.getItems().add(modelManager.getAirports().getAirports().get(i));
             }
         }
 
     }
 
     public void initAirportsTo() {
-        airportTo.getItems().clear();
-        String country = countryTo.getSelectionModel().getSelectedItem();
-        for (int i = 0; i < airportList.getLength(); i++) {
-            if (airportList.getAirports().get(i).getCountry().equals(country)) {
-                airportTo.getItems().add(airportList.getAirports().get(i));
+        airportFrom.getItems().clear();
+        String country = countryFrom.getSelectionModel().getSelectedItem();
+        for (int i = 0; i < modelManager.getAirports().getAirports().size(); i++) {
+            if (modelManager.getAirports().getAirports().get(i).getCountry().equals(country)) {
+                airportFrom.getItems().add(modelManager.getAirports().getAirports().get(i));
             }
         }
         airportTo.getItems().remove(airportFrom.getSelectionModel().getSelectedItem());

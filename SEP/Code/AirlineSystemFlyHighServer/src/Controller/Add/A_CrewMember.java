@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Controller.Manage.M_CrewMembers;
 import Domain.Mediator.DatabaseAdapter;
 import Domain.Mediator.Model;
 import Domain.Mediator.ModelManager;
@@ -28,15 +29,15 @@ public class A_CrewMember implements Initializable {
     @FXML TextField phoneNumber;
     @FXML TextField email;
     @FXML DatePicker birthday;
-    ObservableList<CrewMember> items;
+    private M_CrewMembers controller;
     private Model modelManager;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        this.modelManager = new ModelManager();
+    public void initialize(URL location, ResourceBundle resources){
     }
-    public void setItems(ObservableList <CrewMember> items) {
-        this.items= items;
+    public void setItems(M_CrewMembers controller, Model modelManager) {
+        this.modelManager = modelManager;
+        this.controller = controller;
     }
     public void addCrewMemberFormGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -45,7 +46,11 @@ public class A_CrewMember implements Initializable {
     }
 
     public void addCrewMemberToTheList(ActionEvent actionEvent) {
-        modelManager.addCrewMember(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(), Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
+        modelManager.getCrewMembers().getCrewMembers().add(new CrewMember(name.getText(), position.getText(),
+                address.getText(), id.getText(), Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
+
+        modelManager.addCrewMember(new CrewMember(name.getText(), position.getText(), address.getText(), id.getText(),
+                Integer.parseInt(phoneNumber.getText()), email.getText(), birthday.getValue()));
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();

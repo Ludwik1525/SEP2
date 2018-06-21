@@ -54,7 +54,6 @@ public class M_Flights implements Initializable {
 
 
 
-    @FXML private Button removeButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,7 +85,7 @@ public class M_Flights implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Flight.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Flight controller = loader.getController();
-        controller.setItems(modelManager.getFlights().getFlights());
+        controller.setItems(modelManager);
         window.showAndWait();
     }
 
@@ -134,7 +133,7 @@ public class M_Flights implements Initializable {
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Flight.fxml"));
         loader.load();
         E_Flight controller = loader.getController();
-        controller.initData(selectedFlight,modelManager.getFlights());
+        controller.initData(this,modelManager);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -171,5 +170,9 @@ public class M_Flights implements Initializable {
         stage.setTitle("See Passenger");
         stage.setScene(new Scene(window));
         stage.showAndWait();
+    }
+
+    public Flight getSelectedFlight() {
+        return flightsTable.getSelectionModel().getSelectedItem();
     }
 }

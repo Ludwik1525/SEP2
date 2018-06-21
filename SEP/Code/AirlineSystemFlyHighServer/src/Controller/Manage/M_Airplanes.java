@@ -49,15 +49,13 @@ public class M_Airplanes implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        modelManager = new ModelManager();
-
         IDNumberField.setCellValueFactory(new PropertyValueFactory<Airplane, String>("IDNumber"));
         modelField.setCellValueFactory(new PropertyValueFactory<Airplane, String>("model"));
         numberOfSeatsField.setCellValueFactory(new PropertyValueFactory<Airplane, Integer>("numberOfSeats"));
         purchaseDateField.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("purchaseDate"));
         lastMaintenanceField.setCellValueFactory(new PropertyValueFactory<Airplane, LocalDate>("lastMaintenance"));
 
+        modelManager = new ModelManager();
         airplanesTable.setItems(modelManager.getAirplanes().getAirplanes());
         makeFilteredList(modelManager.getAirplanes().getAirplanes());
 
@@ -72,7 +70,7 @@ public class M_Airplanes implements Initializable {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("../../View/FXML/Administrator/Add/A_Airplane.fxml")));
         window.setScene(new Scene(loader.load()));
         A_Airplane controller = loader.getController();
-        controller.setItems(modelManager.getAirplanes().getAirplanes());
+        controller.setItems(this,modelManager);
         window.showAndWait();
     }
 
@@ -132,12 +130,12 @@ public class M_Airplanes implements Initializable {
 
 
     public void editButtonPressed() throws IOException  {
-        Airplane selectedAirplane = airplanesTable.getSelectionModel().getSelectedItem();
+//        Airplane selectedAirplane = airplanesTable.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../../View/FXML/Administrator/Edit/E_Airplane.fxml"));
         loader.load();
         E_Airplane controller = loader.getController();
-        controller.initData(selectedAirplane,modelManager.getAirplanes());
+        controller.initData(this,modelManager);
         Parent window = loader.getRoot();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -147,7 +145,13 @@ public class M_Airplanes implements Initializable {
     }
 
     public void refreshTable(ObservableList<Airplane> airplanes) {
+        airplanesTable.setItems(null);
+        airplanesTable.layout();
         airplanesTable.setItems(airplanes);
+    }
+
+    public Airplane getSelectedAirplane() {
+        return airplanesTable.getSelectionModel().getSelectedItem();
     }
 
 

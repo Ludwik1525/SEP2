@@ -1,5 +1,6 @@
 package Controller.Add;
 
+import Controller.Manage.M_Airports;
 import Domain.Mediator.DatabaseAdapter;
 import Domain.Mediator.Model;
 import Domain.Mediator.ModelManager;
@@ -19,21 +20,21 @@ import java.util.ResourceBundle;
 
 public class A_Airport implements Initializable {
     @FXML AnchorPane anchorPane;
-    @FXML TextField code;
-    @FXML TextField name;
-    @FXML TextField city;
-    @FXML TextField postcode;
-    @FXML TextField country;
-    @FXML TextField numberOfGates;
-    ObservableList<Airport> items;
+    @FXML TextField codeField;
+    @FXML TextField nameField;
+    @FXML TextField cityField;
+    @FXML TextField postcodeField;
+    @FXML TextField countryField;
+    @FXML TextField numberOfGatesField;
+    private M_Airports controller;
     private Model modelManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        modelManager = new ModelManager();
     }
-    public void setItems(ObservableList <Airport> items) {
-        this.items= items;
+    public void setItems(M_Airports controller, Model modelManager) {
+        this.controller = controller;
+        this.modelManager = modelManager;
     }
     public void addAirportFormGoBack() throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -42,8 +43,12 @@ public class A_Airport implements Initializable {
     }
 
     public void addAirportToTheList(ActionEvent actionEvent) {
-        modelManager.addAirport(new Airport(code.getText(), name.getText(), city.getText(), postcode.getText(),
-                country.getText(), Integer.parseInt(numberOfGates.getText())));
+        modelManager.getAirports().getAirports().add(new Airport(codeField.getText(), nameField.getText(), cityField.getText(),postcodeField.getText()
+                , countryField.getText(), Integer.parseInt(numberOfGatesField.getText())));
+
+        modelManager.addAirport(new Airport(codeField.getText(), nameField.getText(), cityField.getText(),postcodeField.getText()
+                , countryField.getText(), Integer.parseInt(numberOfGatesField.getText())));
+
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
